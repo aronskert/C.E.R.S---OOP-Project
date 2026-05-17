@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package ERS_NU;
+package e.r.s.nu;
 
 /**
  *
@@ -52,7 +52,7 @@ public class LOGIN extends javax.swing.JFrame {
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/#1f286c.png"))); // NOI18N
         jPanel1.add(jLabel4);
-        jLabel4.setBounds(130, 130, 200, 230);
+        jLabel4.setBounds(140, 120, 200, 210);
 
         jButton3.setBackground(new java.awt.Color(255, 222, 89));
         jButton3.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
@@ -80,13 +80,13 @@ public class LOGIN extends javax.swing.JFrame {
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("CAMPUS EVENT ");
         jPanel1.add(jLabel7);
-        jLabel7.setBounds(60, 350, 390, 50);
+        jLabel7.setBounds(60, 320, 390, 50);
 
         jLabel3.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 222, 89));
         jLabel3.setText("RESERVATION SYSTEM");
         jPanel1.add(jLabel3);
-        jLabel3.setBounds(110, 370, 280, 100);
+        jLabel3.setBounds(110, 340, 280, 100);
 
         jLabel8.setFont(new java.awt.Font("Serif", 0, 48)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(31, 40, 108));

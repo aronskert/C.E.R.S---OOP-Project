@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package ERS_NU;
+package e.r.s.nu;
 
 /**
  *
@@ -86,7 +86,7 @@ public class Dashboard extends javax.swing.JFrame {
         jPanel1.add(jLabel5);
         jLabel5.setBounds(90, 230, 440, 40);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/Untitled design.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ERS_NU/Pictures and icons/Untitled design.png"))); // NOI18N
         jPanel1.add(jLabel2);
         jLabel2.setBounds(-10, 0, 1000, 750);
 
