@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package e.r.s.nu;
+package ERS_NU;
 
 /**
  *
@@ -39,7 +39,6 @@ public class Dashboard extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1000, 750));
         setResizable(false);
 
         jPanel1.setPreferredSize(new java.awt.Dimension(1000, 750));
@@ -48,6 +47,7 @@ public class Dashboard extends javax.swing.JFrame {
         jButton1.setBackground(new java.awt.Color(255, 222, 89));
         jButton1.setFont(new java.awt.Font("Serif", 0, 36)); // NOI18N
         jButton1.setText("Reserve an Event");
+        jButton1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -88,7 +88,7 @@ public class Dashboard extends javax.swing.JFrame {
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/Untitled design.png"))); // NOI18N
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(-20, -10, 1000, 750);
+        jLabel2.setBounds(-10, 0, 1000, 750);
 
         jLabel6.setFont(new java.awt.Font("Serif", 0, 15)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));

@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package e.r.s.nu;
+package ERS_NU;
 
 /**
  *
@@ -29,7 +29,6 @@ public class LOGIN extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
@@ -51,14 +50,9 @@ public class LOGIN extends javax.swing.JFrame {
         jPanel1.setPreferredSize(new java.awt.Dimension(1000, 750));
         jPanel1.setLayout(null);
 
-        jLabel2.setBackground(new java.awt.Color(31, 40, 108));
-        jLabel2.setForeground(new java.awt.Color(31, 40, 108));
-        jPanel1.add(jLabel2);
-        jLabel2.setBounds(50, 0, 1000, 750);
-
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/NULOGO.png"))); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/#1f286c.png"))); // NOI18N
         jPanel1.add(jLabel4);
-        jLabel4.setBounds(200, 200, 100, 120);
+        jLabel4.setBounds(130, 130, 200, 230);
 
         jButton3.setBackground(new java.awt.Color(255, 222, 89));
         jButton3.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
@@ -86,13 +80,13 @@ public class LOGIN extends javax.swing.JFrame {
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("CAMPUS EVENT ");
         jPanel1.add(jLabel7);
-        jLabel7.setBounds(60, 320, 390, 50);
+        jLabel7.setBounds(60, 350, 390, 50);
 
         jLabel3.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 222, 89));
         jLabel3.setText("RESERVATION SYSTEM");
         jPanel1.add(jLabel3);
-        jLabel3.setBounds(110, 340, 280, 100);
+        jLabel3.setBounds(110, 370, 280, 100);
 
         jLabel8.setFont(new java.awt.Font("Serif", 0, 48)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(31, 40, 108));
@@ -258,7 +252,6 @@ public class LOGIN extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel7;
