@@ -61,9 +61,9 @@
                               <Component id="bulldog" alignment="0" min="-2" pref="351" max="-2" attributes="0"/>
                               <Component id="lbl2" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="150" max="32767" attributes="0"/>
+                          <EmptySpace pref="107" max="32767" attributes="0"/>
                           <Component id="p2" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="111" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -115,7 +115,6 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="btnnext" max="32767" attributes="0"/>
                           <Component id="txtemail" alignment="1" max="32767" attributes="0"/>
                           <Component id="txtphoneno" alignment="1" max="32767" attributes="0"/>
                           <Component id="txtstudentidno" alignment="1" max="32767" attributes="0"/>
@@ -131,6 +130,11 @@
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="btnnext" min="-2" pref="344" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -155,7 +159,7 @@
                       <Component id="txtemail" min="-2" pref="55" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
                       <Component id="btnnext" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="65" max="32767" attributes="0"/>
+                      <EmptySpace pref="80" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -248,7 +252,7 @@
                   <Color blue="59" green="de" red="ff" type="rgb"/>
                 </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Serif" size="36" style="0"/>
+                  <Font name="Serif" size="24" style="0"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="NEXT"/>
               </Properties>

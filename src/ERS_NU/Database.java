@@ -1,7 +1,6 @@
 
 package ERS_NU;
 import javax.swing.JOptionPane;
-import java.sql.Connection;
 
 public class Database extends javax.swing.JFrame {
     
@@ -21,11 +20,27 @@ public class Database extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        txtName = new javax.swing.JTextField();
+        txtStudentID = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        txtVenue = new javax.swing.JTextField();
+        txtStart = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        txtEnd = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        txtEventType = new javax.swing.JTextField();
+        jButton4 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -34,55 +49,156 @@ public class Database extends javax.swing.JFrame {
         jPanel1.setPreferredSize(new java.awt.Dimension(1000, 750));
         jPanel1.setLayout(null);
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/#1f286c.png"))); // NOI18N
-        jPanel1.add(jLabel4);
-        jLabel4.setBounds(30, 30, 200, 210);
-
         jButton3.setBackground(new java.awt.Color(255, 222, 89));
         jButton3.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/48 px.png"))); // NOI18N
-        jButton3.setText("   BACK");
+        jButton3.setText("EXIT");
+        jButton3.setToolTipText("");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
             }
         });
         jPanel1.add(jButton3);
-        jButton3.setBounds(40, 640, 170, 70);
+        jButton3.setBounds(50, 650, 180, 60);
 
         jPanel2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Student/org name", "Student ID", "Venue", "Start ", "End", "Event Type"
             }
-        ));
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 172, Short.MAX_VALUE))
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 564, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(102, Short.MAX_VALUE))
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 544, Short.MAX_VALUE)
         );
 
         jPanel1.add(jPanel2);
-        jPanel2.setBounds(280, 80, 630, 550);
+        jPanel2.setBounds(340, 80, 570, 550);
+
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setFont(new java.awt.Font("Serif", 2, 36)); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/Manage.png"))); // NOI18N
+        jLabel1.setText("Manage");
+        jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 18, 190, 50));
+
+        jLabel2.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
+        jLabel2.setText("Student/Org name");
+        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, -1, -1));
+
+        txtName.setFont(new java.awt.Font("Serif", 0, 14)); // NOI18N
+        txtName.setToolTipText("");
+        jPanel3.add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 250, 40));
+
+        txtStudentID.setFont(new java.awt.Font("Serif", 0, 14)); // NOI18N
+        txtStudentID.setToolTipText("");
+        jPanel3.add(txtStudentID, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, 250, 40));
+
+        jLabel3.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
+        jLabel3.setText("Student ID");
+        jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, -1, -1));
+
+        jLabel5.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
+        jLabel5.setText("Venue");
+        jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, -1, -1));
+
+        txtVenue.setFont(new java.awt.Font("Serif", 0, 14)); // NOI18N
+        txtVenue.setToolTipText("");
+        jPanel3.add(txtVenue, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 250, 40));
+
+        txtStart.setFont(new java.awt.Font("Serif", 0, 14)); // NOI18N
+        txtStart.setToolTipText("");
+        jPanel3.add(txtStart, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 350, 250, 40));
+
+        jLabel6.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
+        jLabel6.setText("Start");
+        jPanel3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 320, -1, -1));
+
+        txtEnd.setFont(new java.awt.Font("Serif", 0, 14)); // NOI18N
+        txtEnd.setToolTipText("");
+        jPanel3.add(txtEnd, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 430, 250, 40));
+
+        jLabel7.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
+        jLabel7.setText("End");
+        jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 400, -1, -1));
+
+        jLabel8.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
+        jLabel8.setText("Event Type");
+        jPanel3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 480, -1, -1));
+
+        txtEventType.setFont(new java.awt.Font("Serif", 0, 14)); // NOI18N
+        txtEventType.setToolTipText("");
+        jPanel3.add(txtEventType, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 510, 250, 40));
+
+        jPanel1.add(jPanel3);
+        jPanel3.setBounds(20, 70, 280, 560);
+
+        jButton4.setBackground(new java.awt.Color(255, 222, 89));
+        jButton4.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
+        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/edit png 48px.png"))); // NOI18N
+        jButton4.setText("EDIT");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton4);
+        jButton4.setBounds(730, 650, 180, 60);
+
+        jButton5.setBackground(new java.awt.Color(255, 222, 89));
+        jButton5.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
+        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/delete 48px.png"))); // NOI18N
+        jButton5.setText("Delete");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton5);
+        jButton5.setBounds(510, 650, 180, 60);
+
+        jButton6.setBackground(new java.awt.Color(255, 222, 89));
+        jButton6.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
+        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/search icon 48px.png"))); // NOI18N
+        jButton6.setText("Search");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton6);
+        jButton6.setBounds(280, 650, 180, 60);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -95,7 +211,10 @@ public class Database extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 749, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(17, 17, 17)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 726, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
@@ -103,12 +222,78 @@ public class Database extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    String name = txtName.getText(); 
+    String studentid = txtStudentID.getText(); 
+     String venue = txtVenue.getText(); 
+     String start = txtStart.getText();
+     String end = txtEnd.getText();
+     String eventtype =txtEventType.getText();
+     
 
+            if (name.trim().isEmpty() || studentid.trim().isEmpty() || venue.trim().isEmpty() || start.trim().isEmpty() || end.trim().isEmpty() || eventtype.trim().isEmpty() )  {
+                 javax.swing.JOptionPane.showMessageDialog(this, "Please fill in any fields!");
+            } else {
+                 // FIX: Pass the EXISTING storageWindow to Step 1
+                 LOGIN Dash = new LOGIN();
+                 Dash.setVisible(true);
+                 this.dispose();
+            }
 
         
                     
                     
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        String name = txtName.getText(); 
+        String studentid = txtStudentID.getText(); 
+        String venue = txtVenue.getText(); 
+        String start = txtStart.getText();
+        String end = txtEnd.getText();
+        String eventtype =txtEventType.getText();
+        
+        
+        if (name.trim().isEmpty() || studentid.trim().isEmpty() || venue.trim().isEmpty() || start.trim().isEmpty() || end.trim().isEmpty() || eventtype.trim().isEmpty() )  {
+                 javax.swing.JOptionPane.showMessageDialog(this, "Please fill in any fields!");
+            } else {
+                 // FIX: Pass the EXISTING storageWindow to Step 1
+                  javax.swing.JOptionPane.showMessageDialog(this, "Your input has been Edited.");
+            }// TODO add your handling code here:
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    String name = txtName.getText(); 
+    String studentid = txtStudentID.getText(); 
+     String venue = txtVenue.getText(); 
+     String start = txtStart.getText();
+     String end = txtEnd.getText();
+     String eventtype =txtEventType.getText();
+        
+        
+        if (name.trim().isEmpty() || studentid.trim().isEmpty() || venue.trim().isEmpty() || start.trim().isEmpty() || end.trim().isEmpty() || eventtype.trim().isEmpty() )  {
+                 javax.swing.JOptionPane.showMessageDialog(this, "Please fill in any fields!");
+            } else {
+                 // FIX: Pass the EXISTING storageWindow to Step 1
+                  javax.swing.JOptionPane.showMessageDialog(this, "Your input has been deleted.");
+            }
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    String name = txtName.getText(); 
+    String studentid = txtStudentID.getText(); 
+     String venue = txtVenue.getText(); 
+     String start = txtStart.getText();
+     String end = txtEnd.getText();
+     String eventtype =txtEventType.getText();
+        
+        
+        if (name.trim().isEmpty() || studentid.trim().isEmpty() || venue.trim().isEmpty() || start.trim().isEmpty() || end.trim().isEmpty() || eventtype.trim().isEmpty() )  {
+                 javax.swing.JOptionPane.showMessageDialog(this, "Please fill in any fields!");
+            } else {
+                 // FIX: Pass the EXISTING storageWindow to Step 1
+                  javax.swing.JOptionPane.showMessageDialog(this, "Your input has been searched.");
+            }
+    }//GEN-LAST:event_jButton6ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -137,11 +322,27 @@ public class Database extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton3;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JTextField txtEnd;
+    private javax.swing.JTextField txtEventType;
+    private javax.swing.JTextField txtName;
+    private javax.swing.JTextField txtStart;
+    private javax.swing.JTextField txtStudentID;
+    private javax.swing.JTextField txtVenue;
     // End of variables declaration//GEN-END:variables
 }
 

@@ -95,7 +95,7 @@ public class ContactInfo extends javax.swing.JFrame {
         });
 
         btnnext.setBackground(new java.awt.Color(255, 222, 89));
-        btnnext.setFont(new java.awt.Font("Serif", 0, 36)); // NOI18N
+        btnnext.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
         btnnext.setText("NEXT");
         btnnext.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -110,7 +110,6 @@ public class ContactInfo extends javax.swing.JFrame {
             .addGroup(p2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(p2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnnext, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(txtemail, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(txtphoneno, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(txtstudentidno, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -123,6 +122,10 @@ public class ContactInfo extends javax.swing.JFrame {
                             .addComponent(lblemail))
                         .addGap(0, 242, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, p2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnnext, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28))
         );
         p2Layout.setVerticalGroup(
             p2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -145,7 +148,7 @@ public class ContactInfo extends javax.swing.JFrame {
                 .addComponent(txtemail, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(51, 51, 51)
                 .addComponent(btnnext)
-                .addContainerGap(65, Short.MAX_VALUE))
+                .addContainerGap(80, Short.MAX_VALUE))
         );
 
         bulldog.setBackground(new java.awt.Color(0, 0, 102));
@@ -181,9 +184,9 @@ public class ContactInfo extends javax.swing.JFrame {
                             .addComponent(btnlogout, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(bulldog, javax.swing.GroupLayout.PREFERRED_SIZE, 351, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lbl2))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 150, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 107, Short.MAX_VALUE)
                         .addComponent(p2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(68, 68, 68))))
+                        .addGap(111, 111, 111))))
         );
         p1Layout.setVerticalGroup(
             p1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
