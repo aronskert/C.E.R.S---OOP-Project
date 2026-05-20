@@ -187,14 +187,10 @@ public class forgotpass extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        String EmployeeID = txtEmpoyeeID.getText();
-        String NPassword = txtNPassword.getText();
-        String Email = txtEmail.getText();
-        
-        if (EmployeeID.isEmpty() || NPassword.isEmpty() || Email.isEmpty()); {
-            JOptionPane.showMessageDialog(this, "Error: Please fill in all fields before updating.", "Input Error", JOptionPane.ERROR_MESSAGE); 
-            return;
-    } 
+            
+        LOGIN login = new LOGIN();
+        login.setVisible(true);
+        this.dispose();
         
                     
                     
@@ -209,7 +205,25 @@ public class forgotpass extends javax.swing.JFrame {
     }//GEN-LAST:event_txtNPasswordActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+        String EmployeeID = txtEmpoyeeID.getText();
+        String NPassword = txtNPassword.getText();
+        String Email = txtEmail.getText();
+        
+        if (EmployeeID.isEmpty() || NPassword.isEmpty() || Email.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Error: Please fill in all fields before updating.", "Input Error", JOptionPane.ERROR_MESSAGE); 
+    } else {
+            
+                JOptionPane.showMessageDialog(this, "The inputed data: \n" +
+                        "EmployeeID: " + EmployeeID +
+                        "\n New Password: " + NPassword +
+                       "\n Email: " + Email 
+                        );
+                        
+
+                LOGIN login = new LOGIN();
+                login.setVisible(true);
+                this.dispose();
+                }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void txtEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailActionPerformed

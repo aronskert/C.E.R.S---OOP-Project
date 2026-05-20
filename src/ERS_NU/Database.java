@@ -234,6 +234,15 @@ public class Database extends javax.swing.JFrame {
                  javax.swing.JOptionPane.showMessageDialog(this, "Please fill in any fields!");
             } else {
                  // FIX: Pass the EXISTING storageWindow to Step 1
+                 
+                 javax.swing.JOptionPane.showMessageDialog(this, "Your input: " +  
+                         name + "\n" + 
+                         studentid + "\n" + 
+                         venue + "\n" + 
+                         start + "\n" + 
+                         end + "\n" + 
+                         eventtype + "\n" 
+                         );
                  LOGIN Dash = new LOGIN();
                  Dash.setVisible(true);
                  this.dispose();
@@ -253,11 +262,18 @@ public class Database extends javax.swing.JFrame {
         String eventtype =txtEventType.getText();
         
         
-        if (name.trim().isEmpty() || studentid.trim().isEmpty() || venue.trim().isEmpty() || start.trim().isEmpty() || end.trim().isEmpty() || eventtype.trim().isEmpty() )  {
+        if (name.trim().isEmpty() && studentid.trim().isEmpty() &&  venue.trim().isEmpty() &&  start.trim().isEmpty() &&  end.trim().isEmpty() &&  eventtype.trim().isEmpty() )  {
                  javax.swing.JOptionPane.showMessageDialog(this, "Please fill in any fields!");
             } else {
                  // FIX: Pass the EXISTING storageWindow to Step 1
-                  javax.swing.JOptionPane.showMessageDialog(this, "Your input has been Edited.");
+                  javax.swing.JOptionPane.showMessageDialog(this, "Your input has been Edited: \n" +
+                          "name: " + name + "\n" + 
+                         "studentid: " + studentid + "\n" + 
+                         "venue " + venue + "\n" + 
+                         "start: " + start + "\n" + 
+                         "end " + end + "\n" + 
+                         "eventtype" + eventtype + "\n" 
+                         );
             }// TODO add your handling code here:
     }//GEN-LAST:event_jButton4ActionPerformed
 
@@ -270,12 +286,19 @@ public class Database extends javax.swing.JFrame {
      String eventtype =txtEventType.getText();
         
         
-        if (name.trim().isEmpty() || studentid.trim().isEmpty() || venue.trim().isEmpty() || start.trim().isEmpty() || end.trim().isEmpty() || eventtype.trim().isEmpty() )  {
+        if (name.trim().isEmpty() && studentid.trim().isEmpty() &&  venue.trim().isEmpty() &&  start.trim().isEmpty() &&  end.trim().isEmpty() &&  eventtype.trim().isEmpty() )  {
                  javax.swing.JOptionPane.showMessageDialog(this, "Please fill in any fields!");
             } else {
                  // FIX: Pass the EXISTING storageWindow to Step 1
-                  javax.swing.JOptionPane.showMessageDialog(this, "Your input has been deleted.");
-            }
+                  javax.swing.JOptionPane.showMessageDialog(this, "Your input has been Edited: \n" +
+                          "name: " + name + "\n" + 
+                         "studentid: " + studentid + "\n" + 
+                         "venue " + venue + "\n" + 
+                         "start: " + start + "\n" + 
+                         "end " + end + "\n" + 
+                         "eventtype" + eventtype + "\n" 
+                         );
+        }
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
@@ -287,12 +310,19 @@ public class Database extends javax.swing.JFrame {
      String eventtype =txtEventType.getText();
         
         
-        if (name.trim().isEmpty() || studentid.trim().isEmpty() || venue.trim().isEmpty() || start.trim().isEmpty() || end.trim().isEmpty() || eventtype.trim().isEmpty() )  {
+        if (name.trim().isEmpty() && studentid.trim().isEmpty() &&  venue.trim().isEmpty() &&  start.trim().isEmpty() &&  end.trim().isEmpty() &&  eventtype.trim().isEmpty() )  {
                  javax.swing.JOptionPane.showMessageDialog(this, "Please fill in any fields!");
             } else {
                  // FIX: Pass the EXISTING storageWindow to Step 1
-                  javax.swing.JOptionPane.showMessageDialog(this, "Your input has been searched.");
-            }
+                  javax.swing.JOptionPane.showMessageDialog(this, "Your input has been Edited: \n" +
+                          "name: " + name + "\n" + 
+                         "studentid: " + studentid + "\n" + 
+                         "venue " + venue + "\n" + 
+                         "start: " + start + "\n" + 
+                         "end " + end + "\n" + 
+                         "eventtype" + eventtype + "\n" 
+                         );
+        }     
     }//GEN-LAST:event_jButton6ActionPerformed
 
     /**

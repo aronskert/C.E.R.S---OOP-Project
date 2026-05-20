@@ -32,7 +32,6 @@ public class LOGIN extends javax.swing.JFrame {
         txtemployee = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         btnSubAndCon = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
 
         btn1.setBackground(new java.awt.Color(31, 40, 108));
         btn1.setForeground(new java.awt.Color(31, 40, 108));
@@ -172,10 +171,6 @@ public class LOGIN extends javax.swing.JFrame {
         JPanel1.add(jPanel2);
         jPanel2.setBounds(460, 130, 450, 480);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/C/E/R/S/icons/NULOGO.png"))); // NOI18N
-        JPanel1.add(jLabel2);
-        jLabel2.setBounds(200, 220, 100, 100);
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -215,15 +210,17 @@ public class LOGIN extends javax.swing.JFrame {
         "Login Error.",javax.swing.JOptionPane.ERROR_MESSAGE);
     }
     //lalagay me specific account for employee
-    else if (username.equals("BELO456")&& password.equals("TITE123")) {
+    else if (username.equals("ANCIRO123")&& password.equals("123")) {
        javax.swing.JOptionPane.showMessageDialog(this, "LOGIN SUCCESSFULLY!");
+       
+        ContactInfo ConInfo = new ContactInfo(); 
+        ConInfo.setVisible(true);
+        this.dispose();
     }
+    
     else {
         javax.swing.JOptionPane.showMessageDialog(this, "INVALID INPUT!");
     }
-    ContactInfo ConInfo = new ContactInfo(); 
-    ConInfo.setVisible(true);
-    this.dispose();
     }//GEN-LAST:event_btnSubAndConActionPerformed
 
     private void btnFPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFPActionPerformed
@@ -270,7 +267,6 @@ public class LOGIN extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;

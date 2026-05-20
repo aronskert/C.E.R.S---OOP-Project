@@ -217,6 +217,7 @@ public class ContactInfo extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtphonenoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtphonenoActionPerformed
@@ -225,8 +226,11 @@ public class ContactInfo extends javax.swing.JFrame {
     }//GEN-LAST:event_txtphonenoActionPerformed
 
     private void btnlogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnlogoutActionPerformed
-
+    
+        LOGIN login = new LOGIN();
+        login.setVisible(true);
         this.dispose();
+        
     }//GEN-LAST:event_btnlogoutActionPerformed
 
     private void txtnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnameActionPerformed
@@ -257,6 +261,9 @@ public class ContactInfo extends javax.swing.JFrame {
             " Phone: " + phone +
             " Email: " + email);
             
+        ReservationForm Reserve = new ReservationForm();
+        Reserve.setVisible(true);   
+        this.dispose();
         
     }//GEN-LAST:event_btnnextActionPerformed
 
