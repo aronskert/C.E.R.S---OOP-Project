@@ -225,7 +225,7 @@ public class ContactInfo extends javax.swing.JFrame {
     }//GEN-LAST:event_txtphonenoActionPerformed
 
     private void btnlogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnlogoutActionPerformed
-        // TODO add your handling code here:
+
         this.dispose();
     }//GEN-LAST:event_btnlogoutActionPerformed
 
@@ -256,6 +256,8 @@ public class ContactInfo extends javax.swing.JFrame {
             " Student ID: " + studentid +
             " Phone: " + phone +
             " Email: " + email);
+            
+        
     }//GEN-LAST:event_btnnextActionPerformed
 
     /**

@@ -7,14 +7,14 @@
  *
  * @author Kharl Cyrus
  */
-public class InputPage2 extends javax.swing.JFrame {
+public class ReservationForm extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(InputPage2.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(ReservationForm.class.getName());
 
     /**
      * Creates new form InputPage2
      */
-    public InputPage2() {
+    public ReservationForm() {
         initComponents();
     }
 
@@ -60,8 +60,6 @@ public class InputPage2 extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(1000, 750));
-        setPreferredSize(new java.awt.Dimension(1000, 750));
         setResizable(false);
         setSize(new java.awt.Dimension(1000, 750));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -321,7 +319,7 @@ public class InputPage2 extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new InputPage2().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new ReservationForm().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -18,21 +18,24 @@ public class LOGIN extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btn = new javax.swing.JLabel();
+        btn1 = new javax.swing.JLabel();
         JPanel1 = new javax.swing.JPanel();
         jButton3 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        btnguide = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         txtpassword = new javax.swing.JPasswordField();
+        btnFP = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         txtemployee = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         btnSubAndCon = new javax.swing.JButton();
-        btnFP = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+
+        btn1.setBackground(new java.awt.Color(31, 40, 108));
+        btn1.setForeground(new java.awt.Color(31, 40, 108));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -41,30 +44,21 @@ public class LOGIN extends javax.swing.JFrame {
         JPanel1.setPreferredSize(new java.awt.Dimension(1000, 750));
         JPanel1.setLayout(null);
 
-        btn.setBackground(new java.awt.Color(31, 40, 108));
-        btn.setForeground(new java.awt.Color(31, 40, 108));
-
         jButton3.setBackground(new java.awt.Color(255, 222, 89));
         jButton3.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
-        jButton3.setText("ADD EMPLOYEE");
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/48 px.png"))); // NOI18N
+        jButton3.setText("RETURN");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
             }
         });
         JPanel1.add(jButton3);
-        jButton3.setBounds(40, 620, 190, 40);
+        jButton3.setBounds(40, 540, 180, 70);
 
-        btnguide.setBackground(new java.awt.Color(255, 222, 89));
-        btnguide.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
-        btnguide.setText("GUIDE");
-        btnguide.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnguideActionPerformed(evt);
-            }
-        });
-        JPanel1.add(btnguide);
-        btnguide.setBounds(280, 620, 160, 40);
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/#1f286c.png"))); // NOI18N
+        JPanel1.add(jLabel1);
+        jLabel1.setBounds(137, 96, 210, 220);
 
         jLabel7.setFont(new java.awt.Font("Serif", 0, 48)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
@@ -82,6 +76,16 @@ public class LOGIN extends javax.swing.JFrame {
         txtpassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtpasswordActionPerformed(evt);
+            }
+        });
+
+        btnFP.setFont(new java.awt.Font("Serif", 1, 12)); // NOI18N
+        btnFP.setText("FORGOT PASSWORD");
+        btnFP.setBorder(null);
+        btnFP.setBorderPainted(false);
+        btnFP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFPActionPerformed(evt);
             }
         });
 
@@ -110,16 +114,6 @@ public class LOGIN extends javax.swing.JFrame {
         btnSubAndCon.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSubAndConActionPerformed(evt);
-            }
-        });
-
-        btnFP.setFont(new java.awt.Font("Serif", 1, 12)); // NOI18N
-        btnFP.setText("FORGOT PASSWORD");
-        btnFP.setBorder(null);
-        btnFP.setBorderPainted(false);
-        btnFP.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnFPActionPerformed(evt);
             }
         });
 
@@ -178,9 +172,9 @@ public class LOGIN extends javax.swing.JFrame {
         JPanel1.add(jPanel2);
         jPanel2.setBounds(460, 130, 450, 480);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/C/E/R/S/icons/NULOGO.png"))); // NOI18N
-        JPanel1.add(jLabel1);
-        jLabel1.setBounds(200, 220, 100, 100);
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/C/E/R/S/icons/NULOGO.png"))); // NOI18N
+        JPanel1.add(jLabel2);
+        jLabel2.setBounds(200, 220, 100, 100);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -200,12 +194,10 @@ public class LOGIN extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnguideActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnguideActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnguideActionPerformed
-
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
+        Dashboard fp = new Dashboard();
+        fp.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void txtemployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtemployeeActionPerformed
@@ -235,7 +227,10 @@ public class LOGIN extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSubAndConActionPerformed
 
     private void btnFPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFPActionPerformed
-        // TODO add your handling code here:
+        forgotpass fp = new forgotpass();
+        fp.setVisible(true);
+        this.dispose();
+        
     }//GEN-LAST:event_btnFPActionPerformed
 
     private void txtpasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtpasswordActionPerformed
@@ -269,13 +264,13 @@ public class LOGIN extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel JPanel1;
-    private javax.swing.JLabel btn;
+    private javax.swing.JLabel btn1;
     private javax.swing.JButton btnFP;
     private javax.swing.JButton btnSubAndCon;
-    private javax.swing.JButton btnguide;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
