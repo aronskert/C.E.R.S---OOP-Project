@@ -1,10 +1,8 @@
 
+
 package ERS_NU;
 
-/**
- *
- * @author romeoespedido
- */
+
 public class Dashboard extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Dashboard.class.getName());
@@ -54,7 +52,7 @@ public class Dashboard extends javax.swing.JFrame {
 
         btnRevent.setBackground(new java.awt.Color(255, 222, 89));
         btnRevent.setFont(new java.awt.Font("Serif", 0, 36)); // NOI18N
-        btnRevent.setText("Reserve an Event");
+        btnRevent.setText("LOGIN");
         btnRevent.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnReventActionPerformed(evt);
@@ -116,14 +114,16 @@ public class Dashboard extends javax.swing.JFrame {
 
     private void btnReventActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReventActionPerformed
         // TODO add your handling code here:
-    LOGIN log = new LOGIN();
+     LOGIN log = new LOGIN();
      log.setVisible(true);
-    this.dispose();
+     this.dispose();
     
     }//GEN-LAST:event_btnReventActionPerformed
 
     private void btnRployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRployeeActionPerformed
-        // TODO add your handling code here:
+        ContactInfo addEmployee = new ContactInfo();
+     addEmployee.setVisible(true);
+     this.dispose();
     }//GEN-LAST:event_btnRployeeActionPerformed
 
     /**

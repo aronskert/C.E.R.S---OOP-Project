@@ -1,20 +1,10 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package ERS_NU;
 
-/**
- *
- * @author romeoespedido
- */
 public class LOGIN extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(LOGIN.class.getName());
 
-    /**
-     * Creates new form Dashboard
-     */
     public LOGIN() {
         initComponents();
     }
@@ -44,15 +34,15 @@ public class LOGIN extends javax.swing.JFrame {
         btnSubAndCon = new javax.swing.JButton();
         btnFP = new javax.swing.JButton();
 
-        btn.setBackground(new java.awt.Color(31, 40, 108));
-        btn.setForeground(new java.awt.Color(31, 40, 108));
-
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
         JPanel1.setBackground(new java.awt.Color(31, 40, 108));
         JPanel1.setPreferredSize(new java.awt.Dimension(1000, 750));
         JPanel1.setLayout(null);
+
+        btn.setBackground(new java.awt.Color(31, 40, 108));
+        btn.setForeground(new java.awt.Color(31, 40, 108));
 
         jButton3.setBackground(new java.awt.Color(255, 222, 89));
         jButton3.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
@@ -64,10 +54,6 @@ public class LOGIN extends javax.swing.JFrame {
         });
         JPanel1.add(jButton3);
         jButton3.setBounds(40, 620, 190, 40);
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/#1f286c.png"))); // NOI18N
-        JPanel1.add(jLabel1);
-        jLabel1.setBounds(137, 96, 210, 220);
 
         btnguide.setBackground(new java.awt.Color(255, 222, 89));
         btnguide.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
@@ -192,6 +178,10 @@ public class LOGIN extends javax.swing.JFrame {
         JPanel1.add(jPanel2);
         jPanel2.setBounds(460, 130, 450, 480);
 
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/C/E/R/S/icons/NULOGO.png"))); // NOI18N
+        JPanel1.add(jLabel1);
+        jLabel1.setBounds(200, 220, 100, 100);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -295,3 +285,5 @@ public class LOGIN extends javax.swing.JFrame {
     private javax.swing.JPasswordField txtpassword;
     // End of variables declaration//GEN-END:variables
 }
+
+
