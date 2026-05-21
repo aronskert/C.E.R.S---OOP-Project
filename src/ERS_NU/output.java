@@ -94,18 +94,22 @@ public class output extends javax.swing.JFrame {
         jLabelCode.setForeground(new java.awt.Color(31, 40, 108));
         jLabelCode.setText("Event Code: ");
 
+        jTextField1.setEditable(false);
         jTextField1.setEnabled(false);
         jTextField1.addActionListener(this::jTextField1ActionPerformed);
 
+        jTextField2.setEditable(false);
         jTextField2.setEnabled(false);
         jTextField2.addActionListener(this::jTextField2ActionPerformed);
 
+        jTextField3.setEditable(false);
         jTextField3.setEnabled(false);
         jTextField3.addActionListener(this::jTextField3ActionPerformed);
 
         jTextField4.setEnabled(false);
         jTextField4.addActionListener(this::jTextField4ActionPerformed);
 
+        jTextField6.setEditable(false);
         jTextField6.setEnabled(false);
         jTextField6.addActionListener(this::jTextField6ActionPerformed);
 
