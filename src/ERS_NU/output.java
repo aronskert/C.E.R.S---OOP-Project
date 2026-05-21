@@ -1,19 +1,10 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 
-/**
- *
- * @author HomePC
- */
+package ERS_NU;
 public class output extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(output.class.getName());
 
-    /**
-     * Creates new form output
-     */
+
     public output() {
         initComponents();
     }
@@ -29,7 +20,6 @@ public class output extends javax.swing.JFrame {
 
         jTextField5 = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
-        jLabelLogo = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabelRecpt = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
@@ -37,7 +27,6 @@ public class output extends javax.swing.JFrame {
         jLabelStud = new javax.swing.JLabel();
         jLabelVnue = new javax.swing.JLabel();
         jLabeldate = new javax.swing.JLabel();
-        jSeparator2 = new javax.swing.JSeparator();
         jLabelCode = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jTextField2 = new javax.swing.JTextField();
@@ -47,171 +36,135 @@ public class output extends javax.swing.JFrame {
         jButtonLogout = new javax.swing.JButton();
         jButtonBack = new javax.swing.JButton();
         jButtonConfirm = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
 
         jTextField5.addActionListener(this::jTextField5ActionPerformed);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(31, 40, 108));
+        setResizable(false);
 
         jPanel2.setBackground(new java.awt.Color(31, 40, 108));
         jPanel2.setPreferredSize(new java.awt.Dimension(1000, 750));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabelLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/image 2.png"))); // NOI18N
-        jLabelLogo.setToolTipText("");
-        jPanel2.add(jLabelLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 0, 240, 170));
-
-        jPanel1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel1.setOpaque(false);
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabelRecpt.setBackground(new java.awt.Color(31, 40, 108));
         jLabelRecpt.setFont(new java.awt.Font("Lucida Fax", 1, 36)); // NOI18N
         jLabelRecpt.setForeground(new java.awt.Color(31, 40, 108));
         jLabelRecpt.setText("RESERVATION RECEIPT ");
+        jPanel1.add(jLabelRecpt, new org.netbeans.lib.awtextra.AbsoluteConstraints(58, 29, 465, 31));
 
         jSeparator1.setBackground(new java.awt.Color(0, 0, 0));
         jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
+        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 78, 498, 31));
 
         jLabelNme.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
         jLabelNme.setForeground(new java.awt.Color(31, 40, 108));
-        jLabelNme.setText("Full Name              :");
+        jLabelNme.setText("Full Name            ");
+        jPanel1.add(jLabelNme, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 100, 199, -1));
 
         jLabelStud.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
         jLabelStud.setForeground(new java.awt.Color(31, 40, 108));
-        jLabelStud.setText("Student ID             :");
+        jLabelStud.setText("Student ID     ");
+        jPanel1.add(jLabelStud, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, 199, -1));
 
         jLabelVnue.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
         jLabelVnue.setForeground(new java.awt.Color(31, 40, 108));
-        jLabelVnue.setText("Venue                    :");
+        jLabelVnue.setText("Venue        ");
+        jPanel1.add(jLabelVnue, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 240, 199, -1));
 
         jLabeldate.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
         jLabeldate.setForeground(new java.awt.Color(31, 40, 108));
-        jLabeldate.setText("Date and Time        :");
-
-        jSeparator2.setBackground(new java.awt.Color(0, 0, 0));
-        jSeparator2.setForeground(new java.awt.Color(0, 0, 0));
+        jLabeldate.setText("Date and Time      ");
+        jPanel1.add(jLabeldate, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 320, -1, -1));
 
         jLabelCode.setFont(new java.awt.Font("Serif", 1, 24)); // NOI18N
         jLabelCode.setForeground(new java.awt.Color(31, 40, 108));
         jLabelCode.setText("Event Code: ");
+        jPanel1.add(jLabelCode, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 390, 142, -1));
 
         jTextField1.setEditable(false);
         jTextField1.setEnabled(false);
         jTextField1.addActionListener(this::jTextField1ActionPerformed);
+        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 100, 223, 30));
 
         jTextField2.setEditable(false);
         jTextField2.setEnabled(false);
         jTextField2.addActionListener(this::jTextField2ActionPerformed);
+        jPanel1.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 250, 223, 30));
 
         jTextField3.setEditable(false);
         jTextField3.setEnabled(false);
         jTextField3.addActionListener(this::jTextField3ActionPerformed);
+        jPanel1.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 170, 223, 30));
 
         jTextField4.setEnabled(false);
         jTextField4.addActionListener(this::jTextField4ActionPerformed);
+        jPanel1.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 390, 223, 30));
 
         jTextField6.setEditable(false);
         jTextField6.setEnabled(false);
         jTextField6.addActionListener(this::jTextField6ActionPerformed);
+        jPanel1.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 320, 223, 30));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(153, 153, 153))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabelRecpt, javax.swing.GroupLayout.PREFERRED_SIZE, 465, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGap(56, 56, 56)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jLabelVnue, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabelNme, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabelStud, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabeldate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGap(41, 41, 41)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGap(22, 22, 22)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 498, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 498, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGap(222, 222, 222)
-                            .addComponent(jLabelCode, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(24, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addComponent(jLabelRecpt, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelNme)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelStud)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelVnue)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(23, 23, 23)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabeldate)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(57, 57, 57)
-                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabelCode)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(30, Short.MAX_VALUE))
-        );
-
-        jPanel2.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 140, 550, 520));
+        jPanel2.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 190, 550, 520));
 
         jButtonLogout.setBackground(new java.awt.Color(255, 222, 89));
-        jButtonLogout.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
+        jButtonLogout.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
+        jButtonLogout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/logout 48 px.png"))); // NOI18N
         jButtonLogout.setText("LOGOUT");
-        jButtonLogout.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel2.add(jButtonLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 500, 143, 66));
+        jButtonLogout.setBorder(null);
+        jButtonLogout.setContentAreaFilled(false);
+        jButtonLogout.addActionListener(this::jButtonLogoutActionPerformed);
+        jPanel2.add(jButtonLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 490, 170, 70));
 
         jButtonBack.setBackground(new java.awt.Color(255, 222, 89));
-        jButtonBack.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
+        jButtonBack.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
+        jButtonBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/48 px.png"))); // NOI18N
         jButtonBack.setText("BACK");
-        jButtonBack.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel2.add(jButtonBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 590, 143, 66));
+        jButtonBack.setBorder(null);
+        jButtonBack.setContentAreaFilled(false);
+        jButtonBack.addActionListener(this::jButtonBackActionPerformed);
+        jPanel2.add(jButtonBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 590, 170, 70));
 
         jButtonConfirm.setBackground(new java.awt.Color(255, 222, 89));
-        jButtonConfirm.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
+        jButtonConfirm.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
+        jButtonConfirm.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/confirm 48px.png"))); // NOI18N
         jButtonConfirm.setText("CONFRIM");
-        jButtonConfirm.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButtonConfirm.setBorder(null);
+        jButtonConfirm.setContentAreaFilled(false);
         jButtonConfirm.addActionListener(this::jButtonConfirmActionPerformed);
-        jPanel2.add(jButtonConfirm, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 590, 143, 66));
+        jPanel2.add(jButtonConfirm, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 590, 170, 70));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/figma_pics/Receipt 568 703.png"))); // NOI18N
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, -10, -1, -1));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/figma_pics/170 70 rectangle half of the long button.png"))); // NOI18N
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 590, 170, -1));
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/figma_pics/170 70 rectangle half of the long button.png"))); // NOI18N
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 580, 240, 90));
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/figma_pics/170 70 rectangle half of the long button.png"))); // NOI18N
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 490, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -246,6 +199,14 @@ public class output extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonConfirmActionPerformed
 
+    private void jButtonLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLogoutActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonLogoutActionPerformed
+
+    private void jButtonBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBackActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonBackActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -275,8 +236,11 @@ public class output extends javax.swing.JFrame {
     private javax.swing.JButton jButtonBack;
     private javax.swing.JButton jButtonConfirm;
     private javax.swing.JButton jButtonLogout;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabelCode;
-    private javax.swing.JLabel jLabelLogo;
     private javax.swing.JLabel jLabelNme;
     private javax.swing.JLabel jLabelRecpt;
     private javax.swing.JLabel jLabelStud;
@@ -285,7 +249,6 @@ public class output extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JSeparator jSeparator2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;

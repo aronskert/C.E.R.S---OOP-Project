@@ -38,6 +38,7 @@ public class Database extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         txtEventType = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
@@ -160,6 +161,7 @@ public class Database extends javax.swing.JFrame {
         txtEventType.setFont(new java.awt.Font("Serif", 0, 14)); // NOI18N
         txtEventType.setToolTipText("");
         jPanel3.add(txtEventType, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 510, 250, 40));
+        jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 80, -1, -1));
 
         jPanel1.add(jPanel3);
         jPanel3.setBounds(20, 70, 280, 560);
@@ -362,6 +364,7 @@ public class Database extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

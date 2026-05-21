@@ -37,23 +37,31 @@ public class ContactInfo extends javax.swing.JFrame {
         javax.swing.JLabel bulldog = new javax.swing.JLabel();
         lbl2 = new javax.swing.JLabel();
         btnlogout = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         p1.setBackground(new java.awt.Color(31, 40, 108));
         p1.setToolTipText("");
         p1.setPreferredSize(new java.awt.Dimension(1000, 750));
+        p1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lbl1.setFont(new java.awt.Font("Serif", 0, 64)); // NOI18N
         lbl1.setForeground(new java.awt.Color(255, 255, 255));
         lbl1.setText("Contact");
+        p1.add(lbl1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, -1, 67));
 
+        p2.setOpaque(false);
         p2.setPreferredSize(new java.awt.Dimension(400, 450));
+        p2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblname.setBackground(new java.awt.Color(255, 255, 255));
-        lblname.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
+        lblname.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
         lblname.setText("Student Name");
+        p2.add(lblname, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, -1, -1));
 
         txtname.setFont(new java.awt.Font("Serif", 0, 14)); // NOI18N
         txtname.addActionListener(new java.awt.event.ActionListener() {
@@ -61,10 +69,12 @@ public class ContactInfo extends javax.swing.JFrame {
                 txtnameActionPerformed(evt);
             }
         });
+        p2.add(txtname, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 388, 50));
 
         lblstudentidno.setBackground(new java.awt.Color(255, 255, 255));
-        lblstudentidno.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
+        lblstudentidno.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
         lblstudentidno.setText("Student ID Number");
+        p2.add(lblstudentidno, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, -1, -1));
 
         txtstudentidno.setFont(new java.awt.Font("Serif", 0, 14)); // NOI18N
         txtstudentidno.setPreferredSize(new java.awt.Dimension(64, 30));
@@ -73,9 +83,11 @@ public class ContactInfo extends javax.swing.JFrame {
                 txtstudentidnoActionPerformed(evt);
             }
         });
+        p2.add(txtstudentidno, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 160, 388, 50));
 
-        lblphoneno.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
+        lblphoneno.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
         lblphoneno.setText("Phone Number");
+        p2.add(lblphoneno, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 230, -1, -1));
 
         txtphoneno.setFont(new java.awt.Font("Serif", 0, 14)); // NOI18N
         txtphoneno.addActionListener(new java.awt.event.ActionListener() {
@@ -83,9 +95,11 @@ public class ContactInfo extends javax.swing.JFrame {
                 txtphonenoActionPerformed(evt);
             }
         });
+        p2.add(txtphoneno, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 260, 388, 55));
 
-        lblemail.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
+        lblemail.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
         lblemail.setText("Student Email");
+        p2.add(lblemail, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 330, -1, -1));
 
         txtemail.setFont(new java.awt.Font("Serif", 0, 14)); // NOI18N
         txtemail.addActionListener(new java.awt.event.ActionListener() {
@@ -93,128 +107,52 @@ public class ContactInfo extends javax.swing.JFrame {
                 txtemailActionPerformed(evt);
             }
         });
+        p2.add(txtemail, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 360, 388, 55));
 
         btnnext.setBackground(new java.awt.Color(255, 222, 89));
         btnnext.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
         btnnext.setText("NEXT");
+        btnnext.setBorder(null);
+        btnnext.setContentAreaFilled(false);
         btnnext.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnnextActionPerformed(evt);
             }
         });
+        p2.add(btnnext, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 460, 420, 60));
 
-        javax.swing.GroupLayout p2Layout = new javax.swing.GroupLayout(p2);
-        p2.setLayout(p2Layout);
-        p2Layout.setHorizontalGroup(
-            p2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(p2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(p2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtemail, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(txtphoneno, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(txtstudentidno, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txtname)
-                    .addGroup(p2Layout.createSequentialGroup()
-                        .addGroup(p2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblname)
-                            .addComponent(lblstudentidno)
-                            .addComponent(lblphoneno)
-                            .addComponent(lblemail))
-                        .addGap(0, 242, Short.MAX_VALUE)))
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, p2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnnext, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28))
-        );
-        p2Layout.setVerticalGroup(
-            p2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(p2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblname)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtname, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(lblstudentidno)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtstudentidno, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(lblphoneno)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtphoneno, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(lblemail)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtemail, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(51, 51, 51)
-                .addComponent(btnnext)
-                .addContainerGap(80, Short.MAX_VALUE))
-        );
+        p1.add(p2, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 110, 440, 530));
 
         bulldog.setBackground(new java.awt.Color(0, 0, 102));
         bulldog.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/buldgo.png"))); // NOI18N
+        p1.add(bulldog, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 253, 351, -1));
 
         lbl2.setFont(new java.awt.Font("Serif", 0, 64)); // NOI18N
         lbl2.setForeground(new java.awt.Color(255, 255, 255));
         lbl2.setText("Information");
+        p1.add(lbl2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, -1, 58));
 
         btnlogout.setBackground(new java.awt.Color(255, 222, 89));
-        btnlogout.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
+        btnlogout.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
         btnlogout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/logout 48 px.png"))); // NOI18N
         btnlogout.setText("LOGOUT");
+        btnlogout.setBorder(null);
+        btnlogout.setContentAreaFilled(false);
         btnlogout.setPreferredSize(new java.awt.Dimension(170, 55));
         btnlogout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnlogoutActionPerformed(evt);
             }
         });
+        p1.add(btnlogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 620, 350, 70));
 
-        javax.swing.GroupLayout p1Layout = new javax.swing.GroupLayout(p1);
-        p1.setLayout(p1Layout);
-        p1Layout.setHorizontalGroup(
-            p1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(p1Layout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addGroup(p1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(p1Layout.createSequentialGroup()
-                        .addComponent(lbl1)
-                        .addContainerGap(769, Short.MAX_VALUE))
-                    .addGroup(p1Layout.createSequentialGroup()
-                        .addGroup(p1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnlogout, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(bulldog, javax.swing.GroupLayout.PREFERRED_SIZE, 351, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbl2))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 107, Short.MAX_VALUE)
-                        .addComponent(p2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(111, 111, 111))))
-        );
-        p1Layout.setVerticalGroup(
-            p1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(p1Layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(lbl1, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(p1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(p1Layout.createSequentialGroup()
-                        .addComponent(lbl2, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(bulldog)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnlogout, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(p2, javax.swing.GroupLayout.PREFERRED_SIZE, 560, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(87, Short.MAX_VALUE))
-        );
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/figma_pics/500 560 rectangle with button forgot password.png"))); // NOI18N
+        p1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 90, 530, 570));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(p1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(p1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/figma_pics/350 70 rectangle with curved sides.png"))); // NOI18N
+        p1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 620, -1, -1));
+
+        getContentPane().add(p1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
         setLocationRelativeTo(null);
@@ -261,7 +199,7 @@ public class ContactInfo extends javax.swing.JFrame {
             " Phone: " + phone +
             " Email: " + email);
             
-        ReservationForm Reserve = new ReservationForm();
+        InputPage2 Reserve = new InputPage2();
         Reserve.setVisible(true);   
         this.dispose();
         
@@ -295,6 +233,8 @@ public class ContactInfo extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnlogout;
     private javax.swing.JButton btnnext;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel lbl1;
     private javax.swing.JLabel lbl2;
     private javax.swing.JLabel lblemail;
