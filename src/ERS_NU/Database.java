@@ -1,13 +1,51 @@
 
 package ERS_NU;
-import javax.swing.JOptionPane;
 
-public class Database extends javax.swing.JFrame {
+import javax.swing.JOptionPane;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import javax.swing.table.DefaultTableModel;
+
+public class Database extends javax.swing.JFrame { 
+        
+private void loadTable() {
+    try { 
+        Connection con = DBConnection.getConnection();
+
+        String sql = "SELECT * FROM reservations";
+        PreparedStatement pst = con.prepareStatement(sql);
+        ResultSet rs = pst.executeQuery();
+
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+
+        model.setRowCount(0);
+
+        while (rs.next()) {
+            model.addRow(new Object[]{
+                rs.getString(2), 
+                rs.getString(3), 
+                rs.getString(4), 
+                rs.getString(5), 
+                rs.getString(6), 
+                rs.getString(7)  
+            });
+        }
+
+        rs.close();
+        pst.close();
+        con.close();
+
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(this, "Database Error: " + e.getMessage());
+    }
+}
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Database.class.getName());
 
     public Database() {
         initComponents();
+        loadTable();
     }
 
     /**
@@ -20,7 +58,7 @@ public class Database extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jButton3 = new javax.swing.JButton();
+        btnexit = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -38,36 +76,37 @@ public class Database extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         txtEventType = new javax.swing.JTextField();
-        jLabel9 = new javax.swing.JLabel();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        btnedit = new javax.swing.JButton();
+        btndelete = new javax.swing.JButton();
+        btnsearch = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(31, 40, 108));
         jPanel1.setPreferredSize(new java.awt.Dimension(1000, 750));
-        jPanel1.setLayout(null);
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton3.setBackground(new java.awt.Color(255, 222, 89));
-        jButton3.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/48 px.png"))); // NOI18N
-        jButton3.setText("EXIT");
-        jButton3.setToolTipText("");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        btnexit.setBackground(new java.awt.Color(255, 222, 89));
+        btnexit.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
+        btnexit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/48 px.png"))); // NOI18N
+        btnexit.setText("RETURN");
+        btnexit.setToolTipText("");
+        btnexit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                btnexitActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton3);
-        jButton3.setBounds(50, 650, 180, 60);
+        jPanel1.add(btnexit, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 650, 180, 60));
 
         jPanel2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
+                {null, "", null, null, null, null},
+                {null, null, null, null, "", null},
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null}
@@ -79,16 +118,9 @@ public class Database extends javax.swing.JFrame {
             Class[] types = new Class [] {
                 java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class
             };
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
-            };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
-            }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
             }
         });
         jScrollPane1.setViewportView(jTable1);
@@ -104,9 +136,9 @@ public class Database extends javax.swing.JFrame {
             .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 544, Short.MAX_VALUE)
         );
 
-        jPanel1.add(jPanel2);
-        jPanel2.setBounds(340, 80, 570, 550);
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 80, -1, -1));
 
+        jPanel3.setOpaque(false);
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Serif", 2, 36)); // NOI18N
@@ -120,6 +152,11 @@ public class Database extends javax.swing.JFrame {
 
         txtName.setFont(new java.awt.Font("Serif", 0, 14)); // NOI18N
         txtName.setToolTipText("");
+        txtName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNameActionPerformed(evt);
+            }
+        });
         jPanel3.add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 250, 40));
 
         txtStudentID.setFont(new java.awt.Font("Serif", 0, 14)); // NOI18N
@@ -161,101 +198,64 @@ public class Database extends javax.swing.JFrame {
         txtEventType.setFont(new java.awt.Font("Serif", 0, 14)); // NOI18N
         txtEventType.setToolTipText("");
         jPanel3.add(txtEventType, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 510, 250, 40));
-        jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 80, -1, -1));
 
-        jPanel1.add(jPanel3);
-        jPanel3.setBounds(20, 70, 280, 560);
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 280, 560));
 
-        jButton4.setBackground(new java.awt.Color(255, 222, 89));
-        jButton4.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/edit png 48px.png"))); // NOI18N
-        jButton4.setText("EDIT");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        btnedit.setBackground(new java.awt.Color(255, 222, 89));
+        btnedit.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
+        btnedit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/edit png 48px.png"))); // NOI18N
+        btnedit.setText("EDIT");
+        btnedit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                btneditActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton4);
-        jButton4.setBounds(730, 650, 180, 60);
+        jPanel1.add(btnedit, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 650, 180, 60));
 
-        jButton5.setBackground(new java.awt.Color(255, 222, 89));
-        jButton5.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
-        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/delete 48px.png"))); // NOI18N
-        jButton5.setText("Delete");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        btndelete.setBackground(new java.awt.Color(255, 222, 89));
+        btndelete.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
+        btndelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/delete 48px.png"))); // NOI18N
+        btndelete.setText("Delete");
+        btndelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                btndeleteActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton5);
-        jButton5.setBounds(510, 650, 180, 60);
+        jPanel1.add(btndelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 650, 180, 60));
 
-        jButton6.setBackground(new java.awt.Color(255, 222, 89));
-        jButton6.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
-        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/search icon 48px.png"))); // NOI18N
-        jButton6.setText("Search");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        btnsearch.setBackground(new java.awt.Color(255, 222, 89));
+        btnsearch.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
+        btnsearch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/search icon 48px.png"))); // NOI18N
+        btnsearch.setText("Search");
+        btnsearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                btnsearchActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton6);
-        jButton6.setBounds(280, 650, 180, 60);
+        jPanel1.add(btnsearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 650, 180, 60));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 947, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 726, Short.MAX_VALUE)
-                .addContainerGap())
-        );
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/figma_pics/295 590 manage system rectangle.png"))); // NOI18N
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, -1, -1));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, 947, 726));
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-    String name = txtName.getText(); 
-    String studentid = txtStudentID.getText(); 
-     String venue = txtVenue.getText(); 
-     String start = txtStart.getText();
-     String end = txtEnd.getText();
-     String eventtype =txtEventType.getText();
-     
+    private void btnexitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnexitActionPerformed
 
-            if (name.trim().isEmpty() || studentid.trim().isEmpty() || venue.trim().isEmpty() || start.trim().isEmpty() || end.trim().isEmpty() || eventtype.trim().isEmpty() )  {
-                 javax.swing.JOptionPane.showMessageDialog(this, "Please fill in any fields!");
-            } else {
-                 // FIX: Pass the EXISTING storageWindow to Step 1
-                 
-                 javax.swing.JOptionPane.showMessageDialog(this, "Your input: " +  
-                         name + "\n" + 
-                         studentid + "\n" + 
-                         venue + "\n" + 
-                         start + "\n" + 
-                         end + "\n" + 
-                         eventtype + "\n" 
-                         );
-                 LOGIN Dash = new LOGIN();
+                ContactInfo Dash = new ContactInfo();
                  Dash.setVisible(true);
                  this.dispose();
-            }
+
 
         
                     
                     
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_btnexitActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void btneditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneditActionPerformed
         String name = txtName.getText(); 
         String studentid = txtStudentID.getText(); 
         String venue = txtVenue.getText(); 
@@ -277,9 +277,9 @@ public class Database extends javax.swing.JFrame {
                          "eventtype" + eventtype + "\n" 
                          );
             }// TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_btneditActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void btndeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndeleteActionPerformed
     String name = txtName.getText(); 
     String studentid = txtStudentID.getText(); 
      String venue = txtVenue.getText(); 
@@ -301,9 +301,9 @@ public class Database extends javax.swing.JFrame {
                          "eventtype" + eventtype + "\n" 
                          );
         }
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_btndeleteActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    private void btnsearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsearchActionPerformed
     String name = txtName.getText(); 
     String studentid = txtStudentID.getText(); 
      String venue = txtVenue.getText(); 
@@ -315,7 +315,7 @@ public class Database extends javax.swing.JFrame {
         if (name.trim().isEmpty() && studentid.trim().isEmpty() &&  venue.trim().isEmpty() &&  start.trim().isEmpty() &&  end.trim().isEmpty() &&  eventtype.trim().isEmpty() )  {
                  javax.swing.JOptionPane.showMessageDialog(this, "Please fill in any fields!");
             } else {
-                 // FIX: Pass the EXISTING storageWindow to Step 1
+            // FIX: Pass the EXISTING storageWindow to Step 1
                   javax.swing.JOptionPane.showMessageDialog(this, "Your input has been Edited: \n" +
                           "name: " + name + "\n" + 
                          "studentid: " + studentid + "\n" + 
@@ -325,7 +325,11 @@ public class Database extends javax.swing.JFrame {
                          "eventtype" + eventtype + "\n" 
                          );
         }     
-    }//GEN-LAST:event_jButton6ActionPerformed
+    }//GEN-LAST:event_btnsearchActionPerformed
+
+    private void txtNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNameActionPerformed
 
     /**
      * @param args the command line arguments
@@ -353,18 +357,18 @@ public class Database extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
+    private javax.swing.JButton btndelete;
+    private javax.swing.JButton btnedit;
+    private javax.swing.JButton btnexit;
+    private javax.swing.JButton btnsearch;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

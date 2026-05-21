@@ -192,7 +192,13 @@ public class ContactInfo extends javax.swing.JFrame {
         String studentid = txtstudentidno.getText();
         String phone = txtphoneno.getText();
         String email = txtemail.getText();
-
+        
+        if(name.trim().isEmpty() || studentid.trim().isEmpty() || phone.trim().isEmpty() || email.trim().isEmpty()) {
+        javax.swing.JOptionPane.showMessageDialog(this, 
+        "There is no inputed data.", 
+        "Login Error.",javax.swing.JOptionPane.ERROR_MESSAGE);
+    }   else {
+        
             JOptionPane.showMessageDialog(this,
             " Name: " + name +   
             " Student ID: " + studentid +
@@ -202,6 +208,7 @@ public class ContactInfo extends javax.swing.JFrame {
         InputPage2 Reserve = new InputPage2();
         Reserve.setVisible(true);   
         this.dispose();
+        }
         
     }//GEN-LAST:event_btnnextActionPerformed
 

@@ -196,15 +196,23 @@ public class output extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void jButtonConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConfirmActionPerformed
-        // TODO add your handling code here:
+        Database data = new Database();
+        data.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jButtonConfirmActionPerformed
 
     private void jButtonLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLogoutActionPerformed
-        // TODO add your handling code here:
+        Dashboard DasB = new Dashboard();
+        DasB.setVisible(true);
+        this.dispose();
+        
+        
     }//GEN-LAST:event_jButtonLogoutActionPerformed
 
     private void jButtonBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBackActionPerformed
-        // TODO add your handling code here:
+        InputPage2 Input = new InputPage2();
+        Input.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jButtonBackActionPerformed
 
     /**

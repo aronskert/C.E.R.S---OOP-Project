@@ -24,8 +24,12 @@ public class Dashboard extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        btnRployee = new javax.swing.JButton();
-        btnRevent = new javax.swing.JButton();
+        btnregister = new javax.swing.JButton();
+        btnmanage = new javax.swing.JButton();
+        btnlogin = new javax.swing.JButton();
+        bgMD = new javax.swing.JLabel();
+        bgMD1 = new javax.swing.JLabel();
+        bgMD2 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -39,27 +43,59 @@ public class Dashboard extends javax.swing.JFrame {
         jPanel1.setPreferredSize(new java.awt.Dimension(1000, 750));
         jPanel1.setLayout(null);
 
-        btnRployee.setBackground(new java.awt.Color(255, 222, 89));
-        btnRployee.setFont(new java.awt.Font("Serif", 0, 36)); // NOI18N
-        btnRployee.setText("Register Employee");
-        btnRployee.addActionListener(new java.awt.event.ActionListener() {
+        btnregister.setBackground(new java.awt.Color(255, 222, 89));
+        btnregister.setFont(new java.awt.Font("Serif", 0, 36)); // NOI18N
+        btnregister.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/add employee 48px.png"))); // NOI18N
+        btnregister.setText("Register");
+        btnregister.setBorder(null);
+        btnregister.setContentAreaFilled(false);
+        btnregister.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRployeeActionPerformed(evt);
+                btnregisterActionPerformed(evt);
             }
         });
-        jPanel1.add(btnRployee);
-        btnRployee.setBounds(90, 560, 340, 70);
+        jPanel1.add(btnregister);
+        btnregister.setBounds(90, 560, 350, 70);
 
-        btnRevent.setBackground(new java.awt.Color(255, 222, 89));
-        btnRevent.setFont(new java.awt.Font("Serif", 0, 36)); // NOI18N
-        btnRevent.setText("LOGIN");
-        btnRevent.addActionListener(new java.awt.event.ActionListener() {
+        btnmanage.setBackground(new java.awt.Color(255, 222, 89));
+        btnmanage.setFont(new java.awt.Font("Serif", 0, 36)); // NOI18N
+        btnmanage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/Manage.png"))); // NOI18N
+        btnmanage.setText("Manage Data");
+        btnmanage.setBorder(null);
+        btnmanage.setContentAreaFilled(false);
+        btnmanage.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnReventActionPerformed(evt);
+                btnmanageActionPerformed(evt);
             }
         });
-        jPanel1.add(btnRevent);
-        btnRevent.setBounds(570, 560, 340, 70);
+        jPanel1.add(btnmanage);
+        btnmanage.setBounds(90, 450, 350, 70);
+
+        btnlogin.setBackground(new java.awt.Color(255, 222, 89));
+        btnlogin.setFont(new java.awt.Font("Serif", 0, 36)); // NOI18N
+        btnlogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/LOGIN.png"))); // NOI18N
+        btnlogin.setText("LOGIN");
+        btnlogin.setBorder(null);
+        btnlogin.setContentAreaFilled(false);
+        btnlogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnloginActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnlogin);
+        btnlogin.setBounds(570, 560, 350, 70);
+
+        bgMD.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/figma_pics/350 70 rectangle with curved sides.png"))); // NOI18N
+        jPanel1.add(bgMD);
+        bgMD.setBounds(90, 550, 370, 90);
+
+        bgMD1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/figma_pics/350 70 rectangle with curved sides.png"))); // NOI18N
+        jPanel1.add(bgMD1);
+        bgMD1.setBounds(570, 550, 370, 90);
+
+        bgMD2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/figma_pics/350 70 rectangle with curved sides.png"))); // NOI18N
+        jPanel1.add(bgMD2);
+        bgMD2.setBounds(90, 440, 370, 90);
 
         jLabel7.setFont(new java.awt.Font("Serif", 0, 20)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
@@ -112,19 +148,24 @@ public class Dashboard extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnReventActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReventActionPerformed
-        // TODO add your handling code here:
-     LOGIN log = new LOGIN();
-     log.setVisible(true);
-     this.dispose();
+    private void btnmanageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmanageActionPerformed
+        Database data = new Database();
+        data.setVisible(true);
+        this.dispose();
     
-    }//GEN-LAST:event_btnReventActionPerformed
+    }//GEN-LAST:event_btnmanageActionPerformed
 
-    private void btnRployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRployeeActionPerformed
-        ContactInfo addEmployee = new ContactInfo();
+    private void btnregisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnregisterActionPerformed
+        Employee addEmployee = new Employee();
      addEmployee.setVisible(true);
      this.dispose();
-    }//GEN-LAST:event_btnRployeeActionPerformed
+    }//GEN-LAST:event_btnregisterActionPerformed
+
+    private void btnloginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnloginActionPerformed
+        LOGIN log = new LOGIN();
+     log.setVisible(true);
+     this.dispose();
+    }//GEN-LAST:event_btnloginActionPerformed
 
     /**
      * @param args the command line arguments
@@ -152,8 +193,12 @@ public class Dashboard extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnRevent;
-    private javax.swing.JButton btnRployee;
+    private javax.swing.JLabel bgMD;
+    private javax.swing.JLabel bgMD1;
+    private javax.swing.JLabel bgMD2;
+    private javax.swing.JButton btnlogin;
+    private javax.swing.JButton btnmanage;
+    private javax.swing.JButton btnregister;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
