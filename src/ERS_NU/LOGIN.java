@@ -109,6 +109,7 @@ public class LOGIN extends javax.swing.JFrame {
         btnFP.setText("FORGOT PASSWORD");
         btnFP.setBorder(null);
         btnFP.setBorderPainted(false);
+        btnFP.setContentAreaFilled(false);
         btnFP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnFPActionPerformed(evt);

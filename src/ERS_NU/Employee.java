@@ -77,6 +77,7 @@ public class Employee extends javax.swing.JFrame {
 
         jButton2.setBackground(new java.awt.Color(255, 222, 89));
         jButton2.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/add employee 48px.png"))); // NOI18N
         jButton2.setText("Submit Employee");
         jButton2.setBorder(null);
         jButton2.setContentAreaFilled(false);
@@ -101,6 +102,7 @@ public class Employee extends javax.swing.JFrame {
 
         jButton1.setBackground(new java.awt.Color(255, 222, 89));
         jButton1.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/48 px.png"))); // NOI18N
         jButton1.setText("BACK");
         jButton1.setBorder(null);
         jButton1.setBorderPainted(false);
