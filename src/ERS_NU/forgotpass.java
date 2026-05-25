@@ -2,6 +2,8 @@
 package ERS_NU;
 import javax.swing.JOptionPane;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 public class forgotpass extends javax.swing.JFrame {
     
@@ -223,17 +225,65 @@ public class forgotpass extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Error: Please fill in all fields before updating.", "Input Error", JOptionPane.ERROR_MESSAGE); 
     } else {
             
-                JOptionPane.showMessageDialog(this, "The inputed data: \n" +
-                        "EmployeeID: " + EmployeeID +
-                        "\n New Password: " + NPassword +
-                       "\n Email: " + Email 
-                        );
-                        
+            //connection sa database
+            try (Connection conn = DBConnection.getConnection()) {
+            
+                //ichecheck kung nag-eexist yung employee id tas email sa database
+                String checkQuery = "SELECT * FROM employee_accounts WHERE employee_id = ? AND email = ?";
 
-                LOGIN login = new LOGIN();
-                login.setVisible(true);
-                this.dispose();
+                PreparedStatement checkStmt = conn.prepareStatement(checkQuery); 
+                checkStmt.setString(1, EmployeeID);
+                checkStmt.setString(2, Email);
+
+                ResultSet rs = checkStmt.executeQuery(); 
+                
+                // kapag nakita sa database yung employee_id at email
+                if (rs.next()) {
+
+                // tas pag na check na iuupdate na yung password
+                String updateQuery = "UPDATE employee_accounts SET password = ? WHERE employee_id = ?";
+
+                PreparedStatement updateStmt = conn.prepareStatement(updateQuery);
+                updateStmt.setString(1, NPassword);
+                updateStmt.setString(2, EmployeeID);
+
+                int rowsUpdated = updateStmt.executeUpdate();
+
+                //kapag successful yung updayte
+                if (rowsUpdated > 0) {
+
+                    JOptionPane.showMessageDialog(this,
+                            "Password changed successfully!");
+
+                    LOGIN login = new LOGIN();
+                    login.setVisible(true);
+                    this.dispose();
+
+                } else {
+
+                    JOptionPane.showMessageDialog(this,
+                            "Failed to update password.",
+                            "Error",
+                            JOptionPane.ERROR_MESSAGE);
                 }
+
+                } else {
+
+                JOptionPane.showMessageDialog(this,
+                        "Employee ID or Email is incorrect.",
+                        "Verification Error",
+                        JOptionPane.ERROR_MESSAGE);
+            }
+
+        } catch (Exception e) {
+
+            JOptionPane.showMessageDialog(this,
+                    "Database Error: " + e.getMessage(),
+                    "Error",
+                    JOptionPane.ERROR_MESSAGE);
+        
+            }           
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void txtEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailActionPerformed
