@@ -46,6 +46,10 @@ public class UserCheckAvailability extends javax.swing.JFrame {
         lblreservesystem.setForeground(new java.awt.Color(255, 222, 89));
         lblreservesystem.setText("RESERVATION SYSTEM");
 
+        nulogo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        nulogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/#1f286c.png"))); // NOI18N
+        nulogo.setPreferredSize(new java.awt.Dimension(100, 100));
+
         p2.setBackground(new java.awt.Color(255, 255, 255));
         p2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
