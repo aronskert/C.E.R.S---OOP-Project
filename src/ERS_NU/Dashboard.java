@@ -55,7 +55,7 @@ public class Dashboard extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnregister);
-        btnregister.setBounds(90, 560, 350, 70);
+        btnregister.setBounds(40, 580, 300, 60);
 
         btnmanage.setBackground(new java.awt.Color(255, 222, 89));
         btnmanage.setFont(new java.awt.Font("Serif", 0, 36)); // NOI18N
@@ -69,7 +69,7 @@ public class Dashboard extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnmanage);
-        btnmanage.setBounds(90, 450, 350, 70);
+        btnmanage.setBounds(350, 580, 350, 60);
 
         btnlogin.setBackground(new java.awt.Color(255, 222, 89));
         btnlogin.setFont(new java.awt.Font("Serif", 0, 36)); // NOI18N
@@ -83,19 +83,19 @@ public class Dashboard extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnlogin);
-        btnlogin.setBounds(570, 560, 350, 70);
+        btnlogin.setBounds(710, 580, 270, 60);
 
         bgMD.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/figma_pics/350 70 rectangle with curved sides.png"))); // NOI18N
         jPanel1.add(bgMD);
-        bgMD.setBounds(90, 550, 370, 90);
+        bgMD.setBounds(60, 580, 280, 60);
 
         bgMD1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/figma_pics/350 70 rectangle with curved sides.png"))); // NOI18N
         jPanel1.add(bgMD1);
-        bgMD1.setBounds(570, 550, 370, 90);
+        bgMD1.setBounds(710, 580, 270, 60);
 
         bgMD2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/figma_pics/350 70 rectangle with curved sides.png"))); // NOI18N
         jPanel1.add(bgMD2);
-        bgMD2.setBounds(90, 440, 370, 90);
+        bgMD2.setBounds(360, 580, 340, 60);
 
         jLabel7.setFont(new java.awt.Font("Serif", 0, 20)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
@@ -131,7 +131,7 @@ public class Dashboard extends javax.swing.JFrame {
         jLabel8.setText("jLabel8");
         jLabel8.setPreferredSize(new java.awt.Dimension(1000, 750));
         jPanel1.add(jLabel8);
-        jLabel8.setBounds(0, 0, 1000, 760);
+        jLabel8.setBounds(20, 0, 1000, 760);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

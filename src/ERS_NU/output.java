@@ -106,7 +106,7 @@ public class output extends javax.swing.JFrame {
 
         jTextField4.setEnabled(false);
         jTextField4.addActionListener(this::jTextField4ActionPerformed);
-        jPanel1.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 390, 223, 30));
+        jPanel1.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 390, 223, 30));
 
         jTextField6.setEditable(false);
         jTextField6.setEnabled(false);
@@ -122,16 +122,16 @@ public class output extends javax.swing.JFrame {
         jButtonLogout.setBorder(null);
         jButtonLogout.setContentAreaFilled(false);
         jButtonLogout.addActionListener(this::jButtonLogoutActionPerformed);
-        jPanel2.add(jButtonLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 490, 170, 70));
+        jPanel2.add(jButtonLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 640, 170, 70));
 
         jButtonBack.setBackground(new java.awt.Color(255, 222, 89));
         jButtonBack.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
         jButtonBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/48 px.png"))); // NOI18N
-        jButtonBack.setText("BACK");
+        jButtonBack.setText("RETURN");
         jButtonBack.setBorder(null);
         jButtonBack.setContentAreaFilled(false);
         jButtonBack.addActionListener(this::jButtonBackActionPerformed);
-        jPanel2.add(jButtonBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 590, 170, 70));
+        jPanel2.add(jButtonBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, 170, 40));
 
         jButtonConfirm.setBackground(new java.awt.Color(255, 222, 89));
         jButtonConfirm.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
@@ -140,19 +140,19 @@ public class output extends javax.swing.JFrame {
         jButtonConfirm.setBorder(null);
         jButtonConfirm.setContentAreaFilled(false);
         jButtonConfirm.addActionListener(this::jButtonConfirmActionPerformed);
-        jPanel2.add(jButtonConfirm, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 590, 170, 70));
+        jPanel2.add(jButtonConfirm, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 550, 170, 70));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/figma_pics/Receipt 568 703.png"))); // NOI18N
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, -10, -1, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/figma_pics/170 70 rectangle half of the long button.png"))); // NOI18N
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 590, 170, -1));
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, 170, 60));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/figma_pics/170 70 rectangle half of the long button.png"))); // NOI18N
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 580, 240, 90));
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 540, 240, 90));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/figma_pics/170 70 rectangle half of the long button.png"))); // NOI18N
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 490, -1, -1));
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 640, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

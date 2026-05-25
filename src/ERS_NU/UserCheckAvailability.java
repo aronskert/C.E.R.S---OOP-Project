@@ -18,7 +18,6 @@ public class UserCheckAvailability extends javax.swing.JFrame {
         p1 = new javax.swing.JPanel();
         lblcampusevent = new javax.swing.JLabel();
         lblreservesystem = new javax.swing.JLabel();
-        nulogo = new javax.swing.JLabel();
         p2 = new javax.swing.JPanel();
         lblsearch = new javax.swing.JLabel();
         lbldate = new javax.swing.JLabel();
@@ -29,6 +28,7 @@ public class UserCheckAvailability extends javax.swing.JFrame {
         btnsearch = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -43,10 +43,6 @@ public class UserCheckAvailability extends javax.swing.JFrame {
         lblreservesystem.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
         lblreservesystem.setForeground(new java.awt.Color(255, 222, 89));
         lblreservesystem.setText("RESERVATION SYSTEM");
-
-        nulogo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        nulogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logo.png"))); // NOI18N
-        nulogo.setPreferredSize(new java.awt.Dimension(100, 100));
 
         p2.setBackground(new java.awt.Color(255, 255, 255));
         p2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -73,8 +69,6 @@ public class UserCheckAvailability extends javax.swing.JFrame {
                 txtvenueActionPerformed(evt);
             }
         });
-
-        searchsymbol.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Searchsymbol.jpg"))); // NOI18N
 
         javax.swing.GroupLayout p2Layout = new javax.swing.GroupLayout(p2);
         p2.setLayout(p2Layout);
@@ -131,11 +125,13 @@ public class UserCheckAvailability extends javax.swing.JFrame {
 
             },
             new String [] {
-                "TIME", "DATE", "VENUE"
+                "START", "END", "VENUE"
             }
         ));
         jTable1.setToolTipText("");
         jScrollPane1.setViewportView(jTable1);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/#1f286c.png"))); // NOI18N
 
         javax.swing.GroupLayout p1Layout = new javax.swing.GroupLayout(p1);
         p1.setLayout(p1Layout);
@@ -150,32 +146,36 @@ public class UserCheckAvailability extends javax.swing.JFrame {
                             .addGroup(p1Layout.createSequentialGroup()
                                 .addGap(6, 6, 6)
                                 .addComponent(lblcampusevent))
-                            .addComponent(p2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(nulogo, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(p2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(p1Layout.createSequentialGroup()
                         .addGap(83, 83, 83)
-                        .addComponent(btnsearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 81, Short.MAX_VALUE)
+                        .addComponent(btnsearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, p1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 647, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30))
+                .addGap(59, 59, 59))
         );
         p1Layout.setVerticalGroup(
             p1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(p1Layout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addGroup(p1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(p1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(p1Layout.createSequentialGroup()
-                        .addComponent(nulogo, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(27, 27, 27)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblcampusevent)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblreservesystem)
                         .addGap(18, 18, 18)
                         .addComponent(p2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(37, 37, 37)
-                        .addComponent(btnsearch, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(127, Short.MAX_VALUE))
+                        .addGap(43, 43, 43)
+                        .addComponent(btnsearch, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(p1Layout.createSequentialGroup()
+                        .addGap(55, 55, 55)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 573, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(75, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -310,6 +310,7 @@ public class UserCheckAvailability extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnsearch;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JLabel lblcampusevent;
@@ -317,7 +318,6 @@ public class UserCheckAvailability extends javax.swing.JFrame {
     private javax.swing.JLabel lblreservesystem;
     private javax.swing.JLabel lblsearch;
     private javax.swing.JLabel lblvenue;
-    private javax.swing.JLabel nulogo;
     private javax.swing.JPanel p1;
     private javax.swing.JPanel p2;
     private javax.swing.JLabel searchsymbol;

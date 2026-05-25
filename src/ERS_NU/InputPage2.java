@@ -62,7 +62,7 @@ public class InputPage2 extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Serif", 0, 60)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Reservation");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(47, 29, 324, 84));
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, 324, 84));
 
         btnReturn.setBackground(new java.awt.Color(255, 222, 89));
         btnReturn.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
@@ -70,15 +70,15 @@ public class InputPage2 extends javax.swing.JFrame {
         btnReturn.setText("RETURN");
         btnReturn.setContentAreaFilled(false);
         btnReturn.addActionListener(this::btnReturnActionPerformed);
-        jPanel2.add(btnReturn, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 470, 350, 60));
+        jPanel2.add(btnReturn, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, 20, 320, 60));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/buldgo.png"))); // NOI18N
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 190, 347, 259));
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 260, 347, 259));
 
         jLabel3.setFont(new java.awt.Font("Serif", 0, 60)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Form");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(66, 119, 159, 84));
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 180, 159, 84));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setOpaque(false);
@@ -98,6 +98,7 @@ public class InputPage2 extends javax.swing.JFrame {
         jcbVenue.setForeground(new java.awt.Color(31, 40, 108));
         jcbVenue.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Function Hall", "Gym", "3rd Floor", "AVR Room" }));
         jcbVenue.setSelectedIndex(-1);
+        jcbVenue.addActionListener(this::jcbVenueActionPerformed);
         VenuePanel.add(jcbVenue, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 290, 40));
 
         jcbSmonth.setForeground(new java.awt.Color(31, 40, 108));
@@ -226,7 +227,7 @@ public class InputPage2 extends javax.swing.JFrame {
         jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 30, 530, 510));
 
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/figma_pics/350 70 rectangle with curved sides.png"))); // NOI18N
-        jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 450, 370, 100));
+        jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, 170, 60));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1074, 587));
 
@@ -302,6 +303,10 @@ public class InputPage2 extends javax.swing.JFrame {
     private void jcbEmonthActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbEmonthActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jcbEmonthActionPerformed
+
+    private void jcbVenueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbVenueActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jcbVenueActionPerformed
 
     /**
      * @param args the command line arguments

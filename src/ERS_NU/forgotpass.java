@@ -46,12 +46,12 @@ public class forgotpass extends javax.swing.JFrame {
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/#1f286c.png"))); // NOI18N
         jPanel1.add(jLabel4);
-        jLabel4.setBounds(140, 120, 200, 210);
+        jLabel4.setBounds(150, 240, 200, 210);
 
         jButton3.setBackground(new java.awt.Color(255, 222, 89));
         jButton3.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/48 px.png"))); // NOI18N
-        jButton3.setText("   BACK");
+        jButton3.setText("RETURN");
         jButton3.setBorder(null);
         jButton3.setContentAreaFilled(false);
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -60,13 +60,13 @@ public class forgotpass extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton3);
-        jButton3.setBounds(50, 600, 350, 70);
+        jButton3.setBounds(30, 20, 250, 70);
 
         jLabel3.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 222, 89));
         jLabel3.setText("RESERVATION SYSTEM");
         jPanel1.add(jLabel3);
-        jLabel3.setBounds(110, 340, 280, 100);
+        jLabel3.setBounds(110, 480, 280, 100);
 
         jPanel2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jPanel2.setOpaque(false);
@@ -171,12 +171,12 @@ public class forgotpass extends javax.swing.JFrame {
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
         jLabel13.setText("CAMPUS EVENT ");
         jPanel1.add(jLabel13);
-        jLabel13.setBounds(60, 320, 390, 50);
+        jLabel13.setBounds(60, 460, 390, 50);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/figma_pics/350 70 rectangle with curved sides.png"))); // NOI18N
         jLabel1.setToolTipText("");
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(50, 590, 410, 90);
+        jLabel1.setBounds(70, 20, 180, 70);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

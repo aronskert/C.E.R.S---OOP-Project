@@ -119,13 +119,13 @@ public class ContactInfo extends javax.swing.JFrame {
                 btnnextActionPerformed(evt);
             }
         });
-        p2.add(btnnext, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 460, 420, 60));
+        p2.add(btnnext, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 470, 420, 60));
 
-        p1.add(p2, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 110, 440, 530));
+        p1.add(p2, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 80, 440, 530));
 
         bulldog.setBackground(new java.awt.Color(0, 0, 102));
         bulldog.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/buldgo.png"))); // NOI18N
-        p1.add(bulldog, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 253, 351, -1));
+        p1.add(bulldog, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, 351, 320));
 
         lbl2.setFont(new java.awt.Font("Serif", 0, 64)); // NOI18N
         lbl2.setForeground(new java.awt.Color(255, 255, 255));
@@ -144,13 +144,13 @@ public class ContactInfo extends javax.swing.JFrame {
                 btnlogoutActionPerformed(evt);
             }
         });
-        p1.add(btnlogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 620, 350, 70));
+        p1.add(btnlogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 560, 350, 70));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/figma_pics/500 560 rectangle with button forgot password.png"))); // NOI18N
-        p1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 90, 530, 570));
+        p1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 70, 530, 570));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/figma_pics/350 70 rectangle with curved sides.png"))); // NOI18N
-        p1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 620, -1, -1));
+        p1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 560, -1, -1));
 
         getContentPane().add(p1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
