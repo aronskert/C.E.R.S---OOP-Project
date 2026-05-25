@@ -3,6 +3,12 @@
 package ERS_NU;
 
 import javax.swing.JOptionPane;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import javax.swing.JOptionPane;
 
 public class Employee extends javax.swing.JFrame {
     
@@ -140,26 +146,44 @@ public class Employee extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        String EmployeeID = txtEmpoyeeID.getText();
-        String NPassword = txtNPassword.getText();
-        String Email = txtEmail.getText();
+        String employee_id = txtEmpoyeeID.getText();
+        String password = txtNPassword.getText();
+        String email = txtEmail.getText();
         
-        if (EmployeeID.isEmpty() || NPassword.isEmpty() || Email.isEmpty()) {
+        if (employee_id.isEmpty() || password.isEmpty() || email.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Error: Please fill in all fields before updating.", "Input Error", JOptionPane.ERROR_MESSAGE); 
-    } else {
-            
-                JOptionPane.showMessageDialog(this, "The inputed data: \n" +
-                        "EmployeeID: " + EmployeeID +
-                        "\n New Password: " + NPassword +
-                       "\n Email: " + Email 
-                        );
-                        
+            } else {
 
-                LOGIN login = new LOGIN();
-                login.setVisible(true);
-                this.dispose();
+            try (Connection conn = DBConnection.getConnection()) { 
+
+                String sql = "INSERT INTO employee_accounts "
+                        + "(employee_id, password, email) "
+                        + "VALUES (?, ?, ?)";
+
+                PreparedStatement grr = conn.prepareStatement(sql); 
+
+                grr.setString(1, employee_id);
+                grr.setString(2, password);
+                grr.setString(3, email);
+
+                int rowsInserted = grr.executeUpdate();
+
+                if (rowsInserted > 0) {
+
+                    JOptionPane.showMessageDialog(this,
+                            "Employee Registered Successfully!");
+
+                    LOGIN login = new LOGIN();
+                    login.setVisible(true);
+                    this.dispose();
                 }
-              
+
+            } catch (Exception e) {
+
+                JOptionPane.showMessageDialog(this,
+                        "Database Error: " + e.getMessage());
+            }
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void txtEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailActionPerformed

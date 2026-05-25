@@ -1,5 +1,11 @@
 
 package ERS_NU;
+    
+import javax.swing.JOptionPane;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class LOGIN extends javax.swing.JFrame {
     
@@ -210,26 +216,38 @@ public class LOGIN extends javax.swing.JFrame {
 
     private void btnSubAndConActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubAndConActionPerformed
         // TODO add your handling code here:
-    String username = txtemployee.getText();
+    String employeeid = txtemployee.getText();
     String password = txtpassword.getText();
     //make sure that user can't submit if there is no input
-    if(username.trim().isEmpty() || password.trim().isEmpty()) {
-        javax.swing.JOptionPane.showMessageDialog(this, 
-        "Please enter Employee and Password.", 
-        "Login Error.",javax.swing.JOptionPane.ERROR_MESSAGE);
-    }
-    //lalagay me specific account for employee
-    else if (username.equals("ANCIRO123")&& password.equals("123")) {
-       javax.swing.JOptionPane.showMessageDialog(this, "LOGIN SUCCESSFULLY!");
        
-        ContactInfo ConInfo = new ContactInfo(); 
-        ConInfo.setVisible(true);
-        this.dispose();
-    }
-    
-    else {
-        javax.swing.JOptionPane.showMessageDialog(this, "INVALID INPUT!");
-    }
+        try (Connection conn = DBConnection.getConnection();
+        PreparedStatement brr = conn.prepareStatement(
+        "SELECT * FROM employee_accounts WHERE employee_id = ? AND password = ?")) {
+        brr.setString(1, employeeid);
+        brr.setString(2, password);
+        ResultSet rs = brr.executeQuery();
+         
+        if (employeeid.trim().isEmpty() || 
+            password.trim().isEmpty() || 
+            !rs.next()) {
+            
+            JOptionPane.showMessageDialog(
+            this,
+            "Invalid Employee ID or Password!",
+            "Login Error",
+            JOptionPane.ERROR_MESSAGE);
+            
+        }else{
+            
+            ContactInfo ConInfo = new ContactInfo();
+            ConInfo.setVisible(true);
+            this.dispose();
+        }
+        
+    } catch (SQLException e) {
+    JOptionPane.showMessageDialog(this, "Database error: " + e.getMessage());
+        }   
+        
     }//GEN-LAST:event_btnSubAndConActionPerformed
 
     private void btnFPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFPActionPerformed
