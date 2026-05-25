@@ -6,6 +6,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+//tessttttt
+
 
 public class LOGIN extends javax.swing.JFrame {
     
@@ -250,7 +252,8 @@ public class LOGIN extends javax.swing.JFrame {
             
             ContactInfo ConInfo = new ContactInfo();
             ConInfo.setVisible(true);
-            this.dispose();
+            this.dispose(); 
+            
         }
         
     } catch (SQLException e) {
