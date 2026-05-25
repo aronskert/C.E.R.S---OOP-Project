@@ -9,11 +9,11 @@ import javax.swing.table.DefaultTableModel;
 
 public class Database extends javax.swing.JFrame { 
         
-private void loadTable() {
+private void reservation_data() {
     try { 
-        Connection con = DBConnection.getConnection();
+        Connection con = DBConnection1.getConnection();
 
-        String sql = "SELECT * FROM reservations";
+        String sql = "SELECT * FROM reservation_data";
         PreparedStatement pst = con.prepareStatement(sql);
         ResultSet rs = pst.executeQuery();
 
@@ -23,12 +23,16 @@ private void loadTable() {
 
         while (rs.next()) {
             model.addRow(new Object[]{
-                rs.getString(2), 
-                rs.getString(3), 
-                rs.getString(4), 
-                rs.getString(5), 
-                rs.getString(6), 
-                rs.getString(7)  
+                rs.getString("Event_id"), 
+                rs.getString("student_name"), 
+                rs.getString("student_id"), 
+                rs.getString("Student_number"), 
+                rs.getString("Student_Email"), 
+                rs.getString("Employee_ID"), 
+                rs.getString("venue"),
+                rs.getString("Start"),
+                rs.getString("End"),
+                rs.getString("event_type"),
             });
         }
 
@@ -45,7 +49,7 @@ private void loadTable() {
 
     public Database() {
         initComponents();
-        loadTable();
+        reservation_data();
     }
 
     /**
@@ -58,7 +62,6 @@ private void loadTable() {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        btnexit = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -79,7 +82,9 @@ private void loadTable() {
         btnedit = new javax.swing.JButton();
         btndelete = new javax.swing.JButton();
         btnsearch = new javax.swing.JButton();
+        jButtonBack = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -89,47 +94,38 @@ private void loadTable() {
         jPanel1.setPreferredSize(new java.awt.Dimension(1000, 750));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnexit.setBackground(new java.awt.Color(255, 222, 89));
-        btnexit.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
-        btnexit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/48 px.png"))); // NOI18N
-        btnexit.setText("RETURN");
-        btnexit.setToolTipText("");
-        btnexit.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnexitActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnexit, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 650, 180, 60));
-
         jPanel2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, "", null, null, null, null},
-                {null, null, null, null, "", null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+                {null, "", null, null, null, null, null, null, null, null},
+                {null, null, null, null, "", null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Student/org name", "Student ID", "Venue", "Start ", "End", "Event Type"
+                "Event Code", "Student Name", "Student ID", "Student Num", "Student Email", "Venue", "Start", "End", "Event Type", "Employee id"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class
+                java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class
             };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
             }
         });
+        jTable1.setToolTipText("");
         jScrollPane1.setViewportView(jTable1);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 564, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 612, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -147,7 +143,7 @@ private void loadTable() {
         jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 18, 190, 50));
 
         jLabel2.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
-        jLabel2.setText("Student/Org name");
+        jLabel2.setText("Event Code");
         jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, -1, -1));
 
         txtName.setFont(new java.awt.Font("Serif", 0, 14)); // NOI18N
@@ -199,7 +195,7 @@ private void loadTable() {
         txtEventType.setToolTipText("");
         jPanel3.add(txtEventType, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 510, 250, 40));
 
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 280, 560));
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 280, 560));
 
         btnedit.setBackground(new java.awt.Color(255, 222, 89));
         btnedit.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
@@ -210,7 +206,7 @@ private void loadTable() {
                 btneditActionPerformed(evt);
             }
         });
-        jPanel1.add(btnedit, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 650, 180, 60));
+        jPanel1.add(btnedit, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 650, 180, 60));
 
         btndelete.setBackground(new java.awt.Color(255, 222, 89));
         btndelete.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
@@ -221,7 +217,7 @@ private void loadTable() {
                 btndeleteActionPerformed(evt);
             }
         });
-        jPanel1.add(btndelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 650, 180, 60));
+        jPanel1.add(btndelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 650, 180, 60));
 
         btnsearch.setBackground(new java.awt.Color(255, 222, 89));
         btnsearch.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
@@ -232,10 +228,26 @@ private void loadTable() {
                 btnsearchActionPerformed(evt);
             }
         });
-        jPanel1.add(btnsearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 650, 180, 60));
+        jPanel1.add(btnsearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 640, 180, 60));
+
+        jButtonBack.setBackground(new java.awt.Color(255, 222, 89));
+        jButtonBack.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
+        jButtonBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/48 px.png"))); // NOI18N
+        jButtonBack.setText("RETURN");
+        jButtonBack.setBorder(null);
+        jButtonBack.setContentAreaFilled(false);
+        jButtonBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonBackActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButtonBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 32, 220, 60));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/figma_pics/295 590 manage system rectangle.png"))); // NOI18N
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, -1, -1));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, -1, -1));
+
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/figma_pics/2nd biggest 231 70 btn.png"))); // NOI18N
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 220, 80));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, 1010, 740));
 
@@ -243,93 +255,110 @@ private void loadTable() {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnexitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnexitActionPerformed
-
-                ContactInfo Dash = new ContactInfo();
-                 Dash.setVisible(true);
-                 this.dispose();
-
-
-        
-                    
-                    
-    }//GEN-LAST:event_btnexitActionPerformed
-
     private void btneditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneditActionPerformed
-        String name = txtName.getText(); 
-        String studentid = txtStudentID.getText(); 
-        String venue = txtVenue.getText(); 
-        String start = txtStart.getText();
-        String end = txtEnd.getText();
-        String eventtype =txtEventType.getText();
+        String name = txtName.getText().trim(); 
+    String studentid = txtStudentID.getText().trim(); 
+    String venue = txtVenue.getText().trim(); 
+    String start = txtStart.getText().trim();
+    String end = txtEnd.getText().trim();
+    String eventtype = txtEventType.getText().trim();
+    
+    if (studentid.isEmpty())  {
+        javax.swing.JOptionPane.showMessageDialog(this, "Student ID is required to find the record you want to edit!");
+        return;
+    } 
+    
+    try {
+        Connection con = DBConnection1.getConnection();
+        // Uses Student ID to safely target the correct row
+        String sql = "UPDATE reservations SET student_name=?, venue=?, Start=?, End=?, event_type=? WHERE student_id=?";
+        PreparedStatement pst = con.prepareStatement(sql);
         
+        pst.setString(1, name);
+        pst.setString(2, venue);
+        pst.setString(3, start);
+        pst.setString(4, end);
+        pst.setString(5, eventtype);
+        pst.setString(6, studentid); 
         
-        if (name.trim().isEmpty() && studentid.trim().isEmpty() &&  venue.trim().isEmpty() &&  start.trim().isEmpty() &&  end.trim().isEmpty() &&  eventtype.trim().isEmpty() )  {
-                 javax.swing.JOptionPane.showMessageDialog(this, "Please fill in any fields!");
-            } else {
-                 // FIX: Pass the EXISTING storageWindow to Step 1
-                  javax.swing.JOptionPane.showMessageDialog(this, "Your input has been Edited: \n" +
-                          "name: " + name + "\n" + 
-                         "studentid: " + studentid + "\n" + 
-                         "venue " + venue + "\n" + 
-                         "start: " + start + "\n" + 
-                         "end " + end + "\n" + 
-                         "eventtype" + eventtype + "\n" 
-                         );
-            }// TODO add your handling code here:
+        pst.executeUpdate();
+        con.close();
+        
+        javax.swing.JOptionPane.showMessageDialog(this, "Reservation Successfully Updated!");
+        reservation_data(); // Instantly refresh the table
+        
+    } catch (Exception e) {
+        javax.swing.JOptionPane.showMessageDialog(this, "Edit Error: " + e.getMessage());
+    }
     }//GEN-LAST:event_btneditActionPerformed
 
     private void btndeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndeleteActionPerformed
-    String name = txtName.getText(); 
-    String studentid = txtStudentID.getText(); 
-     String venue = txtVenue.getText(); 
-     String start = txtStart.getText();
-     String end = txtEnd.getText();
-     String eventtype =txtEventType.getText();
-        
-        
-        if (name.trim().isEmpty() && studentid.trim().isEmpty() &&  venue.trim().isEmpty() &&  start.trim().isEmpty() &&  end.trim().isEmpty() &&  eventtype.trim().isEmpty() )  {
-                 javax.swing.JOptionPane.showMessageDialog(this, "Please fill in any fields!");
-            } else {
-                 // FIX: Pass the EXISTING storageWindow to Step 1
-                  javax.swing.JOptionPane.showMessageDialog(this, "Your input has been Edited: \n" +
-                          "name: " + name + "\n" + 
-                         "studentid: " + studentid + "\n" + 
-                         "venue " + venue + "\n" + 
-                         "start: " + start + "\n" + 
-                         "end " + end + "\n" + 
-                         "eventtype" + eventtype + "\n" 
-                         );
+    String studentid = txtStudentID.getText().trim();
+    if (studentid.isEmpty())  {
+        javax.swing.JOptionPane.showMessageDialog(this, "Please enter a Student ID to delete!");
+        return;
+    } 
+    int confirm = javax.swing.JOptionPane.showConfirmDialog(this, "Are you sure you want to delete this reservation?", "Confirm Delete", javax.swing.JOptionPane.YES_NO_OPTION);
+    
+    if (confirm == javax.swing.JOptionPane.YES_OPTION) {
+        try {
+            Connection con = DBConnection1.getConnection();
+            String sql = "DELETE FROM reservations WHERE student_id = ?";
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1, studentid);
+            pst.executeUpdate();
+            con.close();
+            javax.swing.JOptionPane.showMessageDialog(this, "Reservation Deleted Successfully!");
+            reservation_data(); // Instantly refresh the table
+            
+        } catch (Exception e) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Delete Error: " + e.getMessage());
         }
+    }
+
     }//GEN-LAST:event_btndeleteActionPerformed
 
     private void btnsearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsearchActionPerformed
-    String name = txtName.getText(); 
-    String studentid = txtStudentID.getText(); 
-     String venue = txtVenue.getText(); 
-     String start = txtStart.getText();
-     String end = txtEnd.getText();
-     String eventtype =txtEventType.getText();
+    String studentid = txtStudentID.getText().trim();
+    
+    if (studentid.isEmpty())  {
+        javax.swing.JOptionPane.showMessageDialog(this, "Please enter a Student ID to search!");
+        return;
+    } 
+    
+    try {
+        Connection con = DBConnection1.getConnection();
+        String sql = "SELECT * FROM reservations WHERE student_id = ?";
+        PreparedStatement pst = con.prepareStatement(sql);
+        pst.setString(1, studentid);
+        ResultSet rs = pst.executeQuery();
         
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        model.setRowCount(0); 
         
-        if (name.trim().isEmpty() && studentid.trim().isEmpty() &&  venue.trim().isEmpty() &&  start.trim().isEmpty() &&  end.trim().isEmpty() &&  eventtype.trim().isEmpty() )  {
-                 javax.swing.JOptionPane.showMessageDialog(this, "Please fill in any fields!");
-            } else {
-            // FIX: Pass the EXISTING storageWindow to Step 1
-                  javax.swing.JOptionPane.showMessageDialog(this, "Your input has been Edited: \n" +
-                          "name: " + name + "\n" + 
-                         "studentid: " + studentid + "\n" + 
-                         "venue " + venue + "\n" + 
-                         "start: " + start + "\n" + 
-                         "end " + end + "\n" + 
-                         "eventtype" + eventtype + "\n" 
-                         );
-        }     
+        while (rs.next()) {
+            model.addRow(new Object[]{
+                rs.getString("Event_id"), rs.getString("student_name"), rs.getString("student_id"),
+                rs.getString("Student_number"), rs.getString("Student_Email"), rs.getString("venue"),
+                rs.getString("Start"), rs.getString("End"), rs.getString("event_type"), rs.getString("Employee_ID")  
+            });
+        }
+        con.close();
+    } catch (Exception e) {
+        javax.swing.JOptionPane.showMessageDialog(this, "Search Error: " + e.getMessage());
+    }     
+
     }//GEN-LAST:event_btnsearchActionPerformed
 
     private void txtNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNameActionPerformed
+
+    private void jButtonBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBackActionPerformed
+        Dashboard Db = new Dashboard();
+        Db.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButtonBackActionPerformed
 
     /**
      * @param args the command line arguments
@@ -359,8 +388,8 @@ private void loadTable() {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btndelete;
     private javax.swing.JButton btnedit;
-    private javax.swing.JButton btnexit;
     private javax.swing.JButton btnsearch;
+    private javax.swing.JButton jButtonBack;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -369,6 +398,7 @@ private void loadTable() {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

@@ -62,7 +62,7 @@ public class forgotpass extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton3);
-        jButton3.setBounds(30, 20, 250, 70);
+        jButton3.setBounds(30, 30, 230, 70);
 
         jLabel3.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 222, 89));
@@ -175,10 +175,10 @@ public class forgotpass extends javax.swing.JFrame {
         jPanel1.add(jLabel13);
         jLabel13.setBounds(60, 460, 390, 50);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/figma_pics/350 70 rectangle with curved sides.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/figma_pics/2nd biggest 231 70 btn.png"))); // NOI18N
         jLabel1.setToolTipText("");
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(70, 20, 180, 70);
+        jLabel1.setBounds(30, 20, 240, 90);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

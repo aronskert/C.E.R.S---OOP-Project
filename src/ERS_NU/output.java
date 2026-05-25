@@ -4,7 +4,20 @@ public class output extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(output.class.getName());
 
-
+    public output(String eventCode, String studentId, String studentEmail, String studentNumber, String employeeId, String venue, String startToEnd) {
+        initComponents();
+        
+        // IMPORTANT: Change "lblStudentId", etc., to the exact variable names 
+        // of those gray text boxes/labels on your output design!
+        txtstudentid.setText(studentId);
+        txtstudentemail.setText(studentEmail);
+        txtstudentnum.setText(studentNumber);
+        txtemployeeid.setText(employeeId);
+        txtvenue.setText(venue);
+        txtstartend.setText(startToEnd);
+        txteventid.setText(eventCode);
+    }
+    
     public output() {
         initComponents();
     }
@@ -28,15 +41,19 @@ public class output extends javax.swing.JFrame {
         jLabelVnue = new javax.swing.JLabel();
         jLabeldate = new javax.swing.JLabel();
         jLabelCode = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
+        txtstudentid = new javax.swing.JTextField();
+        txtvenue = new javax.swing.JTextField();
+        txtemployeeid = new javax.swing.JTextField();
+        txteventid = new javax.swing.JTextField();
+        txtstartend = new javax.swing.JTextField();
+        jLabelVnue1 = new javax.swing.JLabel();
+        jLabelVnue2 = new javax.swing.JLabel();
+        txtstudentemail = new javax.swing.JTextField();
+        txtstudentnum = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
         jButtonLogout = new javax.swing.JButton();
         jButtonBack = new javax.swing.JButton();
         jButtonConfirm = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -55,65 +72,88 @@ public class output extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabelRecpt.setBackground(new java.awt.Color(31, 40, 108));
-        jLabelRecpt.setFont(new java.awt.Font("Lucida Fax", 1, 36)); // NOI18N
+        jLabelRecpt.setFont(new java.awt.Font("Lucida Fax", 1, 24)); // NOI18N
         jLabelRecpt.setForeground(new java.awt.Color(31, 40, 108));
         jLabelRecpt.setText("RESERVATION RECEIPT ");
-        jPanel1.add(jLabelRecpt, new org.netbeans.lib.awtextra.AbsoluteConstraints(58, 29, 465, 31));
+        jPanel1.add(jLabelRecpt, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 10, 465, 31));
 
         jSeparator1.setBackground(new java.awt.Color(0, 0, 0));
         jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
-        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 78, 498, 31));
+        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 498, 31));
 
         jLabelNme.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
         jLabelNme.setForeground(new java.awt.Color(31, 40, 108));
-        jLabelNme.setText("Full Name            ");
-        jPanel1.add(jLabelNme, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 100, 199, -1));
+        jLabelNme.setText("Student ID");
+        jPanel1.add(jLabelNme, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 100, 199, -1));
 
         jLabelStud.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
         jLabelStud.setForeground(new java.awt.Color(31, 40, 108));
-        jLabelStud.setText("Student ID     ");
-        jPanel1.add(jLabelStud, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, 199, -1));
+        jLabelStud.setText("Employee ID");
+        jPanel1.add(jLabelStud, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 320, 199, -1));
 
         jLabelVnue.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
         jLabelVnue.setForeground(new java.awt.Color(31, 40, 108));
-        jLabelVnue.setText("Venue        ");
-        jPanel1.add(jLabelVnue, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 240, 199, -1));
+        jLabelVnue.setText("Student Number");
+        jPanel1.add(jLabelVnue, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, 199, -1));
 
         jLabeldate.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
         jLabeldate.setForeground(new java.awt.Color(31, 40, 108));
-        jLabeldate.setText("Date and Time      ");
-        jPanel1.add(jLabeldate, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 320, -1, -1));
+        jLabeldate.setText("Start to End");
+        jPanel1.add(jLabeldate, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 470, -1, -1));
 
         jLabelCode.setFont(new java.awt.Font("Serif", 1, 24)); // NOI18N
         jLabelCode.setForeground(new java.awt.Color(31, 40, 108));
         jLabelCode.setText("Event Code: ");
-        jPanel1.add(jLabelCode, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 390, 142, -1));
+        jPanel1.add(jLabelCode, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 540, 142, -1));
 
-        jTextField1.setEditable(false);
-        jTextField1.setEnabled(false);
-        jTextField1.addActionListener(this::jTextField1ActionPerformed);
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 100, 223, 30));
+        txtstudentid.setEditable(false);
+        txtstudentid.setEnabled(false);
+        txtstudentid.addActionListener(this::txtstudentidActionPerformed);
+        jPanel1.add(txtstudentid, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 100, 223, 30));
 
-        jTextField2.setEditable(false);
-        jTextField2.setEnabled(false);
-        jTextField2.addActionListener(this::jTextField2ActionPerformed);
-        jPanel1.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 250, 223, 30));
+        txtvenue.setEditable(false);
+        txtvenue.setEnabled(false);
+        txtvenue.addActionListener(this::txtvenueActionPerformed);
+        jPanel1.add(txtvenue, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 400, 223, 30));
 
-        jTextField3.setEditable(false);
-        jTextField3.setEnabled(false);
-        jTextField3.addActionListener(this::jTextField3ActionPerformed);
-        jPanel1.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 170, 223, 30));
+        txtemployeeid.setEditable(false);
+        txtemployeeid.setEnabled(false);
+        txtemployeeid.addActionListener(this::txtemployeeidActionPerformed);
+        jPanel1.add(txtemployeeid, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 320, 223, 30));
 
-        jTextField4.setEnabled(false);
-        jTextField4.addActionListener(this::jTextField4ActionPerformed);
-        jPanel1.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 390, 223, 30));
+        txteventid.setEnabled(false);
+        txteventid.addActionListener(this::txteventidActionPerformed);
+        jPanel1.add(txteventid, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 540, 223, 30));
 
-        jTextField6.setEditable(false);
-        jTextField6.setEnabled(false);
-        jTextField6.addActionListener(this::jTextField6ActionPerformed);
-        jPanel1.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 320, 223, 30));
+        txtstartend.setEditable(false);
+        txtstartend.setEnabled(false);
+        txtstartend.addActionListener(this::txtstartendActionPerformed);
+        jPanel1.add(txtstartend, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 470, 223, 30));
 
-        jPanel2.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 190, 550, 520));
+        jLabelVnue1.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
+        jLabelVnue1.setForeground(new java.awt.Color(31, 40, 108));
+        jLabelVnue1.setText("Venue        ");
+        jPanel1.add(jLabelVnue1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 400, 199, -1));
+
+        jLabelVnue2.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
+        jLabelVnue2.setForeground(new java.awt.Color(31, 40, 108));
+        jLabelVnue2.setText("Student Email");
+        jPanel1.add(jLabelVnue2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, 199, -1));
+
+        txtstudentemail.setEditable(false);
+        txtstudentemail.setEnabled(false);
+        txtstudentemail.addActionListener(this::txtstudentemailActionPerformed);
+        jPanel1.add(txtstudentemail, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 170, 223, 30));
+
+        txtstudentnum.setEditable(false);
+        txtstudentnum.setEnabled(false);
+        txtstudentnum.addActionListener(this::txtstudentnumActionPerformed);
+        jPanel1.add(txtstudentnum, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 250, 223, 30));
+
+        jPanel2.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 50, 570, 660));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/figma_pics/receipt 6 - 568 681.png"))); // NOI18N
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 30, -1, -1));
 
         jButtonLogout.setBackground(new java.awt.Color(255, 222, 89));
         jButtonLogout.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
@@ -122,7 +162,7 @@ public class output extends javax.swing.JFrame {
         jButtonLogout.setBorder(null);
         jButtonLogout.setContentAreaFilled(false);
         jButtonLogout.addActionListener(this::jButtonLogoutActionPerformed);
-        jPanel2.add(jButtonLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 640, 170, 70));
+        jPanel2.add(jButtonLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 590, 170, 120));
 
         jButtonBack.setBackground(new java.awt.Color(255, 222, 89));
         jButtonBack.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
@@ -131,7 +171,7 @@ public class output extends javax.swing.JFrame {
         jButtonBack.setBorder(null);
         jButtonBack.setContentAreaFilled(false);
         jButtonBack.addActionListener(this::jButtonBackActionPerformed);
-        jPanel2.add(jButtonBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, 170, 40));
+        jPanel2.add(jButtonBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 170, 40));
 
         jButtonConfirm.setBackground(new java.awt.Color(255, 222, 89));
         jButtonConfirm.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
@@ -140,19 +180,16 @@ public class output extends javax.swing.JFrame {
         jButtonConfirm.setBorder(null);
         jButtonConfirm.setContentAreaFilled(false);
         jButtonConfirm.addActionListener(this::jButtonConfirmActionPerformed);
-        jPanel2.add(jButtonConfirm, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 550, 170, 70));
+        jPanel2.add(jButtonConfirm, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 500, 170, 120));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/figma_pics/Receipt 568 703.png"))); // NOI18N
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, -10, -1, -1));
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/figma_pics/2nd biggest 231 70 btn.png"))); // NOI18N
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, 20, 210, 60));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/figma_pics/170 70 rectangle half of the long button.png"))); // NOI18N
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, 170, 60));
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/figma_pics/2nd biggest 231 70 btn.png"))); // NOI18N
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 490, 240, 140));
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/figma_pics/170 70 rectangle half of the long button.png"))); // NOI18N
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 540, 240, 90));
-
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/figma_pics/170 70 rectangle half of the long button.png"))); // NOI18N
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 640, -1, -1));
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/figma_pics/2nd biggest 231 70 btn.png"))); // NOI18N
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 590, -1, 120));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -171,29 +208,29 @@ public class output extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void txtvenueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtvenueActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_txtvenueActionPerformed
 
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+    private void txtemployeeidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtemployeeidActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
+    }//GEN-LAST:event_txtemployeeidActionPerformed
 
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+    private void txteventidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txteventidActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4ActionPerformed
+    }//GEN-LAST:event_txteventidActionPerformed
 
     private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField5ActionPerformed
 
-    private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
+    private void txtstartendActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtstartendActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField6ActionPerformed
+    }//GEN-LAST:event_txtstartendActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void txtstudentidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtstudentidActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_txtstudentidActionPerformed
 
     private void jButtonConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConfirmActionPerformed
         Database data = new Database();
@@ -214,6 +251,14 @@ public class output extends javax.swing.JFrame {
         Input.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButtonBackActionPerformed
+
+    private void txtstudentemailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtstudentemailActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtstudentemailActionPerformed
+
+    private void txtstudentnumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtstudentnumActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtstudentnumActionPerformed
 
     /**
      * @param args the command line arguments
@@ -253,15 +298,19 @@ public class output extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelRecpt;
     private javax.swing.JLabel jLabelStud;
     private javax.swing.JLabel jLabelVnue;
+    private javax.swing.JLabel jLabelVnue1;
+    private javax.swing.JLabel jLabelVnue2;
     private javax.swing.JLabel jLabeldate;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
+    private javax.swing.JTextField txtemployeeid;
+    private javax.swing.JTextField txteventid;
+    private javax.swing.JTextField txtstartend;
+    private javax.swing.JTextField txtstudentemail;
+    private javax.swing.JTextField txtstudentid;
+    private javax.swing.JTextField txtstudentnum;
+    private javax.swing.JTextField txtvenue;
     // End of variables declaration//GEN-END:variables
 }
