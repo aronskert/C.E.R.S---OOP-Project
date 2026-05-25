@@ -3,6 +3,8 @@ package ERS_NU;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
+//testesttesttest
+
 public class UserCheckAvailability extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(UserCheckAvailability.class.getName());
