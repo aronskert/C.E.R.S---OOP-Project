@@ -1,9 +1,21 @@
 package ERS_NU;
 
 import javax.swing.JOptionPane;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+
+import javax.swing.JOptionPane;
 
 public class ContactInfo extends javax.swing.JFrame {
     
+    private String name;
+    private String studentid;
+    private String phone;
+    private String email;
+   
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(ContactInfo.class.getName());
 
     /**
@@ -188,28 +200,35 @@ public class ContactInfo extends javax.swing.JFrame {
 
     private void btnnextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnnextActionPerformed
         // TODO add your handling code here:
-        String name = txtname.getText();
-        String studentid = txtstudentidno.getText();
-        String phone = txtphoneno.getText();
-        String email = txtemail.getText();
-        
-        if(name.trim().isEmpty() || studentid.trim().isEmpty() || phone.trim().isEmpty() || email.trim().isEmpty()) {
-        javax.swing.JOptionPane.showMessageDialog(this, 
-        "There is no inputed data.", 
-        "Login Error.",javax.swing.JOptionPane.ERROR_MESSAGE);
-    }   else {
-        
-            JOptionPane.showMessageDialog(this,
-            " Name: " + name +   
-            " Student ID: " + studentid +
-            " Phone: " + phone +
-            " Email: " + email);
-            
-        InputPage2 Reserve = new InputPage2();
-        Reserve.setVisible(true);   
+    String name = txtname.getText();
+    String studentid = txtstudentidno.getText();
+    String phone = txtphoneno.getText();
+    String email = txtemail.getText();
+
+    if(name.trim().isEmpty() || 
+       studentid.trim().isEmpty() || 
+       phone.trim().isEmpty() || 
+       email.trim().isEmpty()) {
+
+        javax.swing.JOptionPane.showMessageDialog(this,
+        "There is no inputed data.",
+        "Login Error.",
+        javax.swing.JOptionPane.ERROR_MESSAGE);
+
+    } else {
+
+        // ipapasa yung contact info sa InputPage2
+        InputPage2 Reserve = new InputPage2(
+                name,
+                studentid,
+                phone,
+                email
+        );
+
+        Reserve.setVisible(true);
+
         this.dispose();
         }
-        
     }//GEN-LAST:event_btnnextActionPerformed
 
     /**

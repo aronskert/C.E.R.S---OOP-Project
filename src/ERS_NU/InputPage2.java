@@ -1,13 +1,40 @@
 
 
 package ERS_NU;
+
+import javax.swing.JOptionPane;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+
 public class InputPage2 extends javax.swing.JFrame {
+    
+    // variables galing sa ContactInfo
+    private String name;
+    private String studentid;
+    private String phone;
+    private String email;
+    private String employeeid;
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(InputPage2.class.getName());
 
 
     public InputPage2() {
         initComponents();
+        
+    }
+        
+        public InputPage2(String name, String studentid, String phone, String email) {
+
+            initComponents();
+        
+            // save sa variables
+            this.name = name;
+            this.studentid = studentid;
+            this.phone = phone;
+            this.email = email;
     }
 
 
@@ -273,11 +300,57 @@ public class InputPage2 extends javax.swing.JFrame {
         "Input Error", 
         javax.swing.JOptionPane.ERROR_MESSAGE);
         
-} else {    
-        output out = new output();
-        out.setVisible(true);
-        this.dispose();
+        }else{    
+
+    try (Connection conn = DBConnection1.getConnection()) {
+
+        String start = startMonth + " " + startDay + ", " + startYear
+                + " " + startHr + ":" + startMin + " " + startAmPm;
+
+        String end = endMonth + " " + endDay + ", " + endYear
+                + " " + endHr + ":" + endMin + " " + endAmPm;
+
+        String query = "INSERT INTO reservation_data "
+                + "(student_name, student_id, student_number, student_email, "
+                + "venue, start, end, event_type, employee_id) "
+                + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
+        PreparedStatement pst = conn.prepareStatement(query);
+
+        // galing ContactInfo
+        pst.setString(1, name);
+        pst.setString(2, studentid);
+        pst.setString(3, phone);
+        pst.setString(4, email);
+
+        // galing InputPage2
+        pst.setString(5, venue);
+        pst.setString(6, start);
+        pst.setString(7, end);
+        pst.setString(8, eventType);
+        pst.setInt(9, 1);
+        
+        int rowsInserted = pst.executeUpdate();
+
+        if (rowsInserted > 0) {
+
+            JOptionPane.showMessageDialog(this,
+                    "Reservation Saved Successfully!");
+
+            output out = new output();
+            out.setVisible(true);
+
+            this.dispose();
         }
+
+    } catch (Exception e) {
+
+        JOptionPane.showMessageDialog(this,
+                "Database Error: " + e.getMessage(),
+                "Error",
+                JOptionPane.ERROR_MESSAGE);
+        }
+    }
     }//GEN-LAST:event_btnSubmitActionPerformed
 
     private void jcbEhourActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbEhourActionPerformed
