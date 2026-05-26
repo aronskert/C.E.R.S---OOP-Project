@@ -41,7 +41,7 @@ public class Dashboard extends javax.swing.JFrame {
         setResizable(false);
 
         jPanel1.setPreferredSize(new java.awt.Dimension(1000, 750));
-        jPanel1.setLayout(null);
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnregister.setBackground(new java.awt.Color(255, 222, 89));
         btnregister.setFont(new java.awt.Font("Serif", 0, 36)); // NOI18N
@@ -54,8 +54,7 @@ public class Dashboard extends javax.swing.JFrame {
                 btnregisterActionPerformed(evt);
             }
         });
-        jPanel1.add(btnregister);
-        btnregister.setBounds(40, 580, 300, 60);
+        jPanel1.add(btnregister, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 340, 330, 60));
 
         btnmanage.setBackground(new java.awt.Color(255, 222, 89));
         btnmanage.setFont(new java.awt.Font("Serif", 0, 36)); // NOI18N
@@ -68,8 +67,7 @@ public class Dashboard extends javax.swing.JFrame {
                 btnmanageActionPerformed(evt);
             }
         });
-        jPanel1.add(btnmanage);
-        btnmanage.setBounds(350, 580, 350, 60);
+        jPanel1.add(btnmanage, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 430, 330, 50));
 
         btnlogin.setBackground(new java.awt.Color(255, 222, 89));
         btnlogin.setFont(new java.awt.Font("Serif", 0, 36)); // NOI18N
@@ -82,56 +80,46 @@ public class Dashboard extends javax.swing.JFrame {
                 btnloginActionPerformed(evt);
             }
         });
-        jPanel1.add(btnlogin);
-        btnlogin.setBounds(710, 580, 270, 60);
+        jPanel1.add(btnlogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 510, 340, 60));
 
         bgMD.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/figma_pics/350 70 rectangle with curved sides.png"))); // NOI18N
-        jPanel1.add(bgMD);
-        bgMD.setBounds(60, 580, 280, 60);
+        jPanel1.add(bgMD, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 330, 360, 80));
 
         bgMD1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/figma_pics/350 70 rectangle with curved sides.png"))); // NOI18N
-        jPanel1.add(bgMD1);
-        bgMD1.setBounds(710, 580, 270, 60);
+        jPanel1.add(bgMD1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 500, 360, 80));
 
         bgMD2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/figma_pics/350 70 rectangle with curved sides.png"))); // NOI18N
-        jPanel1.add(bgMD2);
-        bgMD2.setBounds(360, 580, 340, 60);
+        jPanel1.add(bgMD2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 410, 370, 90));
 
         jLabel7.setFont(new java.awt.Font("Serif", 0, 20)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("A Reservation System that allows admin to efficiently");
-        jPanel1.add(jLabel7);
-        jLabel7.setBounds(90, 210, 460, 40);
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 210, 460, 40));
 
         jLabel1.setFont(new java.awt.Font("Serif", 0, 20)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("National University - Dasmarinas.");
-        jPanel1.add(jLabel1);
-        jLabel1.setBounds(90, 250, 320, 40);
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 250, 320, 40));
 
         jLabel3.setFont(new java.awt.Font("Serif", 0, 60)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 222, 89));
         jLabel3.setText("Campus Event");
-        jPanel1.add(jLabel3);
-        jLabel3.setBounds(80, 60, 440, 100);
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 60, 440, 100));
 
         jLabel4.setFont(new java.awt.Font("Serif", 0, 48)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 222, 89));
         jLabel4.setText("Reservation System");
-        jPanel1.add(jLabel4);
-        jLabel4.setBounds(100, 130, 400, 80);
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 130, 400, 80));
 
         jLabel5.setFont(new java.awt.Font("Serif", 0, 20)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("manage and organize campus events and place within");
-        jPanel1.add(jLabel5);
-        jLabel5.setBounds(90, 230, 440, 40);
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 230, 440, 40));
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/Untitled design.png"))); // NOI18N
         jLabel8.setText("jLabel8");
         jLabel8.setPreferredSize(new java.awt.Dimension(1000, 750));
-        jPanel1.add(jLabel8);
-        jLabel8.setBounds(20, 0, 1000, 760);
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1020, 770));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -151,7 +139,6 @@ public class Dashboard extends javax.swing.JFrame {
     private void btnmanageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmanageActionPerformed
         Database data = new Database();
         data.setVisible(true);
-        this.dispose();
     
     }//GEN-LAST:event_btnmanageActionPerformed
 

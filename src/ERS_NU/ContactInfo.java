@@ -1,9 +1,21 @@
 package ERS_NU;
 
 import javax.swing.JOptionPane;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+
+import javax.swing.JOptionPane;
 
 public class ContactInfo extends javax.swing.JFrame {
     
+    private String name;
+    private String studentid;
+    private String phone;
+    private String email;
+   
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(ContactInfo.class.getName());
 
     /**
@@ -23,6 +35,7 @@ public class ContactInfo extends javax.swing.JFrame {
     private void initComponents() {
 
         p1 = new javax.swing.JPanel();
+        btncheckevents = new javax.swing.JButton();
         lbl1 = new javax.swing.JLabel();
         p2 = new javax.swing.JPanel();
         lblname = new javax.swing.JLabel();
@@ -39,6 +52,7 @@ public class ContactInfo extends javax.swing.JFrame {
         btnlogout = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -49,10 +63,21 @@ public class ContactInfo extends javax.swing.JFrame {
         p1.setPreferredSize(new java.awt.Dimension(1000, 750));
         p1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        btncheckevents.setBackground(new java.awt.Color(255, 222, 89));
+        btncheckevents.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
+        btncheckevents.setText("CHECK AVAILABLE EVENTS");
+        btncheckevents.setBorder(null);
+        btncheckevents.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btncheckeventsActionPerformed(evt);
+            }
+        });
+        p1.add(btncheckevents, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 460, -1, 70));
+
         lbl1.setFont(new java.awt.Font("Serif", 0, 64)); // NOI18N
         lbl1.setForeground(new java.awt.Color(255, 255, 255));
         lbl1.setText("Contact");
-        p1.add(lbl1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, -1, 67));
+        p1.add(lbl1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, -1, 67));
 
         p2.setOpaque(false);
         p2.setPreferredSize(new java.awt.Dimension(400, 450));
@@ -125,12 +150,12 @@ public class ContactInfo extends javax.swing.JFrame {
 
         bulldog.setBackground(new java.awt.Color(0, 0, 102));
         bulldog.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/buldgo.png"))); // NOI18N
-        p1.add(bulldog, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, 351, 320));
+        p1.add(bulldog, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 351, 290));
 
         lbl2.setFont(new java.awt.Font("Serif", 0, 64)); // NOI18N
         lbl2.setForeground(new java.awt.Color(255, 255, 255));
         lbl2.setText("Information");
-        p1.add(lbl2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, -1, 58));
+        p1.add(lbl2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, -1, 58));
 
         btnlogout.setBackground(new java.awt.Color(255, 222, 89));
         btnlogout.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
@@ -144,13 +169,16 @@ public class ContactInfo extends javax.swing.JFrame {
                 btnlogoutActionPerformed(evt);
             }
         });
-        p1.add(btnlogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 560, 350, 70));
+        p1.add(btnlogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 560, 350, 70));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/figma_pics/500 560 rectangle with button forgot password.png"))); // NOI18N
         p1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 70, 530, 570));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/figma_pics/350 70 rectangle with curved sides.png"))); // NOI18N
         p1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 560, -1, -1));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/figma_pics/350 70 rectangle with curved sides.png"))); // NOI18N
+        p1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 460, -1, -1));
 
         getContentPane().add(p1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
@@ -188,29 +216,43 @@ public class ContactInfo extends javax.swing.JFrame {
 
     private void btnnextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnnextActionPerformed
         // TODO add your handling code here:
-        String name = txtname.getText();
-        String studentid = txtstudentidno.getText();
-        String phone = txtphoneno.getText();
-        String email = txtemail.getText();
-        
-        if(name.trim().isEmpty() || studentid.trim().isEmpty() || phone.trim().isEmpty() || email.trim().isEmpty()) {
-        javax.swing.JOptionPane.showMessageDialog(this, 
-        "There is no inputed data.", 
-        "Login Error.",javax.swing.JOptionPane.ERROR_MESSAGE);
-    }   else {
-        
-            JOptionPane.showMessageDialog(this,
-            " Name: " + name +   
-            " Student ID: " + studentid +
-            " Phone: " + phone +
-            " Email: " + email);
-            
-        InputPage2 Reserve = new InputPage2();
-        Reserve.setVisible(true);   
+    String name = txtname.getText();
+    String studentid = txtstudentidno.getText();
+    String phone = txtphoneno.getText();
+    String email = txtemail.getText();
+
+    if(name.trim().isEmpty() || 
+       studentid.trim().isEmpty() || 
+       phone.trim().isEmpty() || 
+       email.trim().isEmpty()) {
+
+        javax.swing.JOptionPane.showMessageDialog(this,
+        "There is no inputed data.",
+        "Login Error.",
+        javax.swing.JOptionPane.ERROR_MESSAGE);
+
+    } else {
+
+        // ipapasa yung contact info sa InputPage2
+        InputPage2 Reserve = new InputPage2(
+                name,
+                studentid,
+                phone,
+                email
+        );
+
+        Reserve.setVisible(true);
+
         this.dispose();
         }
-        
     }//GEN-LAST:event_btnnextActionPerformed
+
+    private void btncheckeventsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncheckeventsActionPerformed
+        // TODO add your handling code here:
+     UserCheckAvailability UCA = new UserCheckAvailability();
+     UCA.setVisible(true);
+     this.dispose();
+    }//GEN-LAST:event_btncheckeventsActionPerformed
 
     /**
      * @param args the command line arguments
@@ -238,10 +280,12 @@ public class ContactInfo extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btncheckevents;
     private javax.swing.JButton btnlogout;
     private javax.swing.JButton btnnext;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel lbl1;
     private javax.swing.JLabel lbl2;
     private javax.swing.JLabel lblemail;

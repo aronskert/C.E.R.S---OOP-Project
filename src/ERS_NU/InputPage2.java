@@ -1,13 +1,41 @@
 
 
 package ERS_NU;
+
+import javax.swing.JOptionPane;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+
+
 public class InputPage2 extends javax.swing.JFrame {
+    
+    // variables galing sa ContactInfo
+    private String name;
+    private String studentid;
+    private String phone;
+    private String email;
+    private String employeeid;
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(InputPage2.class.getName());
 
 
     public InputPage2() {
         initComponents();
+        
+    }
+        
+        public InputPage2(String name, String studentid, String phone, String email) {
+
+            initComponents();
+        
+            // save sa variables
+            this.name = name;
+            this.studentid = studentid;
+            this.phone = phone;
+            this.email = email;
     }
 
 
@@ -50,6 +78,7 @@ public class InputPage2 extends javax.swing.JFrame {
         jLabel13 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1000, 750));
         setResizable(false);
         setSize(new java.awt.Dimension(1000, 750));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -62,7 +91,7 @@ public class InputPage2 extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Serif", 0, 60)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Reservation");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, 324, 84));
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 324, 84));
 
         btnReturn.setBackground(new java.awt.Color(255, 222, 89));
         btnReturn.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
@@ -70,15 +99,15 @@ public class InputPage2 extends javax.swing.JFrame {
         btnReturn.setText("RETURN");
         btnReturn.setContentAreaFilled(false);
         btnReturn.addActionListener(this::btnReturnActionPerformed);
-        jPanel2.add(btnReturn, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, 20, 320, 60));
+        jPanel2.add(btnReturn, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 230, 60));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/buldgo.png"))); // NOI18N
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 260, 347, 259));
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, 347, 259));
 
         jLabel3.setFont(new java.awt.Font("Serif", 0, 60)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Form");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 180, 159, 84));
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, 159, 84));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setOpaque(false);
@@ -221,15 +250,15 @@ public class InputPage2 extends javax.swing.JFrame {
         btnSubmit.addActionListener(this::btnSubmitActionPerformed);
         jPanel1.add(btnSubmit, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 400, 450, 60));
 
-        jPanel2.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 50, -1, -1));
+        jPanel2.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 150, -1, -1));
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/figma_pics/this is it.png"))); // NOI18N
-        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 30, 530, 510));
+        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 130, 530, 510));
 
-        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/figma_pics/350 70 rectangle with curved sides.png"))); // NOI18N
-        jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, 170, 60));
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/figma_pics/2nd biggest 231 70 btn.png"))); // NOI18N
+        jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 260, 80));
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1074, 587));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1074, 760));
 
         pack();
         setLocationRelativeTo(null);
@@ -273,10 +302,61 @@ public class InputPage2 extends javax.swing.JFrame {
         "Input Error", 
         javax.swing.JOptionPane.ERROR_MESSAGE);
         
-} else {    
-        output out = new output();
+        }else{    
+
+   try {
+
+    String rawStart = startMonth + " " + startDay + " " + startYear + " " + startHr + ":" + startMin + " " + startAmPm;
+    String rawEnd = endMonth + " " + endDay + " " + endYear + " " + endHr + ":" + endMin + " " + endAmPm;
+
+    SimpleDateFormat formatter = new SimpleDateFormat("MMMM dd yyyy hh:mm a");
+    java.util.Date parsedStart = formatter.parse(rawStart);
+    java.sql.Timestamp sqlStart = new java.sql.Timestamp(parsedStart.getTime());
+    
+    java.util.Date parsedEnd = formatter.parse(rawEnd);
+    java.sql.Timestamp sqlEnd = new java.sql.Timestamp(parsedEnd.getTime());
+
+    Connection conn = DBConnection1.getConnection(); 
+
+    String query = "INSERT INTO reservation_data (student_name, student_id, Student_number, Student_Email, venue, Start, End, event_type, Employee_ID) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    PreparedStatement pst = conn.prepareStatement(query, java.sql.Statement.RETURN_GENERATED_KEYS);
+
+
+    pst.setString(1, this.name);         // student_name
+    pst.setString(2, this.studentid);    //  student_id
+    pst.setString(3, this.phone);        //  Student_number
+    pst.setString(4, this.email);        //  Student_Email
+    pst.setString(5, venue);             //  venue
+    pst.setTimestamp(6, sqlStart);       //  Start
+    pst.setTimestamp(7, sqlEnd);         //  End
+    pst.setString(8, eventType);         //  event_type
+    pst.setString(9, LOGIN.loggedInEmpID); // Employee_ID
+
+    int rowsInserted = pst.executeUpdate();
+
+    if (rowsInserted > 0) {
+        ResultSet rsKeys = pst.getGeneratedKeys();
+        String newEventCode = "N/A";
+        if (rsKeys.next()) {
+            newEventCode = rsKeys.getString(1); 
+        }
+
+        JOptionPane.showMessageDialog(this, "Reservation Saved Successfully!");
+        
+        String receiptDates = startMonth + " " + startDay + ", " + startYear + " @ " + startHr + ":" + startMin + " " + startAmPm + " TO " + endMonth + " " + endDay + ", " + endYear + " @ " + endHr + ":" + endMin + " " + endAmPm;
+
+        output out = new output(newEventCode, this.studentid, this.email, this.phone, LOGIN.loggedInEmpID, venue, receiptDates);
         out.setVisible(true);
+
         this.dispose();
+    }
+    
+    pst.close();
+    conn.close();
+
+} catch (Exception e) {
+    JOptionPane.showMessageDialog(this, "Database Error: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+}
         }
     }//GEN-LAST:event_btnSubmitActionPerformed
 

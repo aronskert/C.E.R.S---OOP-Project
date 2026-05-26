@@ -263,19 +263,19 @@
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="40" y="30" width="180" height="60"/>
+              <AbsoluteConstraints x="50" y="40" width="230" height="70"/>
             </Constraint>
           </Constraints>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel9">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/e/r/s/nu/Pictures and icons/figma_pics/350 70 rectangle with curved sides.png"/>
+              <Image iconType="3" name="/e/r/s/nu/Pictures and icons/figma_pics/2nd biggest 231 70 btn.png"/>
             </Property>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="50" y="30" width="170" height="60"/>
+              <AbsoluteConstraints x="50" y="30" width="250" height="90"/>
             </Constraint>
           </Constraints>
         </Component>

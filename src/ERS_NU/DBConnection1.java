@@ -10,8 +10,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 
-public class DBConnection {
-    private static final String URL = "jdbc:mysql://localhost:3306/employee1";
+public class DBConnection1 {
+    private static final String URL = "jdbc:mysql://localhost:3306/storage";
     private static final String USER = "root";
     private static final String PASSWORD = "";
 
@@ -24,3 +24,4 @@ public class DBConnection {
         }
     }
 }
+
