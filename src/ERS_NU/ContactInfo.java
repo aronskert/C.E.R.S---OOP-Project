@@ -65,14 +65,17 @@ public class ContactInfo extends javax.swing.JFrame {
 
         btncheckevents.setBackground(new java.awt.Color(255, 222, 89));
         btncheckevents.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
+        btncheckevents.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/logout 48 px.png"))); // NOI18N
         btncheckevents.setText("CHECK AVAILABLE EVENTS");
         btncheckevents.setBorder(null);
+        btncheckevents.setContentAreaFilled(false);
+        btncheckevents.setPreferredSize(new java.awt.Dimension(170, 55));
         btncheckevents.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btncheckeventsActionPerformed(evt);
             }
         });
-        p1.add(btncheckevents, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 460, -1, 70));
+        p1.add(btncheckevents, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 460, 350, 70));
 
         lbl1.setFont(new java.awt.Font("Serif", 0, 64)); // NOI18N
         lbl1.setForeground(new java.awt.Color(255, 255, 255));
@@ -249,7 +252,7 @@ public class ContactInfo extends javax.swing.JFrame {
 
     private void btncheckeventsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncheckeventsActionPerformed
         // TODO add your handling code here:
-     UserCheckAvailability UCA = new UserCheckAvailability();
+      UserCheckAvailability UCA = new UserCheckAvailability();
      UCA.setVisible(true);
      this.dispose();
     }//GEN-LAST:event_btncheckeventsActionPerformed
