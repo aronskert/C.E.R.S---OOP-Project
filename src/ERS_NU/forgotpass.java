@@ -31,10 +31,12 @@ public class forgotpass extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         txtEmpoyeeID = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
-        txtNPassword = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
+        btnChangePass = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
         txtEmail = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
+        txtNPasswordC = new javax.swing.JPasswordField();
+        txtNPassword = new javax.swing.JPasswordField();
         jLabel2 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
@@ -87,23 +89,17 @@ public class forgotpass extends javax.swing.JFrame {
             }
         });
 
-        jLabel10.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(31, 40, 108));
         jLabel10.setText("New Password");
 
-        txtNPassword.addActionListener(new java.awt.event.ActionListener() {
+        btnChangePass.setBackground(new java.awt.Color(255, 222, 89));
+        btnChangePass.setFont(new java.awt.Font("Serif", 0, 36)); // NOI18N
+        btnChangePass.setText("Change Password");
+        btnChangePass.setContentAreaFilled(false);
+        btnChangePass.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNPasswordActionPerformed(evt);
-            }
-        });
-
-        jButton2.setBackground(new java.awt.Color(255, 222, 89));
-        jButton2.setFont(new java.awt.Font("Serif", 0, 36)); // NOI18N
-        jButton2.setText("Change Password");
-        jButton2.setContentAreaFilled(false);
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnChangePassActionPerformed(evt);
             }
         });
 
@@ -117,28 +113,40 @@ public class forgotpass extends javax.swing.JFrame {
             }
         });
 
+        jLabel12.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(31, 40, 108));
+        jLabel12.setText("Confirm Password");
+
+        txtNPasswordC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNPasswordCActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 418, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(0, 17, Short.MAX_VALUE)
                 .addComponent(jLabel11)
                 .addContainerGap(399, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(12, 12, 12)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel12)
                     .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 427, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtNPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 427, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtEmpoyeeID, javax.swing.GroupLayout.PREFERRED_SIZE, 431, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtEmpoyeeID, javax.swing.GroupLayout.DEFAULT_SIZE, 431, Short.MAX_VALUE)
                     .addComponent(jLabel10)
-                    .addComponent(jLabel9))
+                    .addComponent(jLabel9)
+                    .addComponent(txtNPassword)
+                    .addComponent(txtNPasswordC))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnChangePass, javax.swing.GroupLayout.PREFERRED_SIZE, 418, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -149,21 +157,24 @@ public class forgotpass extends javax.swing.JFrame {
                 .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtEmpoyeeID, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtNPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtNPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtNPasswordC, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(23, 23, 23)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
+                .addComponent(btnChangePass, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         jPanel1.add(jPanel2);
-        jPanel2.setBounds(480, 140, 470, 550);
+        jPanel2.setBounds(470, 110, 470, 550);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/figma_pics/500 560 rectangle with button forgot password.png"))); // NOI18N
         jPanel1.add(jLabel2);
@@ -212,17 +223,32 @@ public class forgotpass extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtEmpoyeeIDActionPerformed
 
-    private void txtNPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNPasswordActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNPasswordActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btnChangePassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChangePassActionPerformed
         String EmployeeID = txtEmpoyeeID.getText();
         String NPassword = txtNPassword.getText();
         String Email = txtEmail.getText();
+        String confirmPassword = new String (txtNPasswordC.getPassword()); 
         
-        if (EmployeeID.isEmpty() || NPassword.isEmpty() || Email.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Error: Please fill in all fields before updating.", "Input Error", JOptionPane.ERROR_MESSAGE); 
+        
+       if (!NPassword.equals(confirmPassword)) { 
+           javax.swing.JOptionPane.showMessageDialog(this, 
+                   "Password do not match",
+                   "Password mismatch", 
+                   javax.swing.JOptionPane.ERROR_MESSAGE); 
+       }        
+       if (NPassword.length() < 8 ) { 
+           javax.swing.JOptionPane.showMessageDialog(this,
+                   "Registration failed: Password must be at least 8 characters long!", 
+                   "Weak Password",
+                   javax.swing.JOptionPane.ERROR_MESSAGE);
+       }
+       
+        
+     if (EmployeeID.isEmpty() || NPassword.isEmpty() || Email.isEmpty()) {
+            JOptionPane.showMessageDialog(this, 
+                    "Error: Please fill in all fields before updating.", 
+                    "Input Error", 
+                    JOptionPane.ERROR_MESSAGE); 
     } else {
             
             //connection sa database
@@ -284,11 +310,15 @@ public class forgotpass extends javax.swing.JFrame {
         
             }           
         }
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btnChangePassActionPerformed
 
     private void txtEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtEmailActionPerformed
+
+    private void txtNPasswordCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNPasswordCActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNPasswordCActionPerformed
 
     /**
      * @param args the command line arguments
@@ -316,11 +346,12 @@ public class forgotpass extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton btnChangePass;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -331,7 +362,8 @@ public class forgotpass extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtEmpoyeeID;
-    private javax.swing.JTextField txtNPassword;
+    private javax.swing.JPasswordField txtNPassword;
+    private javax.swing.JPasswordField txtNPasswordC;
     // End of variables declaration//GEN-END:variables
 }
 
