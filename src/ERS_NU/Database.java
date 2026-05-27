@@ -231,9 +231,9 @@ public void reservation_data() {
         jPanel1.add(btnsearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 650, 180, 60));
 
         jButtonBack.setBackground(new java.awt.Color(255, 222, 89));
-        jButtonBack.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
-        jButtonBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/48 px.png"))); // NOI18N
-        jButtonBack.setText("RETURN");
+        jButtonBack.setFont(new java.awt.Font("Serif", 0, 20)); // NOI18N
+        jButtonBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/32 32 return png.png"))); // NOI18N
+        jButtonBack.setText("Return");
         jButtonBack.setBorder(null);
         jButtonBack.setContentAreaFilled(false);
         jButtonBack.addActionListener(new java.awt.event.ActionListener() {
@@ -241,13 +241,13 @@ public void reservation_data() {
                 jButtonBackActionPerformed(evt);
             }
         });
-        jPanel1.add(jButtonBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 32, 220, 60));
+        jPanel1.add(jButtonBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 40, 150, 40));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/figma_pics/295 590 manage system rectangle.png"))); // NOI18N
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, -1, -1));
 
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/figma_pics/2nd biggest 231 70 btn.png"))); // NOI18N
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 220, 80));
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/figma_pics/150 51 for return button.png"))); // NOI18N
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, 220, 80));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, 1010, 740));
 

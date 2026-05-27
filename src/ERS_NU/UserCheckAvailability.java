@@ -213,9 +213,9 @@ public class UserCheckAvailability extends javax.swing.JFrame {
         p1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 50, 596, 620));
 
         btnreturn.setBackground(new java.awt.Color(255, 222, 89));
-        btnreturn.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
+        btnreturn.setFont(new java.awt.Font("Serif", 0, 20)); // NOI18N
         btnreturn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/32 32 return png.png"))); // NOI18N
-        btnreturn.setText("RETURN");
+        btnreturn.setText("Return");
         btnreturn.setBorder(null);
         btnreturn.setBorderPainted(false);
         btnreturn.setContentAreaFilled(false);
@@ -224,10 +224,10 @@ public class UserCheckAvailability extends javax.swing.JFrame {
                 btnreturnActionPerformed(evt);
             }
         });
-        p1.add(btnreturn, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 150, 60));
+        p1.add(btnreturn, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, 150, 60));
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/figma_pics/150 51 for return button.png"))); // NOI18N
-        p1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 190, 60));
+        p1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, 190, 60));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -254,90 +254,6 @@ public class UserCheckAvailability extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtendActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtendActionPerformed
-        // TODO add your handling code here:
-
-    }//GEN-LAST:event_txtendActionPerformed
-
-    private void txtvenueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtvenueActionPerformed
-        // TODO add your handling code here:
-
-    }//GEN-LAST:event_txtvenueActionPerformed
-
-    private void btnsearch1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsearch1ActionPerformed
-
-    String searchStart = txtstart.getText().trim();
-    String searchEnd = txtend.getText().trim();
-    String searchVenue = txtvenue.getText().trim();
-
-    // DATE FORMAT VALIDATION
-    SimpleDateFormat sdf = new SimpleDateFormat("dd/MMM/yyyy - HH:mm");
-    sdf.setLenient(false);
-
-    try {
-        // validate only if textbox is not empty
-        if (!searchStart.isEmpty()) {
-            sdf.parse(searchStart);
-        }
-        if (!searchEnd.isEmpty()) {
-            sdf.parse(searchEnd);
-        }
-    } catch (Exception e) {
-        JOptionPane.showMessageDialog(
-            this,
-            "Invalid date and time format!\n\nUse this format:\n(dd/MMM/yyyy - HH:mm)\n\nExample:\n27/May/2026 - 14:30"
-        );
-        return;
-    }
-    try {
-        Connection con = DBConnection1.getConnection();
-        String sql = "SELECT start, end, venue FROM reservation_data "
-                   + "WHERE start LIKE ? AND end LIKE ? AND venue LIKE ?";
-        PreparedStatement pst = con.prepareStatement(sql);
-        pst.setString(1, "%" + searchStart + "%");
-        pst.setString(2, "%" + searchEnd + "%");
-        pst.setString(3, "%" + searchVenue + "%");
-        ResultSet rs = pst.executeQuery();
-        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-        model.setRowCount(0);
-        
-        boolean found = false;
-
-        while (rs.next()) {
-
-            found = true;
-
-            model.addRow(new Object[]{
-                rs.getString("start"),
-                rs.getString("end"),
-                rs.getString("venue")
-            });
-        }
-
-        if (!found) {
-
-            JOptionPane.showMessageDialog(
-                this,
-                "No events found for this date and venue!"
-            );
-        }
-        rs.close();
-        pst.close();
-        con.close();
-
-    } catch (SQLException e) {
-
-        JOptionPane.showMessageDialog(
-            this,
-            "Search Error: " + e.getMessage()
-        );
-    }   
-    }//GEN-LAST:event_btnsearch1ActionPerformed
-
-    private void txtstartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtstartActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtstartActionPerformed
-
     private void btnreturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnreturnActionPerformed
         // TODO add your handling code here:
         ContactInfo fp = new ContactInfo();
@@ -347,12 +263,94 @@ public class UserCheckAvailability extends javax.swing.JFrame {
 
     private void btnclearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnclearActionPerformed
         // TODO add your handling code here:
-          txtstart.setText("");
-    txtend.setText("");
-    txtvenue.setText("");
+        txtstart.setText("");
+        txtend.setText("");
+        txtvenue.setText("");
 
-    reservation_data();
+        reservation_data();
     }//GEN-LAST:event_btnclearActionPerformed
+
+    private void txtstartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtstartActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtstartActionPerformed
+
+    private void btnsearch1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsearch1ActionPerformed
+
+        String searchStart = txtstart.getText().trim();
+        String searchEnd = txtend.getText().trim();
+        String searchVenue = txtvenue.getText().trim();
+
+        // DATE FORMAT VALIDATION
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MMM/yyyy - HH:mm");
+        sdf.setLenient(false);
+
+        try {
+            // validate only if textbox is not empty
+            if (!searchStart.isEmpty()) {
+                sdf.parse(searchStart);
+            }
+            if (!searchEnd.isEmpty()) {
+                sdf.parse(searchEnd);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(
+                this,
+                "Invalid date and time format!\n\nUse this format:\n(dd/MMM/yyyy - HH:mm)\n\nExample:\n27/May/2026 - 14:30"
+            );
+            return;
+        }
+        try {
+            Connection con = DBConnection1.getConnection();
+            String sql = "SELECT start, end, venue FROM reservation_data "
+            + "WHERE start LIKE ? AND end LIKE ? AND venue LIKE ?";
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1, "%" + searchStart + "%");
+            pst.setString(2, "%" + searchEnd + "%");
+            pst.setString(3, "%" + searchVenue + "%");
+            ResultSet rs = pst.executeQuery();
+            DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+            model.setRowCount(0);
+
+            boolean found = false;
+
+            while (rs.next()) {
+
+                found = true;
+
+                model.addRow(new Object[]{
+                    rs.getString("start"),
+                    rs.getString("end"),
+                    rs.getString("venue")
+                });
+            }
+
+            if (!found) {
+
+                JOptionPane.showMessageDialog(
+                    this,
+                    "No events found for this date and venue!"
+                );
+            }
+            rs.close();
+            pst.close();
+            con.close();
+
+        } catch (SQLException e) {
+
+            JOptionPane.showMessageDialog(
+                this,
+                "Search Error: " + e.getMessage()
+            );
+        }
+    }//GEN-LAST:event_btnsearch1ActionPerformed
+
+    private void txtvenueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtvenueActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtvenueActionPerformed
+
+    private void txtendActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtendActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtendActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

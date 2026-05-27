@@ -53,9 +53,9 @@ public class forgotpass extends javax.swing.JFrame {
         jLabel4.setBounds(150, 240, 200, 210);
 
         jButton3.setBackground(new java.awt.Color(255, 222, 89));
-        jButton3.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/48 px.png"))); // NOI18N
-        jButton3.setText("RETURN");
+        jButton3.setFont(new java.awt.Font("Serif", 0, 20)); // NOI18N
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/32 32 return png.png"))); // NOI18N
+        jButton3.setText("Return");
         jButton3.setBorder(null);
         jButton3.setContentAreaFilled(false);
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -64,7 +64,7 @@ public class forgotpass extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton3);
-        jButton3.setBounds(30, 30, 230, 70);
+        jButton3.setBounds(60, 20, 140, 50);
 
         jLabel3.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 222, 89));
@@ -196,10 +196,10 @@ public class forgotpass extends javax.swing.JFrame {
         jPanel1.add(jLabel13);
         jLabel13.setBounds(60, 460, 390, 50);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/figma_pics/2nd biggest 231 70 btn.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/figma_pics/150 51 for return button.png"))); // NOI18N
         jLabel1.setToolTipText("");
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(30, 20, 240, 90);
+        jLabel1.setBounds(60, 0, 240, 90);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

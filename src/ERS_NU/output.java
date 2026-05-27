@@ -164,13 +164,13 @@ public class output extends javax.swing.JFrame {
         jPanel2.add(jButtonLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 590, 170, 120));
 
         jButtonBack.setBackground(new java.awt.Color(255, 222, 89));
-        jButtonBack.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
-        jButtonBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/48 px.png"))); // NOI18N
-        jButtonBack.setText("RETURN");
+        jButtonBack.setFont(new java.awt.Font("Serif", 0, 20)); // NOI18N
+        jButtonBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/32 32 return png.png"))); // NOI18N
+        jButtonBack.setText("Return");
         jButtonBack.setBorder(null);
         jButtonBack.setContentAreaFilled(false);
         jButtonBack.addActionListener(this::jButtonBackActionPerformed);
-        jPanel2.add(jButtonBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 170, 40));
+        jPanel2.add(jButtonBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 150, 40));
 
         jButtonConfirm.setBackground(new java.awt.Color(255, 222, 89));
         jButtonConfirm.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
@@ -181,8 +181,8 @@ public class output extends javax.swing.JFrame {
         jButtonConfirm.addActionListener(this::jButtonConfirmActionPerformed);
         jPanel2.add(jButtonConfirm, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 500, 170, 120));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/figma_pics/2nd biggest 231 70 btn.png"))); // NOI18N
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, 20, 210, 60));
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/figma_pics/150 51 for return button.png"))); // NOI18N
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 150, 60));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/figma_pics/2nd biggest 231 70 btn.png"))); // NOI18N
         jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 490, 240, 140));
