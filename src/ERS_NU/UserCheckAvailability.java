@@ -1,10 +1,12 @@
 package ERS_NU;
 
 import javax.swing.JOptionPane;
+import java.text.SimpleDateFormat;
 import javax.swing.table.DefaultTableModel;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class UserCheckAvailability extends javax.swing.JFrame {
     
@@ -12,25 +14,25 @@ public class UserCheckAvailability extends javax.swing.JFrame {
     
     private void reservation_data() {
    try {
-            Connection con = DBConnection1.getConnection();
-            String sql = "SELECT start, end, venue FROM reservation_data";
-            PreparedStatement pst = con.prepareStatement(sql);
-            ResultSet rs = pst.executeQuery();
-
+       try (Connection con = DBConnection1.getConnection()) {
+           String sql = "SELECT start, end, venue FROM reservation_data";
+           PreparedStatement pst = con.prepareStatement(sql);
+           ResultSet rs = pst.executeQuery();
+           
            DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-            model.setRowCount(0); 
-
-            while (rs.next()) {
-                model.addRow(new Object[]{
-                    rs.getString("start"),
-                    rs.getString("end"),
-                    rs.getString("venue")
-                });
-            }
-            
-            rs.close();
-            pst.close();
-            con.close();
+           model.setRowCount(0);
+           
+           while (rs.next()) {
+               model.addRow(new Object[]{
+                   rs.getString("start"),
+                   rs.getString("end"),
+                   rs.getString("venue")
+               });
+           }
+           
+           rs.close();
+           pst.close();
+       }
             
         } catch (Exception e) {
             javax.swing.JOptionPane.showMessageDialog(this, "Error loading availability: " + e.getMessage());
@@ -61,6 +63,7 @@ public class UserCheckAvailability extends javax.swing.JFrame {
         btnsearch1 = new javax.swing.JButton();
         lbldate1 = new javax.swing.JLabel();
         txtstart = new javax.swing.JTextField();
+        btnclear = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         btnreturn = new javax.swing.JButton();
@@ -87,7 +90,7 @@ public class UserCheckAvailability extends javax.swing.JFrame {
         p2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         lblsearch.setFont(new java.awt.Font("Serif", 0, 36)); // NOI18N
-        lblsearch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/search icon 48px.png"))); // NOI18N
+        lblsearch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Searchsymbol.jpg"))); // NOI18N
         lblsearch.setText("Search");
 
         lbldate.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
@@ -130,30 +133,39 @@ public class UserCheckAvailability extends javax.swing.JFrame {
             }
         });
 
+        btnclear.setBackground(new java.awt.Color(255, 222, 89));
+        btnclear.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
+        btnclear.setText("Clear");
+        btnclear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnclearActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout p2Layout = new javax.swing.GroupLayout(p2);
         p2.setLayout(p2Layout);
         p2Layout.setHorizontalGroup(
             p2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(p2Layout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addComponent(btnsearch1, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(p2Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, p2Layout.createSequentialGroup()
                 .addGap(24, 24, 24)
-                .addGroup(p2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtvenue)
-                    .addComponent(txtend)
-                    .addComponent(txtstart)
-                    .addGroup(p2Layout.createSequentialGroup()
-                        .addGroup(p2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(p2Layout.createSequentialGroup()
+                .addGroup(p2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(txtvenue, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtend, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtstart, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, p2Layout.createSequentialGroup()
+                        .addGroup(p2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, p2Layout.createSequentialGroup()
+                                .addComponent(btnsearch1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnclear, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, p2Layout.createSequentialGroup()
                                 .addGap(54, 54, 54)
                                 .addComponent(lblsearch, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(searchsymbol))
-                            .addComponent(lblvenue)
-                            .addComponent(lbldate, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbldate1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lblvenue, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lbldate, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbldate1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(30, 30, 30))
         );
@@ -168,7 +180,7 @@ public class UserCheckAvailability extends javax.swing.JFrame {
                 .addComponent(lbldate1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtstart, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
                 .addComponent(lbldate)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtend, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -177,7 +189,9 @@ public class UserCheckAvailability extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtvenue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btnsearch1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(p2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnclear, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnsearch1, javax.swing.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE))
                 .addGap(27, 27, 27))
         );
 
@@ -200,7 +214,7 @@ public class UserCheckAvailability extends javax.swing.JFrame {
 
         btnreturn.setBackground(new java.awt.Color(255, 222, 89));
         btnreturn.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
-        btnreturn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/48 px.png"))); // NOI18N
+        btnreturn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/694247926_2399001377258314_1896453348637442646_n.png"))); // NOI18N
         btnreturn.setText("RETURN");
         btnreturn.setBorder(null);
         btnreturn.setBorderPainted(false);
@@ -212,7 +226,7 @@ public class UserCheckAvailability extends javax.swing.JFrame {
         });
         p1.add(btnreturn, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, 180, 60));
 
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/figma_pics/350 70 rectangle with curved sides.png"))); // NOI18N
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bg.jpg"))); // NOI18N
         p1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, 170, 60));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -256,40 +270,82 @@ public class UserCheckAvailability extends javax.swing.JFrame {
     String searchEnd = txtend.getText().trim();
     String searchVenue = txtvenue.getText().trim();
 
+    // DATE FORMAT VALIDATION
+    SimpleDateFormat sdf = new SimpleDateFormat("dd/MMM/yyyy - HH:mm");
+    sdf.setLenient(false);
+
     try {
+
+        // validate only if textbox is not empty
+        if (!searchStart.isEmpty()) {
+            sdf.parse(searchStart);
+        }
+
+        if (!searchEnd.isEmpty()) {
+            sdf.parse(searchEnd);
+        }
+
+    } catch (Exception e) {
+
+        JOptionPane.showMessageDialog(
+            this,
+            "Invalid date and time format!\n\nUse this format:\n(dd/MMM/yyyy - HH:mm)\n\nExample:\n27/May/2026 - 14:30"
+        );
+
+        return;
+    }
+
+    try {
+
         Connection con = DBConnection1.getConnection();
-        
 
-        String sql = "SELECT start, end, venue FROM reservations WHERE start LIKE ? AND end LIKE ? AND venue LIKE ?";
+        String sql = "SELECT start, end, venue FROM reservation_data "
+                   + "WHERE start LIKE ? AND end LIKE ? AND venue LIKE ?";
+
         PreparedStatement pst = con.prepareStatement(sql);
-
 
         pst.setString(1, "%" + searchStart + "%");
         pst.setString(2, "%" + searchEnd + "%");
         pst.setString(3, "%" + searchVenue + "%");
 
         ResultSet rs = pst.executeQuery();
-        
-        javax.swing.table.DefaultTableModel model = (javax.swing.table.DefaultTableModel) jTable1.getModel();
+
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         model.setRowCount(0);
 
+        boolean found = false;
+
         while (rs.next()) {
+
+            found = true;
+
             model.addRow(new Object[]{
                 rs.getString("start"),
                 rs.getString("end"),
                 rs.getString("venue")
             });
         }
-        
+
+        // NO MATCH MESSAGE
+        if (!found) {
+
+            JOptionPane.showMessageDialog(
+                this,
+                "No events found for this date and venue!"
+            );
+        }
+
         rs.close();
         pst.close();
         con.close();
-        
-    } catch (Exception e) {
-        javax.swing.JOptionPane.showMessageDialog(this, "Search Error: " + e.getMessage());
-    }
-   
 
+    } catch (SQLException e) {
+
+        JOptionPane.showMessageDialog(
+            this,
+            "Search Error: " + e.getMessage()
+        );
+    }   
     }//GEN-LAST:event_btnsearch1ActionPerformed
 
     private void txtstartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtstartActionPerformed
@@ -302,6 +358,16 @@ public class UserCheckAvailability extends javax.swing.JFrame {
         fp.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnreturnActionPerformed
+
+    private void btnclearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnclearActionPerformed
+        // TODO add your handling code here:
+          txtstart.setText("");
+    txtend.setText("");
+    txtvenue.setText("");
+
+    DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+    model.setRowCount(0);
+    }//GEN-LAST:event_btnclearActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -326,6 +392,7 @@ public class UserCheckAvailability extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnclear;
     private javax.swing.JButton btnreturn;
     private javax.swing.JButton btnsearch1;
     private javax.swing.JLabel jLabel9;
