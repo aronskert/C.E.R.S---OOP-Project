@@ -150,7 +150,7 @@ public class output extends javax.swing.JFrame {
         txtstudentnum.addActionListener(this::txtstudentnumActionPerformed);
         jPanel1.add(txtstudentnum, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 250, 223, 30));
 
-        jPanel2.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 50, 570, 660));
+        jPanel2.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 60, 570, 660));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/figma_pics/receipt 6 - 568 681.png"))); // NOI18N
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 30, -1, -1));

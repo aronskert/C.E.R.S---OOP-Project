@@ -32,12 +32,14 @@ public class Employee extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
+        txtNPassword = new javax.swing.JPasswordField();
+        txtNPasswordC = new javax.swing.JPasswordField();
+        jLabel10 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         txtEmail = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        txtNPassword = new javax.swing.JTextField();
         txtEmpoyeeID = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
@@ -58,6 +60,18 @@ public class Employee extends javax.swing.JFrame {
         jPanel2.setOpaque(false);
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        txtNPassword.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jPanel2.add(txtNPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, 420, 30));
+
+        txtNPasswordC.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        txtNPasswordC.addActionListener(this::txtNPasswordCActionPerformed);
+        jPanel2.add(txtNPasswordC, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, 420, 30));
+
+        jLabel10.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(31, 40, 108));
+        jLabel10.setText("Confirm Password");
+        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 140, -1));
+
         jLabel4.setFont(new java.awt.Font("Serif", 0, 36)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(31, 40, 108));
         jLabel4.setText("Register Employee");
@@ -68,19 +82,21 @@ public class Employee extends javax.swing.JFrame {
         jLabel5.setText("Employee ID");
         jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(29, 106, 140, -1));
 
+        txtEmail.setFont(new java.awt.Font("Serif", 0, 21)); // NOI18N
         txtEmail.addActionListener(this::txtEmailActionPerformed);
-        jPanel2.add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 350, 420, 52));
+        jPanel2.add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 370, 420, 52));
 
         jLabel6.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(31, 40, 108));
         jLabel6.setText("Email");
-        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, 140, -1));
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 340, 140, -1));
 
         jLabel8.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(31, 40, 108));
         jLabel8.setText("Password");
-        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(29, 218, 140, -1));
-        jPanel2.add(txtNPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(29, 249, 420, 52));
+        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, 140, -1));
+
+        txtEmpoyeeID.setFont(new java.awt.Font("Serif", 0, 21)); // NOI18N
         jPanel2.add(txtEmpoyeeID, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 420, 52));
 
         jButton2.setBackground(new java.awt.Color(255, 222, 89));
@@ -151,9 +167,28 @@ public class Employee extends javax.swing.JFrame {
         String employee_id = txtEmpoyeeID.getText();
         String password = txtNPassword.getText();
         String email = txtEmail.getText();
+        String confirmPassword = new String (txtNPasswordC.getPassword()); 
+        
+      if (!password.equals(confirmPassword)) {
+    javax.swing.JOptionPane.showMessageDialog(this, 
+            "Password do not match!", 
+            "Password Mismatch", 
+            javax.swing.JOptionPane.ERROR_MESSAGE);
+    }
+      if (password.length() < 8) {
+        javax.swing.JOptionPane.showMessageDialog(this, 
+                "Registration failed: Password must be at least 8 characters long!", 
+                "Weak Password", 
+                javax.swing.JOptionPane.ERROR_MESSAGE);
+    }
+        
+        
         
         if (employee_id.isEmpty() || password.isEmpty() || email.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Error: Please fill in all fields before updating.", "Input Error", JOptionPane.ERROR_MESSAGE); 
+            JOptionPane.showMessageDialog(this, 
+                    "Error: Please fill in all fields before updating.", 
+                    "Input Error", 
+                    JOptionPane.ERROR_MESSAGE); 
             } else {
 
             try (Connection conn = DBConnection.getConnection()) { 
@@ -192,6 +227,10 @@ public class Employee extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtEmailActionPerformed
 
+    private void txtNPasswordCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNPasswordCActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNPasswordCActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -221,6 +260,7 @@ public class Employee extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -233,6 +273,7 @@ public class Employee extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtEmpoyeeID;
-    private javax.swing.JTextField txtNPassword;
+    private javax.swing.JPasswordField txtNPassword;
+    private javax.swing.JPasswordField txtNPasswordC;
     // End of variables declaration//GEN-END:variables
 }
