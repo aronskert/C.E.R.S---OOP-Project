@@ -91,7 +91,7 @@ public class InputPage2 extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Serif", 0, 60)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Reservation");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 324, 84));
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, 324, 84));
 
         btnReturn.setBackground(new java.awt.Color(255, 222, 89));
         btnReturn.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
@@ -99,15 +99,15 @@ public class InputPage2 extends javax.swing.JFrame {
         btnReturn.setText("RETURN");
         btnReturn.setContentAreaFilled(false);
         btnReturn.addActionListener(this::btnReturnActionPerformed);
-        jPanel2.add(btnReturn, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 230, 60));
+        jPanel2.add(btnReturn, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 230, 100));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/buldgo.png"))); // NOI18N
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, 347, 259));
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 390, 347, 259));
 
         jLabel3.setFont(new java.awt.Font("Serif", 0, 60)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Form");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, 159, 84));
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, 159, 84));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setOpaque(false);
@@ -256,9 +256,9 @@ public class InputPage2 extends javax.swing.JFrame {
         jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 130, 530, 510));
 
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/figma_pics/2nd biggest 231 70 btn.png"))); // NOI18N
-        jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 260, 80));
+        jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 260, 120));
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1074, 760));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, 1074, 800));
 
         pack();
         setLocationRelativeTo(null);

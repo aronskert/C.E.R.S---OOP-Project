@@ -7,8 +7,7 @@ public class output extends javax.swing.JFrame {
     public output(String eventCode, String studentId, String studentEmail, String studentNumber, String employeeId, String venue, String startToEnd) {
         initComponents();
         
-        // IMPORTANT: Change "lblStudentId", etc., to the exact variable names 
-        // of those gray text boxes/labels on your output design!
+
         txtstudentid.setText(studentId);
         txtstudentemail.setText(studentEmail);
         txtstudentnum.setText(studentNumber);

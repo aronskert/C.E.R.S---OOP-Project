@@ -9,7 +9,7 @@ import javax.swing.table.DefaultTableModel;
 
 public class Database extends javax.swing.JFrame { 
         
-private void reservation_data() {
+public void reservation_data() {
     try { 
         Connection con = DBConnection1.getConnection();
 
@@ -28,11 +28,11 @@ private void reservation_data() {
                 rs.getString("student_id"), 
                 rs.getString("Student_number"), 
                 rs.getString("Student_Email"), 
-                rs.getString("Employee_ID"), 
                 rs.getString("venue"),
                 rs.getString("Start"),
                 rs.getString("End"),
                 rs.getString("event_type"),
+                rs.getString("Employee_ID")
             });
         }
 
@@ -228,7 +228,7 @@ private void reservation_data() {
                 btnsearchActionPerformed(evt);
             }
         });
-        jPanel1.add(btnsearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 640, 180, 60));
+        jPanel1.add(btnsearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 650, 180, 60));
 
         jButtonBack.setBackground(new java.awt.Color(255, 222, 89));
         jButtonBack.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
@@ -256,40 +256,30 @@ private void reservation_data() {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btneditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneditActionPerformed
-        String name = txtName.getText().trim(); 
-    String studentid = txtStudentID.getText().trim(); 
-    String venue = txtVenue.getText().trim(); 
-    String start = txtStart.getText().trim();
-    String end = txtEnd.getText().trim();
-    String eventtype = txtEventType.getText().trim();
-    
-    if (studentid.isEmpty())  {
-        javax.swing.JOptionPane.showMessageDialog(this, "Student ID is required to find the record you want to edit!");
+        
+    int selectedRow = jTable1.getSelectedRow();
+
+    if (selectedRow == -1) {
+        javax.swing.JOptionPane.showMessageDialog(this, "Please click a reservation row in the table first!");
         return;
-    } 
-    
-    try {
-        Connection con = DBConnection1.getConnection();
-        // Uses Student ID to safely target the correct row
-        String sql = "UPDATE reservations SET student_name=?, venue=?, Start=?, End=?, event_type=? WHERE student_id=?";
-        PreparedStatement pst = con.prepareStatement(sql);
-        
-        pst.setString(1, name);
-        pst.setString(2, venue);
-        pst.setString(3, start);
-        pst.setString(4, end);
-        pst.setString(5, eventtype);
-        pst.setString(6, studentid); 
-        
-        pst.executeUpdate();
-        con.close();
-        
-        javax.swing.JOptionPane.showMessageDialog(this, "Reservation Successfully Updated!");
-        reservation_data(); // Instantly refresh the table
-        
-    } catch (Exception e) {
-        javax.swing.JOptionPane.showMessageDialog(this, "Edit Error: " + e.getMessage());
     }
+
+    javax.swing.table.DefaultTableModel model = (javax.swing.table.DefaultTableModel) jTable1.getModel();
+
+    String eventCode = model.getValueAt(selectedRow, 0) != null ? model.getValueAt(selectedRow, 0).toString() : "";
+    String name = model.getValueAt(selectedRow, 1) != null ? model.getValueAt(selectedRow, 1).toString() : "";
+    String studentId = model.getValueAt(selectedRow, 2) != null ? model.getValueAt(selectedRow, 2).toString() : "";
+    String studentNum = model.getValueAt(selectedRow, 3) != null ? model.getValueAt(selectedRow, 3).toString() : "";
+    String studentEmail = model.getValueAt(selectedRow, 4) != null ? model.getValueAt(selectedRow, 4).toString() : "";
+    String venue = model.getValueAt(selectedRow, 5) != null ? model.getValueAt(selectedRow, 5).toString() : "";
+    String start = model.getValueAt(selectedRow, 6) != null ? model.getValueAt(selectedRow, 6).toString() : "";
+    String end = model.getValueAt(selectedRow, 7) != null ? model.getValueAt(selectedRow, 7).toString() : "";
+    String eventType = model.getValueAt(selectedRow, 8) != null ? model.getValueAt(selectedRow, 8).toString() : "";
+    String empId = model.getValueAt(selectedRow, 9) != null ? model.getValueAt(selectedRow, 9).toString() : "";
+ 
+    EditReservation editPage = new EditReservation(this, eventCode, name, studentId, studentNum, studentEmail, venue, start, end, eventType, empId);
+    editPage.setVisible(true);
+    
     }//GEN-LAST:event_btneditActionPerformed
 
     private void btndeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndeleteActionPerformed
@@ -303,13 +293,13 @@ private void reservation_data() {
     if (confirm == javax.swing.JOptionPane.YES_OPTION) {
         try {
             Connection con = DBConnection1.getConnection();
-            String sql = "DELETE FROM reservations WHERE student_id = ?";
+            String sql = "DELETE FROM reservation_data WHERE student_id = ?";
             PreparedStatement pst = con.prepareStatement(sql);
             pst.setString(1, studentid);
             pst.executeUpdate();
             con.close();
             javax.swing.JOptionPane.showMessageDialog(this, "Reservation Deleted Successfully!");
-            reservation_data(); // Instantly refresh the table
+            reservation_data(); 
             
         } catch (Exception e) {
             javax.swing.JOptionPane.showMessageDialog(this, "Delete Error: " + e.getMessage());
@@ -328,7 +318,7 @@ private void reservation_data() {
     
     try {
         Connection con = DBConnection1.getConnection();
-        String sql = "SELECT * FROM reservations WHERE student_id = ?";
+        String sql = "SELECT * FROM reservation_data WHERE student_id = ?";
         PreparedStatement pst = con.prepareStatement(sql);
         pst.setString(1, studentid);
         ResultSet rs = pst.executeQuery();
