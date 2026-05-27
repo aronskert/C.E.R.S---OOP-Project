@@ -131,7 +131,7 @@ public class LOGIN extends javax.swing.JFrame {
         });
 
         jButton1.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
-        jButton1.setText("SIGN-IN");
+        jButton1.setText("Register");
         jButton1.setBorder(null);
         jButton1.setBorderPainted(false);
         jButton1.setContentAreaFilled(false);
