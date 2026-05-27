@@ -275,44 +275,32 @@ public class UserCheckAvailability extends javax.swing.JFrame {
     sdf.setLenient(false);
 
     try {
-
         // validate only if textbox is not empty
         if (!searchStart.isEmpty()) {
             sdf.parse(searchStart);
         }
-
         if (!searchEnd.isEmpty()) {
             sdf.parse(searchEnd);
         }
-
     } catch (Exception e) {
-
         JOptionPane.showMessageDialog(
             this,
             "Invalid date and time format!\n\nUse this format:\n(dd/MMM/yyyy - HH:mm)\n\nExample:\n27/May/2026 - 14:30"
         );
-
         return;
     }
-
     try {
-
         Connection con = DBConnection1.getConnection();
-
         String sql = "SELECT start, end, venue FROM reservation_data "
                    + "WHERE start LIKE ? AND end LIKE ? AND venue LIKE ?";
-
         PreparedStatement pst = con.prepareStatement(sql);
-
         pst.setString(1, "%" + searchStart + "%");
         pst.setString(2, "%" + searchEnd + "%");
         pst.setString(3, "%" + searchVenue + "%");
-
         ResultSet rs = pst.executeQuery();
-
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         model.setRowCount(0);
-
+        
         boolean found = false;
 
         while (rs.next()) {
@@ -363,8 +351,7 @@ public class UserCheckAvailability extends javax.swing.JFrame {
     txtend.setText("");
     txtvenue.setText("");
 
-    DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-    model.setRowCount(0);
+    reservation_data();
     }//GEN-LAST:event_btnclearActionPerformed
 
     public static void main(String args[]) {
