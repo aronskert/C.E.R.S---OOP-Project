@@ -83,6 +83,7 @@ public class forgotpass extends javax.swing.JFrame {
         jLabel9.setForeground(new java.awt.Color(31, 40, 108));
         jLabel9.setText("Employee ID");
 
+        txtEmpoyeeID.setFont(new java.awt.Font("Serif", 0, 21)); // NOI18N
         txtEmpoyeeID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtEmpoyeeIDActionPerformed(evt);
@@ -107,6 +108,7 @@ public class forgotpass extends javax.swing.JFrame {
         jLabel11.setForeground(new java.awt.Color(31, 40, 108));
         jLabel11.setText("Email");
 
+        txtEmail.setFont(new java.awt.Font("Serif", 0, 21)); // NOI18N
         txtEmail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtEmailActionPerformed(evt);
@@ -117,9 +119,17 @@ public class forgotpass extends javax.swing.JFrame {
         jLabel12.setForeground(new java.awt.Color(31, 40, 108));
         jLabel12.setText("Confirm Password");
 
+        txtNPasswordC.setFont(new java.awt.Font("Segoe UI", 1, 21)); // NOI18N
         txtNPasswordC.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNPasswordCActionPerformed(evt);
+            }
+        });
+
+        txtNPassword.setFont(new java.awt.Font("Segoe UI", 1, 21)); // NOI18N
+        txtNPassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNPasswordActionPerformed(evt);
             }
         });
 
@@ -160,16 +170,16 @@ public class forgotpass extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtNPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtNPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(2, 2, 2)
                 .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtNPasswordC, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtNPasswordC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
                 .addComponent(btnChangePass, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -319,6 +329,10 @@ public class forgotpass extends javax.swing.JFrame {
     private void txtNPasswordCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNPasswordCActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNPasswordCActionPerformed
+
+    private void txtNPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNPasswordActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNPasswordActionPerformed
 
     /**
      * @param args the command line arguments

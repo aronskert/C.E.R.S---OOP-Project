@@ -60,7 +60,7 @@ public class Employee extends javax.swing.JFrame {
         jPanel2.setOpaque(false);
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        txtNPassword.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        txtNPassword.setFont(new java.awt.Font("Serif", 1, 14)); // NOI18N
         jPanel2.add(txtNPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, 420, 30));
 
         txtNPasswordC.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
