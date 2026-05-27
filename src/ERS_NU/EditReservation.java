@@ -103,7 +103,7 @@ public class EditReservation extends javax.swing.JFrame {
         lblname.setText("Employee ID");
         p2.add(lblname, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 160, -1));
 
-        txtEmpId.setFont(new java.awt.Font("Serif", 0, 14)); // NOI18N
+        txtEmpId.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
         txtEmpId.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtEmpIdActionPerformed(evt);
@@ -116,7 +116,7 @@ public class EditReservation extends javax.swing.JFrame {
         lblstudentidno.setText("Student Full Name");
         p2.add(lblstudentidno, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 210, -1));
 
-        txtName.setFont(new java.awt.Font("Serif", 0, 14)); // NOI18N
+        txtName.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
         txtName.setPreferredSize(new java.awt.Dimension(64, 30));
         txtName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -129,7 +129,7 @@ public class EditReservation extends javax.swing.JFrame {
         lblphoneno.setText("Student ID");
         p2.add(lblphoneno, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 170, -1));
 
-        txtStudentID.setFont(new java.awt.Font("Serif", 0, 14)); // NOI18N
+        txtStudentID.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
         txtStudentID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtStudentIDActionPerformed(evt);
@@ -141,7 +141,7 @@ public class EditReservation extends javax.swing.JFrame {
         lblemail.setText("Student Number");
         p2.add(lblemail, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, 160, -1));
 
-        txtPhone.setFont(new java.awt.Font("Serif", 0, 14)); // NOI18N
+        txtPhone.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
         txtPhone.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtPhoneActionPerformed(evt);
@@ -169,7 +169,7 @@ public class EditReservation extends javax.swing.JFrame {
         lblemail1.setText("Student Email");
         p2.add(lblemail1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 390, 160, -1));
 
-        txtEmail.setFont(new java.awt.Font("Serif", 0, 14)); // NOI18N
+        txtEmail.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
         txtEmail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtEmailActionPerformed(evt);
@@ -182,7 +182,7 @@ public class EditReservation extends javax.swing.JFrame {
         lblname1.setText("Venue");
         p2.add(lblname1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 30, 180, -1));
 
-        txtVenue.setFont(new java.awt.Font("Serif", 0, 14)); // NOI18N
+        txtVenue.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
         txtVenue.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtVenueActionPerformed(evt);
@@ -195,7 +195,7 @@ public class EditReservation extends javax.swing.JFrame {
         lblname2.setText("Start");
         p2.add(lblname2, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 120, 180, -1));
 
-        txtStart.setFont(new java.awt.Font("Serif", 0, 14)); // NOI18N
+        txtStart.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
         txtStart.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtStartActionPerformed(evt);
@@ -208,7 +208,7 @@ public class EditReservation extends javax.swing.JFrame {
         lblname3.setText("End");
         p2.add(lblname3, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 210, 180, -1));
 
-        txtEnd.setFont(new java.awt.Font("Serif", 0, 14)); // NOI18N
+        txtEnd.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
         txtEnd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtEndActionPerformed(evt);
@@ -221,7 +221,7 @@ public class EditReservation extends javax.swing.JFrame {
         lblname4.setText("Event Type");
         p2.add(lblname4, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 300, 180, -1));
 
-        txtType.setFont(new java.awt.Font("Serif", 0, 14)); // NOI18N
+        txtType.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
         txtType.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtTypeActionPerformed(evt);
@@ -232,15 +232,15 @@ public class EditReservation extends javax.swing.JFrame {
         lblname5.setBackground(new java.awt.Color(255, 255, 255));
         lblname5.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
         lblname5.setText("Event Code");
-        p2.add(lblname5, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 400, 180, -1));
+        p2.add(lblname5, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 390, 150, -1));
 
-        txtCode.setFont(new java.awt.Font("Serif", 0, 14)); // NOI18N
+        txtCode.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
         txtCode.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCodeActionPerformed(evt);
             }
         });
-        p2.add(txtCode, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 430, 170, 50));
+        p2.add(txtCode, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 420, 170, 50));
 
         p1.add(p2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 200, 900, 500));
 
