@@ -17,20 +17,15 @@ public class EditReservation extends javax.swing.JFrame {
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(EditReservation.class.getName());
 
     
-    // Global variables to hold the Event Code and the Main Page
     Database mainDatabasePage;
     String targetEventCode;
 
-    // The Constructor that catches all the data
     public EditReservation(Database mainPage, String evCode, String name, String id, String num, String email, String venue, String start, String end, String type, String empId) {
         initComponents();
         
-        // Save the main page and event code to our global variables
         this.mainDatabasePage = mainPage;
         this.targetEventCode = evCode;
-        
-        // Set the text boxes so the user sees the existing data!
-        // IMPORTANT: Change these txt... variable names to match what you put on your new GUI!
+
         txtName.setText(name);
         txtStudentID.setText(id);
         txtPhone.setText(num);
@@ -307,11 +302,10 @@ public class EditReservation extends javax.swing.JFrame {
         try {
         java.sql.Connection con = DBConnection1.getConnection();
         
-        // SQL to update all 9 fields for this specific Event Code
+       
         String sql = "UPDATE reservation_data SET student_name=?, student_id=?, Student_number=?, Student_Email=?, venue=?, Start=?, End=?, event_type=?, Employee_ID=? WHERE Event_id=?";
         java.sql.PreparedStatement pst = con.prepareStatement(sql);
         
-        // Grab the newly edited text from the text boxes
         pst.setString(1, txtName.getText().trim());
         pst.setString(2, txtStudentID.getText().trim());
         pst.setString(3, txtPhone.getText().trim());
@@ -322,7 +316,6 @@ public class EditReservation extends javax.swing.JFrame {
         pst.setString(8, txtType.getText().trim());
         pst.setString(9, txtEmpId.getText().trim());
         
-        // Target the specific row using the hidden Event Code
         pst.setString(10, this.targetEventCode);
         
         int updated = pst.executeUpdate();
@@ -330,13 +323,10 @@ public class EditReservation extends javax.swing.JFrame {
         if (updated > 0) {
             javax.swing.JOptionPane.showMessageDialog(this, "Reservation Updated Successfully!");
             
-            // MAGIC: Refresh the table on the ACTUAL OPEN PAGE behind this one!
-            // Note: Make sure the method inside your Database.java page is named loadTable() and is set to 'public'
             if (this.mainDatabasePage != null) {
                 this.mainDatabasePage.reservation_data();
             }
-            
-            // Close this edit window
+
             this.dispose(); 
         }
         

@@ -181,7 +181,7 @@
                   <Font name="Serif" size="36" style="0"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Searchsymbol.jpg"/>
+                  <Image iconType="3" name="/e/r/s/nu/Pictures and icons/search icon 48px.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Search"/>
               </Properties>
@@ -311,10 +311,10 @@
               <Color blue="59" green="de" red="ff" type="rgb"/>
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Serif" size="24" style="0"/>
+              <Font name="Serif" size="18" style="0"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/694247926_2399001377258314_1896453348637442646_n.png"/>
+              <Image iconType="3" name="/e/r/s/nu/Pictures and icons/32 32 return png.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="RETURN"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -328,19 +328,19 @@
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="40" y="60" width="180" height="60"/>
+              <AbsoluteConstraints x="30" y="40" width="150" height="60"/>
             </Constraint>
           </Constraints>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel9">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/bg.jpg"/>
+              <Image iconType="3" name="/e/r/s/nu/Pictures and icons/figma_pics/150 51 for return button.png"/>
             </Property>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="50" y="60" width="170" height="60"/>
+              <AbsoluteConstraints x="30" y="40" width="190" height="60"/>
             </Constraint>
           </Constraints>
         </Component>

@@ -90,7 +90,7 @@ public class UserCheckAvailability extends javax.swing.JFrame {
         p2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         lblsearch.setFont(new java.awt.Font("Serif", 0, 36)); // NOI18N
-        lblsearch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Searchsymbol.jpg"))); // NOI18N
+        lblsearch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/search icon 48px.png"))); // NOI18N
         lblsearch.setText("Search");
 
         lbldate.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
@@ -213,8 +213,8 @@ public class UserCheckAvailability extends javax.swing.JFrame {
         p1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 50, 596, 620));
 
         btnreturn.setBackground(new java.awt.Color(255, 222, 89));
-        btnreturn.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
-        btnreturn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/694247926_2399001377258314_1896453348637442646_n.png"))); // NOI18N
+        btnreturn.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
+        btnreturn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/32 32 return png.png"))); // NOI18N
         btnreturn.setText("RETURN");
         btnreturn.setBorder(null);
         btnreturn.setBorderPainted(false);
@@ -224,10 +224,10 @@ public class UserCheckAvailability extends javax.swing.JFrame {
                 btnreturnActionPerformed(evt);
             }
         });
-        p1.add(btnreturn, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, 180, 60));
+        p1.add(btnreturn, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 150, 60));
 
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bg.jpg"))); // NOI18N
-        p1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, 170, 60));
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/figma_pics/150 51 for return button.png"))); // NOI18N
+        p1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 190, 60));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -326,7 +326,6 @@ public class UserCheckAvailability extends javax.swing.JFrame {
             });
         }
 
-        // NO MATCH MESSAGE
         if (!found) {
 
             JOptionPane.showMessageDialog(
@@ -334,7 +333,6 @@ public class UserCheckAvailability extends javax.swing.JFrame {
                 "No events found for this date and venue!"
             );
         }
-
         rs.close();
         pst.close();
         con.close();

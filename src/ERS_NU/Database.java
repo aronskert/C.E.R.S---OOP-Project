@@ -256,19 +256,16 @@ public void reservation_data() {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btneditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneditActionPerformed
-        // 1. Check which row the user clicked
+        
     int selectedRow = jTable1.getSelectedRow();
-    
-    // If it equals -1, it means they didn't click anything
+
     if (selectedRow == -1) {
         javax.swing.JOptionPane.showMessageDialog(this, "Please click a reservation row in the table first!");
         return;
     }
-    
-    // 2. Grab the table model to extract the data
+
     javax.swing.table.DefaultTableModel model = (javax.swing.table.DefaultTableModel) jTable1.getModel();
-    
-    // 3. Extract all 10 columns from the clicked row
+
     String eventCode = model.getValueAt(selectedRow, 0) != null ? model.getValueAt(selectedRow, 0).toString() : "";
     String name = model.getValueAt(selectedRow, 1) != null ? model.getValueAt(selectedRow, 1).toString() : "";
     String studentId = model.getValueAt(selectedRow, 2) != null ? model.getValueAt(selectedRow, 2).toString() : "";
@@ -279,8 +276,7 @@ public void reservation_data() {
     String end = model.getValueAt(selectedRow, 7) != null ? model.getValueAt(selectedRow, 7).toString() : "";
     String eventType = model.getValueAt(selectedRow, 8) != null ? model.getValueAt(selectedRow, 8).toString() : "";
     String empId = model.getValueAt(selectedRow, 9) != null ? model.getValueAt(selectedRow, 9).toString() : "";
-
-    // 4. Open the New Edit Page and pass ALL the data, plus a reference to THIS page so we can refresh it later
+ 
     EditReservation editPage = new EditReservation(this, eventCode, name, studentId, studentNum, studentEmail, venue, start, end, eventType, empId);
     editPage.setVisible(true);
     
@@ -303,7 +299,7 @@ public void reservation_data() {
             pst.executeUpdate();
             con.close();
             javax.swing.JOptionPane.showMessageDialog(this, "Reservation Deleted Successfully!");
-            reservation_data(); // Instantly refresh the table
+            reservation_data(); 
             
         } catch (Exception e) {
             javax.swing.JOptionPane.showMessageDialog(this, "Delete Error: " + e.getMessage());
