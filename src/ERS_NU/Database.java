@@ -255,90 +255,88 @@ public void reservation_data() {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btneditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneditActionPerformed
-        
-    int selectedRow = jTable1.getSelectedRow();
+    private void btnsearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsearchActionPerformed
+        String studentid = txtStudentID.getText().trim();
 
-    if (selectedRow == -1) {
-        javax.swing.JOptionPane.showMessageDialog(this, "Please click a reservation row in the table first!");
-        return;
-    }
+        if (studentid.isEmpty())  {
+            javax.swing.JOptionPane.showMessageDialog(this, "Please enter a Student ID to search!");
+            return;
+        }
 
-    javax.swing.table.DefaultTableModel model = (javax.swing.table.DefaultTableModel) jTable1.getModel();
-
-    String eventCode = model.getValueAt(selectedRow, 0) != null ? model.getValueAt(selectedRow, 0).toString() : "";
-    String name = model.getValueAt(selectedRow, 1) != null ? model.getValueAt(selectedRow, 1).toString() : "";
-    String studentId = model.getValueAt(selectedRow, 2) != null ? model.getValueAt(selectedRow, 2).toString() : "";
-    String studentNum = model.getValueAt(selectedRow, 3) != null ? model.getValueAt(selectedRow, 3).toString() : "";
-    String studentEmail = model.getValueAt(selectedRow, 4) != null ? model.getValueAt(selectedRow, 4).toString() : "";
-    String venue = model.getValueAt(selectedRow, 5) != null ? model.getValueAt(selectedRow, 5).toString() : "";
-    String start = model.getValueAt(selectedRow, 6) != null ? model.getValueAt(selectedRow, 6).toString() : "";
-    String end = model.getValueAt(selectedRow, 7) != null ? model.getValueAt(selectedRow, 7).toString() : "";
-    String eventType = model.getValueAt(selectedRow, 8) != null ? model.getValueAt(selectedRow, 8).toString() : "";
-    String empId = model.getValueAt(selectedRow, 9) != null ? model.getValueAt(selectedRow, 9).toString() : "";
- 
-    EditReservation editPage = new EditReservation(this, eventCode, name, studentId, studentNum, studentEmail, venue, start, end, eventType, empId);
-    editPage.setVisible(true);
-    
-    }//GEN-LAST:event_btneditActionPerformed
-
-    private void btndeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndeleteActionPerformed
-    String studentid = txtStudentID.getText().trim();
-    if (studentid.isEmpty())  {
-        javax.swing.JOptionPane.showMessageDialog(this, "Please enter a Student ID to delete!");
-        return;
-    } 
-    int confirm = javax.swing.JOptionPane.showConfirmDialog(this, "Are you sure you want to delete this reservation?", "Confirm Delete", javax.swing.JOptionPane.YES_NO_OPTION);
-    
-    if (confirm == javax.swing.JOptionPane.YES_OPTION) {
         try {
             Connection con = DBConnection1.getConnection();
-            String sql = "DELETE FROM reservation_data WHERE student_id = ?";
+            String sql = "SELECT * FROM reservation_data WHERE student_id = ?";
             PreparedStatement pst = con.prepareStatement(sql);
             pst.setString(1, studentid);
-            pst.executeUpdate();
-            con.close();
-            javax.swing.JOptionPane.showMessageDialog(this, "Reservation Deleted Successfully!");
-            reservation_data(); 
-            
-        } catch (Exception e) {
-            javax.swing.JOptionPane.showMessageDialog(this, "Delete Error: " + e.getMessage());
-        }
-    }
+            ResultSet rs = pst.executeQuery();
 
+            DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+            model.setRowCount(0);
+
+            while (rs.next()) {
+                model.addRow(new Object[]{
+                    rs.getString("Event_id"), rs.getString("student_name"), rs.getString("student_id"),
+                    rs.getString("Student_number"), rs.getString("Student_Email"), rs.getString("venue"),
+                    rs.getString("Start"), rs.getString("End"), rs.getString("event_type"), rs.getString("Employee_ID")
+                });
+            }
+            con.close();
+        } catch (Exception e) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Search Error: " + e.getMessage());
+        }
+    }//GEN-LAST:event_btnsearchActionPerformed
+
+    private void btndeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndeleteActionPerformed
+        String studentid = txtStudentID.getText().trim();
+        if (studentid.isEmpty())  {
+            javax.swing.JOptionPane.showMessageDialog(this, "Please enter a Student ID to delete!");
+            return;
+        }
+        int confirm = javax.swing.JOptionPane.showConfirmDialog(this, "Are you sure you want to delete this reservation?", "Confirm Delete", javax.swing.JOptionPane.YES_NO_OPTION);
+
+        if (confirm == javax.swing.JOptionPane.YES_OPTION) {
+            try {
+                Connection con = DBConnection1.getConnection();
+                String sql = "DELETE FROM reservation_data WHERE student_id = ?";
+                PreparedStatement pst = con.prepareStatement(sql);
+                pst.setString(1, studentid);
+                pst.executeUpdate();
+                con.close();
+                javax.swing.JOptionPane.showMessageDialog(this, "Reservation Deleted Successfully!");
+                reservation_data();
+
+            } catch (Exception e) {
+                javax.swing.JOptionPane.showMessageDialog(this, "Delete Error: " + e.getMessage());
+            }
+        }
     }//GEN-LAST:event_btndeleteActionPerformed
 
-    private void btnsearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsearchActionPerformed
-    String studentid = txtStudentID.getText().trim();
-    
-    if (studentid.isEmpty())  {
-        javax.swing.JOptionPane.showMessageDialog(this, "Please enter a Student ID to search!");
-        return;
-    } 
-    
-    try {
-        Connection con = DBConnection1.getConnection();
-        String sql = "SELECT * FROM reservation_data WHERE student_id = ?";
-        PreparedStatement pst = con.prepareStatement(sql);
-        pst.setString(1, studentid);
-        ResultSet rs = pst.executeQuery();
-        
-        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-        model.setRowCount(0); 
-        
-        while (rs.next()) {
-            model.addRow(new Object[]{
-                rs.getString("Event_id"), rs.getString("student_name"), rs.getString("student_id"),
-                rs.getString("Student_number"), rs.getString("Student_Email"), rs.getString("venue"),
-                rs.getString("Start"), rs.getString("End"), rs.getString("event_type"), rs.getString("Employee_ID")  
-            });
-        }
-        con.close();
-    } catch (Exception e) {
-        javax.swing.JOptionPane.showMessageDialog(this, "Search Error: " + e.getMessage());
-    }     
+    private void btneditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneditActionPerformed
 
-    }//GEN-LAST:event_btnsearchActionPerformed
+        int selectedRow = jTable1.getSelectedRow();
+
+        if (selectedRow == -1) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Please click a reservation row in the table first!");
+            return;
+        }
+
+        javax.swing.table.DefaultTableModel model = (javax.swing.table.DefaultTableModel) jTable1.getModel();
+
+        String eventCode = model.getValueAt(selectedRow, 0) != null ? model.getValueAt(selectedRow, 0).toString() : "";
+        String name = model.getValueAt(selectedRow, 1) != null ? model.getValueAt(selectedRow, 1).toString() : "";
+        String studentId = model.getValueAt(selectedRow, 2) != null ? model.getValueAt(selectedRow, 2).toString() : "";
+        String studentNum = model.getValueAt(selectedRow, 3) != null ? model.getValueAt(selectedRow, 3).toString() : "";
+        String studentEmail = model.getValueAt(selectedRow, 4) != null ? model.getValueAt(selectedRow, 4).toString() : "";
+        String venue = model.getValueAt(selectedRow, 5) != null ? model.getValueAt(selectedRow, 5).toString() : "";
+        String start = model.getValueAt(selectedRow, 6) != null ? model.getValueAt(selectedRow, 6).toString() : "";
+        String end = model.getValueAt(selectedRow, 7) != null ? model.getValueAt(selectedRow, 7).toString() : "";
+        String eventType = model.getValueAt(selectedRow, 8) != null ? model.getValueAt(selectedRow, 8).toString() : "";
+        String empId = model.getValueAt(selectedRow, 9) != null ? model.getValueAt(selectedRow, 9).toString() : "";
+
+        EditReservation editPage = new EditReservation(this, eventCode, name, studentId, studentNum, studentEmail, venue, start, end, eventType, empId);
+        editPage.setVisible(true);
+
+    }//GEN-LAST:event_btneditActionPerformed
 
     private void txtNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNameActionPerformed
         // TODO add your handling code here:

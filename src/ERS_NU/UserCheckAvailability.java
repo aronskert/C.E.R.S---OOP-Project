@@ -254,13 +254,6 @@ public class UserCheckAvailability extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnreturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnreturnActionPerformed
-        // TODO add your handling code here:
-        ContactInfo fp = new ContactInfo();
-        fp.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_btnreturnActionPerformed
-
     private void btnclearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnclearActionPerformed
         // TODO add your handling code here:
         txtstart.setText("");
@@ -351,6 +344,13 @@ public class UserCheckAvailability extends javax.swing.JFrame {
     private void txtendActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtendActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtendActionPerformed
+
+    private void btnreturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnreturnActionPerformed
+        // TODO add your handling code here:
+        ContactInfo fp = new ContactInfo();
+        fp.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnreturnActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
