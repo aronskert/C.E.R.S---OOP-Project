@@ -71,7 +71,7 @@ private String eventType;
 
         btnlogout.setBackground(new java.awt.Color(255, 222, 89));
         btnlogout.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
-        btnlogout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/logout 48 px.png"))); // NOI18N
+        btnlogout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ERS_NU/ICONS/logout 48 px.png"))); // NOI18N
         btnlogout.setText("LOGOUT");
         btnlogout.setBorder(null);
         btnlogout.setContentAreaFilled(false);
@@ -81,7 +81,7 @@ private String eventType;
                 btnlogoutActionPerformed(evt);
             }
         });
-        p1.add(btnlogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 560, 350, 70));
+        p1.add(btnlogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 550, 350, 70));
 
         lbl1.setFont(new java.awt.Font("Serif", 0, 64)); // NOI18N
         lbl1.setForeground(new java.awt.Color(255, 255, 255));
@@ -145,7 +145,7 @@ private String eventType;
 
         btnnext.setBackground(new java.awt.Color(255, 222, 89));
         btnnext.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
-        btnnext.setText("NEXT");
+        btnnext.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ERS_NU/ICONS/next buton.png"))); // NOI18N
         btnnext.setBorder(null);
         btnnext.setContentAreaFilled(false);
         btnnext.addActionListener(new java.awt.event.ActionListener() {
@@ -153,24 +153,24 @@ private String eventType;
                 btnnextActionPerformed(evt);
             }
         });
-        p2.add(btnnext, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 470, 420, 60));
+        p2.add(btnnext, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 470, 420, 60));
 
         p1.add(p2, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 80, 440, 530));
 
         bulldog.setBackground(new java.awt.Color(0, 0, 102));
-        bulldog.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/buldgo.png"))); // NOI18N
-        p1.add(bulldog, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 351, 290));
+        bulldog.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ERS_NU/ICONS/buldgo.png"))); // NOI18N
+        p1.add(bulldog, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 180, 351, 290));
 
         lbl2.setFont(new java.awt.Font("Serif", 0, 64)); // NOI18N
         lbl2.setForeground(new java.awt.Color(255, 255, 255));
         lbl2.setText("Information");
         p1.add(lbl2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, -1, 58));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/figma_pics/500 560 rectangle with button forgot password.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ERS_NU/ICONS/500 560 rectangle with button forgot password.png"))); // NOI18N
         p1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 70, 530, 570));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/figma_pics/350 70 rectangle with curved sides.png"))); // NOI18N
-        p1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 560, -1, -1));
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ERS_NU/ICONS/350 70 rectangle with curved sides.png"))); // NOI18N
+        p1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 550, -1, -1));
 
         getContentPane().add(p1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
@@ -185,8 +185,9 @@ private String eventType;
 
     private void btnlogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnlogoutActionPerformed
     
-        LOGIN login = new LOGIN();
-        login.setVisible(true);
+        Dashboard db = new Dashboard();
+        db.setVisible(true);
+        
         this.dispose();
         
     }//GEN-LAST:event_btnlogoutActionPerformed
@@ -207,61 +208,126 @@ private String eventType;
     }//GEN-LAST:event_txtemailActionPerformed
 
     private void btnnextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnnextActionPerformed
+ 
         // TODO add your handling code here:
-    String name = txtname.getText().trim();
-    String studentid = txtstudentidno.getText().trim();
-    String phone = txtphoneno.getText().trim();
-    String email = txtemail.getText().trim();
+String name = txtname.getText().trim();
+String studentid = txtstudentidno.getText().trim();
+String phone = txtphoneno.getText().trim();
+String email = txtemail.getText().trim();
 
-    // 1. Validate fields
-    if(name.isEmpty() || studentid.isEmpty() || phone.isEmpty() || email.isEmpty()) {
-        JOptionPane.showMessageDialog(this, "Please fill in all details.", "Input Error", JOptionPane.ERROR_MESSAGE);
-        return;
-    }
+if (name.isEmpty() || studentid.isEmpty() || phone.isEmpty() || email.isEmpty()) {
+    JOptionPane.showMessageDialog(this,
+            "Please fill in all details.",
+            "Input Error",
+            JOptionPane.ERROR_MESSAGE);
+    return;
+}
 
-    // 2. Database Insert
-    try {
-        // Double-check if your connection class is DBConnection or DBConnection1
-        Connection conn = DBConnection1.getConnection(); 
+StringBuilder errorMessage = new StringBuilder();
+boolean isValid = true;
 
-        String query = "INSERT INTO reservation_data (student_name, student_id, Student_number, Student_Email, venue, Start, End, event_type, Employee_ID) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
-        PreparedStatement pst = conn.prepareStatement(query, java.sql.Statement.RETURN_GENERATED_KEYS);
+// =====================
+// STUDENT ID VALIDATION
+// =====================
+if (!studentid.matches("^20(2[1-9]|[3-9][0-9])-\\d{7}$")) {
+    errorMessage.append("Student ID must be 2025-xxxxx (e.g. 2025-12345).\n");
+    isValid = false;
+}
 
-        pst.setString(1, name);         
-        pst.setString(2, studentid);    
-        pst.setString(3, phone);        
-        pst.setString(4, email);        
-        pst.setString(5, this.venue);            
-        pst.setTimestamp(6, this.sqlStart);      
-        pst.setTimestamp(7, this.sqlEnd);        
-        pst.setString(8, this.eventType);        
-        pst.setString(9, LOGIN.loggedInEmpID); 
+// =====================
+// PHONE VALIDATION
+// =====================
+if (!phone.matches("^09\\d{9}$")) {
+    errorMessage.append("Phone must be 11 digits and start with 09.\n");
+    isValid = false;
+}
 
-        int rowsInserted = pst.executeUpdate();
+// =====================
+// EMAIL VALIDATION (CLEAN FIX)
+// =====================
+// NU EMAIL ONLY RULE
+if (!email.matches("^[A-Za-z0-9._%+-]+@students\\.nu-dasma\\.edu\\.ph$")) {
+    errorMessage.append("Email must be a valid NU email (example: name@students.nu-dasma.edu.ph).\n");
+    isValid = false;
+}
 
-        if (rowsInserted > 0) {
-            ResultSet rsKeys = pst.getGeneratedKeys();
-            String newEventCode = "N/A";
-            if (rsKeys.next()) {
-                newEventCode = rsKeys.getString(1); 
-            }
+if (!isValid) {
+    JOptionPane.showMessageDialog(this,
+            errorMessage.toString(),
+            "Validation Error",
+            JOptionPane.ERROR_MESSAGE);
+    return;
+}
 
-            JOptionPane.showMessageDialog(this, "Reservation Saved Successfully!");
-            
-            String receiptDates = this.sqlStart.toString() + " TO " + this.sqlEnd.toString();
+// =====================
+// DATABASE INSERT (SAFE)
+// =====================
+Connection conn = null;
+PreparedStatement pst = null;
 
-            // Opens your final confirmation window
-            output out = new output(newEventCode, studentid, email, phone, LOGIN.loggedInEmpID, this.venue, receiptDates);
-            out.setVisible(true);
-            this.dispose();
+try {
+    conn = DBConnection1.getConnection();
+
+    String query = "INSERT INTO reservation_data " +
+            "(student_name, student_id, Student_number, Student_Email, venue, Start, End, event_type, Employee_ID) " +
+            "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
+    pst = conn.prepareStatement(query, java.sql.Statement.RETURN_GENERATED_KEYS);
+
+    pst.setString(1, name);
+    pst.setString(2, studentid);
+    pst.setString(3, phone);
+    pst.setString(4, email);
+    pst.setString(5, this.venue);
+    pst.setTimestamp(6, this.sqlStart);
+    pst.setTimestamp(7, this.sqlEnd);
+    pst.setString(8, this.eventType);
+    pst.setString(9, LOGIN.loggedInEmpID);
+
+    int rowsInserted = pst.executeUpdate();
+
+    if (rowsInserted > 0) {
+
+        ResultSet rsKeys = pst.getGeneratedKeys();
+        String newEventCode = "";
+
+        if (rsKeys.next()) {
+            newEventCode = String.valueOf(rsKeys.getObject(1));
         }
-        
-        pst.close();
-        conn.close();
 
-    } catch (Exception e) {
-        JOptionPane.showMessageDialog(this, "Database Error: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        JOptionPane.showMessageDialog(this,
+                "Reservation Saved Successfully!");
+
+        String receiptDates = this.sqlStart + " TO " + this.sqlEnd;
+
+        output out = new output(
+                newEventCode,
+                studentid,
+                email,
+                phone,
+                LOGIN.loggedInEmpID,
+                this.venue,
+                receiptDates
+        );
+
+        out.setVisible(true);
+        this.dispose();
     }
+
+} catch (Exception e) {
+    JOptionPane.showMessageDialog(this,
+            "Database Error: " + e.getMessage(),
+            "Error",
+            JOptionPane.ERROR_MESSAGE);
+
+} finally {
+    try {
+        if (pst != null) pst.close();
+        if (conn != null) conn.close();
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+}
     }//GEN-LAST:event_btnnextActionPerformed
 
     /**
