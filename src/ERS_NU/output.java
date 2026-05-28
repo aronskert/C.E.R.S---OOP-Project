@@ -155,13 +155,13 @@ public class output extends javax.swing.JFrame {
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 30, -1, -1));
 
         jButtonLogout.setBackground(new java.awt.Color(255, 222, 89));
-        jButtonLogout.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
+        jButtonLogout.setFont(new java.awt.Font("Serif", 0, 20)); // NOI18N
         jButtonLogout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/logout 48 px.png"))); // NOI18N
         jButtonLogout.setText("LOGOUT");
         jButtonLogout.setBorder(null);
         jButtonLogout.setContentAreaFilled(false);
         jButtonLogout.addActionListener(this::jButtonLogoutActionPerformed);
-        jPanel2.add(jButtonLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 590, 170, 120));
+        jPanel2.add(jButtonLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, 150, 40));
 
         jButtonBack.setBackground(new java.awt.Color(255, 222, 89));
         jButtonBack.setFont(new java.awt.Font("Serif", 0, 20)); // NOI18N
@@ -173,22 +173,22 @@ public class output extends javax.swing.JFrame {
         jPanel2.add(jButtonBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 150, 40));
 
         jButtonConfirm.setBackground(new java.awt.Color(255, 222, 89));
-        jButtonConfirm.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
+        jButtonConfirm.setFont(new java.awt.Font("Serif", 0, 20)); // NOI18N
         jButtonConfirm.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/confirm 48px.png"))); // NOI18N
         jButtonConfirm.setText("CONFRIM");
         jButtonConfirm.setBorder(null);
         jButtonConfirm.setContentAreaFilled(false);
         jButtonConfirm.addActionListener(this::jButtonConfirmActionPerformed);
-        jPanel2.add(jButtonConfirm, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 500, 170, 120));
+        jPanel2.add(jButtonConfirm, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 160, 40));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/figma_pics/150 51 for return button.png"))); // NOI18N
         jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 150, 60));
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/figma_pics/2nd biggest 231 70 btn.png"))); // NOI18N
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 490, 240, 140));
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/figma_pics/150 51 for return button.png"))); // NOI18N
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 240, 140));
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/figma_pics/2nd biggest 231 70 btn.png"))); // NOI18N
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 590, -1, 120));
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/figma_pics/150 51 for return button.png"))); // NOI18N
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, -1, 120));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

@@ -347,9 +347,9 @@ public class UserCheckAvailability extends javax.swing.JFrame {
 
     private void btnreturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnreturnActionPerformed
         // TODO add your handling code here:
-        ContactInfo fp = new ContactInfo();
-        fp.setVisible(true);
-        this.dispose();
+        InputPage2 ip2 = new InputPage2();
+             ip2.setVisible(true);
+            this.dispose(); 
     }//GEN-LAST:event_btnreturnActionPerformed
 
     public static void main(String args[]) {
