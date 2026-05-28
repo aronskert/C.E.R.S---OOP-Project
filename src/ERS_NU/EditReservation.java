@@ -248,7 +248,7 @@ public class EditReservation extends javax.swing.JFrame {
         p1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, -1, -1));
 
         btnnext.setBackground(new java.awt.Color(255, 222, 89));
-        btnnext.setFont(new java.awt.Font("Serif", 0, 20)); // NOI18N
+        btnnext.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
         btnnext.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/confirm 48px.png"))); // NOI18N
         btnnext.setText("Confirm");
         btnnext.setBorder(null);
@@ -258,10 +258,10 @@ public class EditReservation extends javax.swing.JFrame {
                 btnnextActionPerformed(evt);
             }
         });
-        p1.add(btnnext, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 30, 150, 50));
+        p1.add(btnnext, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 100, 230, 70));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/figma_pics/150 51 for return button.png"))); // NOI18N
-        p1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 30, -1, 50));
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/figma_pics/2nd biggest 231 70 btn.png"))); // NOI18N
+        p1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 90, 250, 90));
 
         getContentPane().add(p1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
