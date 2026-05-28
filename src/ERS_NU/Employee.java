@@ -71,11 +71,11 @@ public class Employee extends javax.swing.JFrame {
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         txtNPassword.setFont(new java.awt.Font("Serif", 1, 14)); // NOI18N
-        jPanel2.add(txtNPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, 420, 40));
+        jPanel2.add(txtNPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, 380, 40));
 
         txtNPasswordC.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         txtNPasswordC.addActionListener(this::txtNPasswordCActionPerformed);
-        jPanel2.add(txtNPasswordC, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, 420, 40));
+        jPanel2.add(txtNPasswordC, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, 380, 40));
 
         jLabel10.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(31, 40, 108));
@@ -94,7 +94,7 @@ public class Employee extends javax.swing.JFrame {
 
         txtEmail.setFont(new java.awt.Font("Serif", 0, 21)); // NOI18N
         txtEmail.addActionListener(this::txtEmailActionPerformed);
-        jPanel2.add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 370, 420, 52));
+        jPanel2.add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 370, 380, 52));
 
         jLabel6.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(31, 40, 108));
@@ -107,7 +107,7 @@ public class Employee extends javax.swing.JFrame {
         jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, 140, -1));
 
         txtEmpoyeeID.setFont(new java.awt.Font("Serif", 0, 21)); // NOI18N
-        jPanel2.add(txtEmpoyeeID, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 420, 52));
+        jPanel2.add(txtEmpoyeeID, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 380, 52));
 
         jButton2.setBackground(new java.awt.Color(255, 222, 89));
         jButton2.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
@@ -116,7 +116,7 @@ public class Employee extends javax.swing.JFrame {
         jButton2.setBorder(null);
         jButton2.setContentAreaFilled(false);
         jButton2.addActionListener(this::jButton2ActionPerformed);
-        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 450, 440, 60));
+        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 450, 400, 60));
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/figma_pics/this is it.png"))); // NOI18N
         jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(-40, -120, 610, 810));
@@ -168,6 +168,7 @@ public class Employee extends javax.swing.JFrame {
         String password = txtNPassword.getText();
         String email = txtEmail.getText();
         String confirmPassword = new String (txtNPasswordC.getPassword()); 
+  
         
         
         if (employee_id.isEmpty() || password.isEmpty() || email.isEmpty()) {

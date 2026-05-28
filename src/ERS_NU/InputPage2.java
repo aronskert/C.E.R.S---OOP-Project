@@ -8,7 +8,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
-
+import java.time.LocalDate;
 
 public class InputPage2 extends javax.swing.JFrame {
     
@@ -132,6 +132,7 @@ public class InputPage2 extends javax.swing.JFrame {
         jcbSmonth.setForeground(new java.awt.Color(31, 40, 108));
         jcbSmonth.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December", "" }));
         jcbSmonth.setSelectedIndex(-1);
+        jcbSmonth.addActionListener(this::jcbSmonthActionPerformed);
         VenuePanel.add(jcbSmonth, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, -1, -1));
 
         jcbSday.setForeground(new java.awt.Color(31, 40, 108));
@@ -314,6 +315,27 @@ public class InputPage2 extends javax.swing.JFrame {
     
     java.util.Date parsedEnd = formatter.parse(rawEnd);
     java.sql.Timestamp sqlEnd = new java.sql.Timestamp(parsedEnd.getTime());
+    
+    java.util.Date currentDateTime = new java.util.Date();
+    
+    if(parsedStart.before(currentDateTime)) {
+    JOptionPane.showMessageDialog(this,
+            "You cannot select a past date and time!",
+            "Invalid Date",
+            JOptionPane.ERROR_MESSAGE);
+
+    return; // stops the submit process
+}
+
+// Check if end time is before start time
+if(parsedEnd.before(parsedStart)) {
+    JOptionPane.showMessageDialog(this,
+            "End of event cannot be earlier than start of event!",
+            "Invalid Time",
+            JOptionPane.ERROR_MESSAGE);
+
+    return;
+}
 
     Connection conn = DBConnection1.getConnection(); 
 
@@ -386,6 +408,10 @@ public class InputPage2 extends javax.swing.JFrame {
     private void jcbVenueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbVenueActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jcbVenueActionPerformed
+
+    private void jcbSmonthActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbSmonthActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jcbSmonthActionPerformed
 
     /**
      * @param args the command line arguments
