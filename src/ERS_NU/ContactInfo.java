@@ -81,7 +81,7 @@ private String eventType;
                 btnlogoutActionPerformed(evt);
             }
         });
-        p1.add(btnlogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 560, 350, 70));
+        p1.add(btnlogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 520, 350, 70));
 
         lbl1.setFont(new java.awt.Font("Serif", 0, 64)); // NOI18N
         lbl1.setForeground(new java.awt.Color(255, 255, 255));
