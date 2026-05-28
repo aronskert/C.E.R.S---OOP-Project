@@ -53,9 +53,9 @@ public class LOGIN extends javax.swing.JFrame {
         JPanel1.setLayout(null);
 
         jButton3.setBackground(new java.awt.Color(255, 222, 89));
-        jButton3.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/48 px.png"))); // NOI18N
-        jButton3.setText("RETURN");
+        jButton3.setFont(new java.awt.Font("Serif", 0, 20)); // NOI18N
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/32 32 return png.png"))); // NOI18N
+        jButton3.setText("Return");
         jButton3.setContentAreaFilled(false);
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -63,7 +63,7 @@ public class LOGIN extends javax.swing.JFrame {
             }
         });
         JPanel1.add(jButton3);
-        jButton3.setBounds(30, 30, 230, 70);
+        jButton3.setBounds(60, 20, 150, 50);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/#1f286c.png"))); // NOI18N
         JPanel1.add(jLabel1);
@@ -200,9 +200,9 @@ public class LOGIN extends javax.swing.JFrame {
         JPanel1.add(jLabel2);
         jLabel2.setBounds(420, 110, 580, 550);
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/figma_pics/2nd biggest 231 70 btn.png"))); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/figma_pics/150 51 for return button.png"))); // NOI18N
         JPanel1.add(jLabel4);
-        jLabel4.setBounds(30, 20, 290, 90);
+        jLabel4.setBounds(60, 0, 290, 90);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

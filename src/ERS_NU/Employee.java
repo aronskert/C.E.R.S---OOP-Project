@@ -31,6 +31,7 @@ public class Employee extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         txtNPassword = new javax.swing.JPasswordField();
         txtNPasswordC = new javax.swing.JPasswordField();
@@ -46,8 +47,7 @@ public class Employee extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jLabel9 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -57,20 +57,30 @@ public class Employee extends javax.swing.JFrame {
         jPanel1.setPreferredSize(new java.awt.Dimension(9, 560));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jButton1.setBackground(new java.awt.Color(255, 222, 89));
+        jButton1.setFont(new java.awt.Font("Serif", 0, 20)); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/32 32 return png.png"))); // NOI18N
+        jButton1.setText("Return");
+        jButton1.setBorder(null);
+        jButton1.setBorderPainted(false);
+        jButton1.setContentAreaFilled(false);
+        jButton1.addActionListener(this::jButton1ActionPerformed);
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 30, 130, 40));
+
         jPanel2.setOpaque(false);
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        txtNPassword.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jPanel2.add(txtNPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, 380, 30));
+        txtNPassword.setFont(new java.awt.Font("Serif", 1, 14)); // NOI18N
+        jPanel2.add(txtNPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, 420, 40));
 
         txtNPasswordC.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         txtNPasswordC.addActionListener(this::txtNPasswordCActionPerformed);
-        jPanel2.add(txtNPasswordC, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, 380, 30));
+        jPanel2.add(txtNPasswordC, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, 420, 40));
 
         jLabel10.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(31, 40, 108));
         jLabel10.setText("Confirm Password");
-        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 140, -1));
+        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, 140, -1));
 
         jLabel4.setFont(new java.awt.Font("Serif", 0, 36)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(31, 40, 108));
@@ -127,18 +137,8 @@ public class Employee extends javax.swing.JFrame {
         jLabel3.setText("RESERVATION SYSTEM");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 470, 291, -1));
 
-        jButton1.setBackground(new java.awt.Color(255, 222, 89));
-        jButton1.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/48 px.png"))); // NOI18N
-        jButton1.setText("RETURN");
-        jButton1.setBorder(null);
-        jButton1.setBorderPainted(false);
-        jButton1.setContentAreaFilled(false);
-        jButton1.addActionListener(this::jButton1ActionPerformed);
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 40, 230, 70));
-
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/figma_pics/2nd biggest 231 70 btn.png"))); // NOI18N
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, 250, 90));
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/figma_pics/150 51 for return button.png"))); // NOI18N
+        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, 230, 80));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -179,7 +179,7 @@ public class Employee extends javax.swing.JFrame {
         javax.swing.JOptionPane.showMessageDialog(this, 
                 "Registration failed: Password must be at least 8 characters long!", 
                 "Weak Password", 
-                javax.swing.JOptionPane.ERROR_MESSAGE);
+                javax.swing.JOptionPane.ERROR_MESSAGE); 
     }
         
         
@@ -261,6 +261,7 @@ public class Employee extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -268,7 +269,6 @@ public class Employee extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField txtEmail;

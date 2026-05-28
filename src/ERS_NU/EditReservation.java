@@ -112,7 +112,6 @@ public class EditReservation extends javax.swing.JFrame {
         p2.add(lblstudentidno, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 210, -1));
 
         txtName.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
-        txtName.setPreferredSize(new java.awt.Dimension(64, 30));
         txtName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNameActionPerformed(evt);
@@ -256,7 +255,7 @@ public class EditReservation extends javax.swing.JFrame {
                 btnlogoutActionPerformed(evt);
             }
         });
-        p1.add(btnlogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 160, 50));
+        p1.add(btnlogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 150, 50));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/figma_pics/900 500 for edit reservation.png"))); // NOI18N
         p1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, 1070, 570));
