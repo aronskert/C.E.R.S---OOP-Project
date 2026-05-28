@@ -169,26 +169,25 @@ public class Employee extends javax.swing.JFrame {
         String email = txtEmail.getText();
         String confirmPassword = new String (txtNPasswordC.getPassword()); 
         
-      if (!password.equals(confirmPassword)) {
-    javax.swing.JOptionPane.showMessageDialog(this, 
-            "Password do not match!", 
-            "Password Mismatch", 
-            javax.swing.JOptionPane.ERROR_MESSAGE);
-    }
-      if (password.length() < 8) {
-        javax.swing.JOptionPane.showMessageDialog(this, 
-                "Registration failed: Password must be at least 8 characters long!", 
-                "Weak Password", 
-                javax.swing.JOptionPane.ERROR_MESSAGE);
-    }
-        
-        
         
         if (employee_id.isEmpty() || password.isEmpty() || email.isEmpty()) {
             JOptionPane.showMessageDialog(this, 
                     "Error: Please fill in all fields before updating.", 
                     "Input Error", 
                     JOptionPane.ERROR_MESSAGE); 
+            
+        } else if (!password.equals(confirmPassword)) {
+    javax.swing.JOptionPane.showMessageDialog(this, 
+            "Password do not match!", 
+            "Password Mismatch", 
+            javax.swing.JOptionPane.ERROR_MESSAGE);
+       
+        } else if (password.length() < 8) {
+        javax.swing.JOptionPane.showMessageDialog(this, 
+                "Registration failed: Password must be at least 8 characters long!", 
+                "Weak Password", 
+                javax.swing.JOptionPane.ERROR_MESSAGE);
+        
             } else {
 
             try (Connection conn = DBConnection.getConnection()) { 
@@ -204,7 +203,7 @@ public class Employee extends javax.swing.JFrame {
                 grr.setString(3, email);
 
                 int rowsInserted = grr.executeUpdate();
-
+                 
                 if (rowsInserted > 0) {
 
                     JOptionPane.showMessageDialog(this,
