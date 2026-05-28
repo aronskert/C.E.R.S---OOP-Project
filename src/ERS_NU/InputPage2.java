@@ -49,8 +49,6 @@ public class InputPage2 extends javax.swing.JFrame {
         btnReturn = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        btncheckevents = new javax.swing.JButton();
-        jLabel14 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         VenuePanel = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
@@ -92,7 +90,7 @@ public class InputPage2 extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Serif", 0, 60)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Reservation");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 130, 324, 84));
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, 324, 84));
 
         btnReturn.setBackground(new java.awt.Color(255, 222, 89));
         btnReturn.setFont(new java.awt.Font("Serif", 0, 20)); // NOI18N
@@ -103,25 +101,12 @@ public class InputPage2 extends javax.swing.JFrame {
         jPanel2.add(btnReturn, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, 150, 60));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/buldgo.png"))); // NOI18N
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, 347, 259));
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 390, 347, 259));
 
         jLabel3.setFont(new java.awt.Font("Serif", 0, 60)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Form");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 200, 159, 84));
-
-        btncheckevents.setBackground(new java.awt.Color(255, 222, 89));
-        btncheckevents.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
-        btncheckevents.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/logout 48 px.png"))); // NOI18N
-        btncheckevents.setText("CHECK AVAILABLE EVENTS");
-        btncheckevents.setBorder(null);
-        btncheckevents.setContentAreaFilled(false);
-        btncheckevents.setPreferredSize(new java.awt.Dimension(170, 55));
-        btncheckevents.addActionListener(this::btncheckeventsActionPerformed);
-        jPanel2.add(btncheckevents, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 560, 350, 70));
-
-        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/figma_pics/350 70 rectangle with curved sides.png"))); // NOI18N
-        jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 560, -1, -1));
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, 159, 84));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setOpaque(false);
@@ -289,72 +274,125 @@ public class InputPage2 extends javax.swing.JFrame {
 
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
          String venue = jcbVenue.getSelectedItem() != null ? jcbVenue.getSelectedItem().toString().trim() : "";
-    String startMonth = jcbSmonth.getSelectedItem() != null ? jcbSmonth.getSelectedItem().toString().trim() : "";
-    String startDay = jcbSday.getSelectedItem() != null ? jcbSday.getSelectedItem().toString().trim() : "";
-    String startYear = jcbSyear.getSelectedItem() != null ? jcbSyear.getSelectedItem().toString().trim() : "";
-    String startHr = jcbShour.getSelectedItem() != null ? jcbShour.getSelectedItem().toString().trim() : "";
-    String startMin = jcbSmins.getSelectedItem() != null ? jcbSmins.getSelectedItem().toString().trim() : "";
-    String startAmPm = jcbSampm.getSelectedItem() != null ? jcbSampm.getSelectedItem().toString().trim() : "";
 
-    String endMonth = jcbEmonth.getSelectedItem() != null ? jcbEmonth.getSelectedItem().toString().trim() : "";
-    String endDay = jcbEday.getSelectedItem() != null ? jcbEday.getSelectedItem().toString().trim() : "";
-    String endYear = jcbEyear.getSelectedItem() != null ? jcbEyear.getSelectedItem().toString().trim() : "";
-    String endHr = jcbEhour.getSelectedItem() != null ? jcbEhour.getSelectedItem().toString().trim() : "";
-    String endMin = jcbEmins.getSelectedItem() != null ? jcbEmins.getSelectedItem().toString().trim() : "";
-    String endAmPm = jcbEampm.getSelectedItem() != null ? jcbEampm.getSelectedItem().toString().trim() : "";
-    String eventType = txtEventType.getText().trim();
-    
-    // 1. Validation Check
-    if (venue.isEmpty() || startMonth.isEmpty() || startDay.isEmpty() || startYear.isEmpty() || 
-        startHr.isEmpty() || startMin.isEmpty() || startAmPm.isEmpty() || 
-        endMonth.isEmpty() || endDay.isEmpty() || endYear.isEmpty() || 
-        endHr.isEmpty() || endMin.isEmpty() || endAmPm.isEmpty() || eventType.isEmpty()) {
+        String startMonth = jcbSmonth.getSelectedItem() != null ? jcbSmonth.getSelectedItem().toString().trim() : "";
+        String startDay = jcbSday.getSelectedItem() != null ? jcbSday.getSelectedItem().toString().trim() : "";
+        String startYear = jcbSyear.getSelectedItem() != null ? jcbSyear.getSelectedItem().toString().trim() : "";
+        String startHr = jcbShour.getSelectedItem() != null ? jcbShour.getSelectedItem().toString().trim() : "";
+        String startMin = jcbSmins.getSelectedItem() != null ? jcbSmins.getSelectedItem().toString().trim() : "";
+        String startAmPm = jcbSampm.getSelectedItem() != null ? jcbSampm.getSelectedItem().toString().trim() : "";
+
+        String endMonth = jcbEmonth.getSelectedItem() != null ? jcbEmonth.getSelectedItem().toString().trim() : "";
+        String endDay = jcbEday.getSelectedItem() != null ? jcbEday.getSelectedItem().toString().trim() : "";
+        String endYear = jcbEyear.getSelectedItem() != null ? jcbEyear.getSelectedItem().toString().trim() : "";
+        String endHr = jcbEhour.getSelectedItem() != null ? jcbEhour.getSelectedItem().toString().trim() : "";
+        String endMin = jcbEmins.getSelectedItem() != null ? jcbEmins.getSelectedItem().toString().trim() : "";
+        String endAmPm = jcbEampm.getSelectedItem() != null ? jcbEampm.getSelectedItem().toString().trim() : "";
+        String eventType = txtEventType.getText().trim();
         
-        JOptionPane.showMessageDialog(this, "Please fill in all fields before proceeding!", "Input Error", JOptionPane.ERROR_MESSAGE);
-        return;
-    }
+        if (venue.isEmpty() || 
+            startMonth.isEmpty() || startDay.isEmpty() || startYear.isEmpty() || 
+            startHr.isEmpty() || startMin.isEmpty() || startAmPm.isEmpty() || 
+            endMonth.isEmpty() || endDay.isEmpty() || endYear.isEmpty() || 
+            endHr.isEmpty() || endMin.isEmpty() || endAmPm.isEmpty() || 
+            eventType.isEmpty()) {
+            
+         javax.swing.JOptionPane.showMessageDialog(this, 
+        "Please fill in all fields before submitting!", 
+        "Input Error", 
+        javax.swing.JOptionPane.ERROR_MESSAGE);
+        
+        }else{    
 
-    try {
-    // 1. Glue your combo boxes together with clear spaces in between
+   try {
+
     String rawStart = startMonth + " " + startDay + " " + startYear + " " + startHr + ":" + startMin + " " + startAmPm;
     String rawEnd = endMonth + " " + endDay + " " + endYear + " " + endHr + ":" + endMin + " " + endAmPm;
 
-    // 2. THE EYE-OPENER: Print these out to your NetBeans Output window below!
-    System.out.println("--- DEBUGGING DATE STRINGS ---");
-    System.out.println("What Java sees for Start Date: [" + rawStart + "]");
-    System.out.println("What Java sees for End Date:   [" + rawEnd + "]");
-    System.out.println("------------------------------");
-
-    // 3. Match your pattern EXACTLY to what prints out.
-    // MMMM = Full month name (e.g., "January"). If your combo box uses "Jan", change MMMM to MMM.
-    // dd = Day, yyyy = Year, hh = 12-hour digit, mm = minutes, a = AM/PM marker.
     SimpleDateFormat formatter = new SimpleDateFormat("MMMM dd yyyy hh:mm a");
-    
     java.util.Date parsedStart = formatter.parse(rawStart);
+    java.sql.Timestamp sqlStart = new java.sql.Timestamp(parsedStart.getTime());
+    
     java.util.Date parsedEnd = formatter.parse(rawEnd);
+    java.sql.Timestamp sqlEnd = new java.sql.Timestamp(parsedEnd.getTime());
+    
     java.util.Date currentDateTime = new java.util.Date();
     
-    // Check if it's actually reading the dates right now
-    System.out.println("Successfully parsed Start: " + parsedStart);
+    if(parsedStart.before(currentDateTime)) {
+    JOptionPane.showMessageDialog(this,
+            "You cannot select a past date and time!",
+            "Invalid Date",
+            JOptionPane.ERROR_MESSAGE);
 
-    if (parsedStart.before(currentDateTime)) {
-        JOptionPane.showMessageDialog(this, "You cannot select a past date and time!", "Invalid Date", JOptionPane.ERROR_MESSAGE);
-        return;
-    }
+    return; // stops the submit process
+}
+    
+    java.util.Calendar cal = java.util.Calendar.getInstance();
+    cal.setTime(currentDateTime);
+    cal.add(java.util.Calendar.MONTH, 3);
 
-        // Convert to SQL Timestamps
-        java.sql.Timestamp sqlStart = new java.sql.Timestamp(parsedStart.getTime());
-        java.sql.Timestamp sqlEnd = new java.sql.Timestamp(parsedEnd.getTime());
+    java.util.Date maxAllowedDate = cal.getTime();
 
-        // 3. Close this page and pass the data forward to ContactInfo
-        ContactInfo CI = new ContactInfo(venue, sqlStart, sqlEnd, eventType);
-        CI.setVisible(true);
+    if(parsedStart.after(maxAllowedDate)) {
+    JOptionPane.showMessageDialog(this,
+            "Reservations can only be made within 3 months from today!",
+            "Invalid Reservation Date",
+            JOptionPane.ERROR_MESSAGE);
+
+    return;
+}
+// Check if end time is before start time
+    if(parsedEnd.before(parsedStart)) {
+    JOptionPane.showMessageDialog(this,
+            "End of event cannot be earlier than start of event!",
+            "Invalid Time",
+            JOptionPane.ERROR_MESSAGE);
+
+    return;
+}
+
+    Connection conn = DBConnection1.getConnection(); 
+
+    String query = "INSERT INTO reservation_data (student_name, student_id, Student_number, Student_Email, venue, Start, End, event_type, Employee_ID) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    PreparedStatement pst = conn.prepareStatement(query, java.sql.Statement.RETURN_GENERATED_KEYS);
+
+
+    pst.setString(1, this.name);         // student_name
+    pst.setString(2, this.studentid);    //  student_id
+    pst.setString(3, this.phone);        //  Student_number
+    pst.setString(4, this.email);        //  Student_Email
+    pst.setString(5, venue);             //  venue
+    pst.setTimestamp(6, sqlStart);       //  Start
+    pst.setTimestamp(7, sqlEnd);         //  End
+    pst.setString(8, eventType);         //  event_type
+    pst.setString(9, LOGIN.loggedInEmpID); // Employee_ID
+
+    int rowsInserted = pst.executeUpdate();
+
+    if (rowsInserted > 0) {
+        ResultSet rsKeys = pst.getGeneratedKeys();
+        String newEventCode = "N/A";
+        if (rsKeys.next()) {
+            newEventCode = rsKeys.getString(1); 
+        }
+
+        JOptionPane.showMessageDialog(this, "Reservation Saved Successfully!");
+        
+        String receiptDates = startMonth + " " + startDay + ", " + startYear + " @ " + startHr + ":" + startMin + " " + startAmPm + " TO " + endMonth + " " + endDay + ", " + endYear + " @ " + endHr + ":" + endMin + " " + endAmPm;
+
+        output out = new output(newEventCode, this.studentid, this.email, this.phone, LOGIN.loggedInEmpID, venue, receiptDates);
+        out.setVisible(true);
+
         this.dispose();
-
-    } catch (Exception e) {
-        JOptionPane.showMessageDialog(this, "Error processing date selection: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
     }
-  
+    
+    pst.close();
+    conn.close();
+
+} catch (Exception e) {
+    JOptionPane.showMessageDialog(this, "Database Error: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+}
+        }
     }//GEN-LAST:event_btnSubmitActionPerformed
 
     private void jcbEhourActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbEhourActionPerformed
@@ -389,13 +427,6 @@ public class InputPage2 extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jcbSmonthActionPerformed
 
-    private void btncheckeventsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncheckeventsActionPerformed
-        // TODO add your handling code here:
-        UserCheckAvailability UCA = new UserCheckAvailability();
-        UCA.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_btncheckeventsActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -425,14 +456,12 @@ public class InputPage2 extends javax.swing.JFrame {
     private javax.swing.JPanel VenuePanel;
     private javax.swing.JButton btnReturn;
     private javax.swing.JButton btnSubmit;
-    private javax.swing.JButton btncheckevents;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
