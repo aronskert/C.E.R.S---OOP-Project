@@ -126,6 +126,7 @@ public class forgotpass extends javax.swing.JFrame {
             }
         });
 
+        txtNPassword.setFont(new java.awt.Font("Segoe UI", 1, 21)); // NOI18N
         txtNPassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNPasswordActionPerformed(evt);

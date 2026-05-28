@@ -11,10 +11,10 @@ import javax.swing.JOptionPane;
 
 public class ContactInfo extends javax.swing.JFrame {
     
-    private String name;
-    private String studentid;
-    private String phone;
-    private String email;
+   private String venue;
+private java.sql.Timestamp sqlStart;
+private java.sql.Timestamp sqlEnd;
+private String eventType;
    
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(ContactInfo.class.getName());
 
@@ -23,6 +23,14 @@ public class ContactInfo extends javax.swing.JFrame {
      */
     public ContactInfo() {
         initComponents();
+        
+    }
+    public ContactInfo(String venue, java.sql.Timestamp start, java.sql.Timestamp end, String eventType) {
+        initComponents();
+        this.venue = venue;
+        this.sqlStart = start;
+        this.sqlEnd = end;
+        this.eventType = eventType;
     }
 
     /**
@@ -35,7 +43,7 @@ public class ContactInfo extends javax.swing.JFrame {
     private void initComponents() {
 
         p1 = new javax.swing.JPanel();
-        btncheckevents = new javax.swing.JButton();
+        btnlogout = new javax.swing.JButton();
         lbl1 = new javax.swing.JLabel();
         p2 = new javax.swing.JPanel();
         lblname = new javax.swing.JLabel();
@@ -49,10 +57,8 @@ public class ContactInfo extends javax.swing.JFrame {
         btnnext = new javax.swing.JButton();
         javax.swing.JLabel bulldog = new javax.swing.JLabel();
         lbl2 = new javax.swing.JLabel();
-        btnlogout = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -63,19 +69,19 @@ public class ContactInfo extends javax.swing.JFrame {
         p1.setPreferredSize(new java.awt.Dimension(1000, 750));
         p1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btncheckevents.setBackground(new java.awt.Color(255, 222, 89));
-        btncheckevents.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
-        btncheckevents.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/logout 48 px.png"))); // NOI18N
-        btncheckevents.setText("CHECK AVAILABLE EVENTS");
-        btncheckevents.setBorder(null);
-        btncheckevents.setContentAreaFilled(false);
-        btncheckevents.setPreferredSize(new java.awt.Dimension(170, 55));
-        btncheckevents.addActionListener(new java.awt.event.ActionListener() {
+        btnlogout.setBackground(new java.awt.Color(255, 222, 89));
+        btnlogout.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
+        btnlogout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/logout 48 px.png"))); // NOI18N
+        btnlogout.setText("LOGOUT");
+        btnlogout.setBorder(null);
+        btnlogout.setContentAreaFilled(false);
+        btnlogout.setPreferredSize(new java.awt.Dimension(170, 55));
+        btnlogout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btncheckeventsActionPerformed(evt);
+                btnlogoutActionPerformed(evt);
             }
         });
-        p1.add(btncheckevents, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 460, 350, 70));
+        p1.add(btnlogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 560, 350, 70));
 
         lbl1.setFont(new java.awt.Font("Serif", 0, 64)); // NOI18N
         lbl1.setForeground(new java.awt.Color(255, 255, 255));
@@ -160,28 +166,11 @@ public class ContactInfo extends javax.swing.JFrame {
         lbl2.setText("Information");
         p1.add(lbl2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, -1, 58));
 
-        btnlogout.setBackground(new java.awt.Color(255, 222, 89));
-        btnlogout.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
-        btnlogout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/logout 48 px.png"))); // NOI18N
-        btnlogout.setText("LOGOUT");
-        btnlogout.setBorder(null);
-        btnlogout.setContentAreaFilled(false);
-        btnlogout.setPreferredSize(new java.awt.Dimension(170, 55));
-        btnlogout.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnlogoutActionPerformed(evt);
-            }
-        });
-        p1.add(btnlogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 560, 350, 70));
-
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/figma_pics/500 560 rectangle with button forgot password.png"))); // NOI18N
         p1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 70, 530, 570));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/figma_pics/350 70 rectangle with curved sides.png"))); // NOI18N
         p1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 560, -1, -1));
-
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/figma_pics/350 70 rectangle with curved sides.png"))); // NOI18N
-        p1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 460, -1, -1));
 
         getContentPane().add(p1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
@@ -219,43 +208,61 @@ public class ContactInfo extends javax.swing.JFrame {
 
     private void btnnextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnnextActionPerformed
         // TODO add your handling code here:
-    String name = txtname.getText();
-    String studentid = txtstudentidno.getText();
-    String phone = txtphoneno.getText();
-    String email = txtemail.getText();
+    String name = txtname.getText().trim();
+    String studentid = txtstudentidno.getText().trim();
+    String phone = txtphoneno.getText().trim();
+    String email = txtemail.getText().trim();
 
-    if(name.trim().isEmpty() || 
-       studentid.trim().isEmpty() || 
-       phone.trim().isEmpty() || 
-       email.trim().isEmpty()) {
+    // 1. Validate fields
+    if(name.isEmpty() || studentid.isEmpty() || phone.isEmpty() || email.isEmpty()) {
+        JOptionPane.showMessageDialog(this, "Please fill in all details.", "Input Error", JOptionPane.ERROR_MESSAGE);
+        return;
+    }
 
-        javax.swing.JOptionPane.showMessageDialog(this,
-        "There is no inputed data.",
-        "Login Error.",
-        javax.swing.JOptionPane.ERROR_MESSAGE);
+    // 2. Database Insert
+    try {
+        // Double-check if your connection class is DBConnection or DBConnection1
+        Connection conn = DBConnection1.getConnection(); 
 
-    } else {
+        String query = "INSERT INTO reservation_data (student_name, student_id, Student_number, Student_Email, venue, Start, End, event_type, Employee_ID) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        PreparedStatement pst = conn.prepareStatement(query, java.sql.Statement.RETURN_GENERATED_KEYS);
 
-        // ipapasa yung contact info sa InputPage2
-        InputPage2 Reserve = new InputPage2(
-                name,
-                studentid,
-                phone,
-                email
-        );
+        pst.setString(1, name);         
+        pst.setString(2, studentid);    
+        pst.setString(3, phone);        
+        pst.setString(4, email);        
+        pst.setString(5, this.venue);            
+        pst.setTimestamp(6, this.sqlStart);      
+        pst.setTimestamp(7, this.sqlEnd);        
+        pst.setString(8, this.eventType);        
+        pst.setString(9, LOGIN.loggedInEmpID); 
 
-        Reserve.setVisible(true);
+        int rowsInserted = pst.executeUpdate();
 
-        this.dispose();
+        if (rowsInserted > 0) {
+            ResultSet rsKeys = pst.getGeneratedKeys();
+            String newEventCode = "N/A";
+            if (rsKeys.next()) {
+                newEventCode = rsKeys.getString(1); 
+            }
+
+            JOptionPane.showMessageDialog(this, "Reservation Saved Successfully!");
+            
+            String receiptDates = this.sqlStart.toString() + " TO " + this.sqlEnd.toString();
+
+            // Opens your final confirmation window
+            output out = new output(newEventCode, studentid, email, phone, LOGIN.loggedInEmpID, this.venue, receiptDates);
+            out.setVisible(true);
+            this.dispose();
         }
-    }//GEN-LAST:event_btnnextActionPerformed
+        
+        pst.close();
+        conn.close();
 
-    private void btncheckeventsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncheckeventsActionPerformed
-        // TODO add your handling code here:
-      UserCheckAvailability UCA = new UserCheckAvailability();
-     UCA.setVisible(true);
-     this.dispose();
-    }//GEN-LAST:event_btncheckeventsActionPerformed
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(this, "Database Error: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+    }
+    }//GEN-LAST:event_btnnextActionPerformed
 
     /**
      * @param args the command line arguments
@@ -277,18 +284,16 @@ public class ContactInfo extends javax.swing.JFrame {
             logger.log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
+        
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> new ContactInfo().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btncheckevents;
     private javax.swing.JButton btnlogout;
     private javax.swing.JButton btnnext;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel lbl1;
     private javax.swing.JLabel lbl2;
     private javax.swing.JLabel lblemail;
@@ -304,4 +309,3 @@ public class ContactInfo extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     }
-

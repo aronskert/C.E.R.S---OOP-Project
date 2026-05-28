@@ -255,8 +255,8 @@ public class LOGIN extends javax.swing.JFrame {
         }else{
             LOGIN.loggedInEmpID = employeeid;
             
-            ContactInfo ConInfo = new ContactInfo();
-            ConInfo.setVisible(true);
+            InputPage2 ip2 = new InputPage2();
+             ip2.setVisible(true);
             this.dispose(); 
             
         }
