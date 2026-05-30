@@ -64,7 +64,6 @@ public class InputPage2 extends javax.swing.JFrame {
         jcbSmins = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
         jcbSampm = new javax.swing.JComboBox<>();
-        txtEventType = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jcbEampm = new javax.swing.JComboBox<>();
         jcbEmins = new javax.swing.JComboBox<>();
@@ -75,6 +74,7 @@ public class InputPage2 extends javax.swing.JFrame {
         jcbEmonth = new javax.swing.JComboBox<>();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
+        jcbType = new javax.swing.JComboBox<>();
         btnSubmit = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
@@ -140,7 +140,6 @@ public class InputPage2 extends javax.swing.JFrame {
         jcbVenue.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
         jcbVenue.setForeground(new java.awt.Color(31, 40, 108));
         jcbVenue.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Function Hall", "Gym", "3rd Floor", "AVR Room" }));
-        jcbVenue.setSelectedIndex(-1);
         jcbVenue.addActionListener(this::jcbVenueActionPerformed);
         VenuePanel.add(jcbVenue, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 290, 40));
 
@@ -168,7 +167,7 @@ public class InputPage2 extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(31, 40, 108));
         jLabel6.setText("Start of the Event");
-        VenuePanel.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 190, -1));
+        VenuePanel.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 190, -1));
 
         jcbShour.setFont(new java.awt.Font("Serif", 0, 14)); // NOI18N
         jcbShour.setForeground(new java.awt.Color(31, 40, 108));
@@ -185,8 +184,8 @@ public class InputPage2 extends javax.swing.JFrame {
 
         jLabel8.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(31, 40, 108));
-        jLabel8.setText("Type of Event");
-        VenuePanel.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, 260, -1));
+        jLabel8.setText("Type of Event ");
+        VenuePanel.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, 320, -1));
 
         jcbSampm.setFont(new java.awt.Font("Serif", 0, 12)); // NOI18N
         jcbSampm.setForeground(new java.awt.Color(31, 40, 108));
@@ -194,9 +193,6 @@ public class InputPage2 extends javax.swing.JFrame {
         jcbSampm.setSelectedIndex(-1);
         jcbSampm.addActionListener(this::jcbSampmActionPerformed);
         VenuePanel.add(jcbSampm, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 170, -1, 30));
-
-        txtEventType.addActionListener(this::txtEventTypeActionPerformed);
-        VenuePanel.add(txtEventType, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 340, 450, 40));
 
         jLabel9.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(31, 40, 108));
@@ -254,6 +250,14 @@ public class InputPage2 extends javax.swing.JFrame {
         jLabel12.setText("End of the Event");
         VenuePanel.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, 190, -1));
 
+        jcbType.setBackground(new java.awt.Color(255, 222, 89));
+        jcbType.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
+        jcbType.setForeground(new java.awt.Color(31, 40, 108));
+        jcbType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Function Hall", "Gym", "3rd Floor", "AVR Room" }));
+        jcbType.setSelectedIndex(-1);
+        jcbType.addActionListener(this::jcbTypeActionPerformed);
+        VenuePanel.add(jcbType, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 340, 290, 40));
+
         jPanel1.add(VenuePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 0, 502, 400));
 
         btnSubmit.setBackground(new java.awt.Color(255, 222, 89));
@@ -299,7 +303,7 @@ public class InputPage2 extends javax.swing.JFrame {
     String endHr = jcbEhour.getSelectedItem() != null ? jcbEhour.getSelectedItem().toString().trim() : "";
     String endMin = jcbEmins.getSelectedItem() != null ? jcbEmins.getSelectedItem().toString().trim() : "";
     String endAmPm = jcbEampm.getSelectedItem() != null ? jcbEampm.getSelectedItem().toString().trim() : "";
-    String eventType = txtEventType.getText().trim();
+    String eventType = jcbType.getSelectedItem() != null ? jcbType.getSelectedItem().toString().trim() : "";
     
     // 1. Validation Check
     if (venue.isEmpty() || startMonth.isEmpty() || startDay.isEmpty() || startYear.isEmpty() || 
@@ -362,10 +366,6 @@ public class InputPage2 extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jcbEampmActionPerformed
 
-    private void txtEventTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEventTypeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtEventTypeActionPerformed
-
     private void jcbSampmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbSampmActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jcbSampmActionPerformed
@@ -392,6 +392,10 @@ public class InputPage2 extends javax.swing.JFrame {
         UCA.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btncheckeventsActionPerformed
+
+    private void jcbTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbTypeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jcbTypeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -452,7 +456,7 @@ public class InputPage2 extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jcbSmins;
     private javax.swing.JComboBox<String> jcbSmonth;
     private javax.swing.JComboBox<String> jcbSyear;
+    private javax.swing.JComboBox<String> jcbType;
     private javax.swing.JComboBox<String> jcbVenue;
-    private javax.swing.JTextField txtEventType;
     // End of variables declaration//GEN-END:variables
 }
