@@ -270,122 +270,45 @@ public class UserCheckAvailability extends javax.swing.JFrame {
     private void btnsearch1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsearch1ActionPerformed
 
     String searchStart = txtstart.getText().trim();
-    String searchEnd = txtend.getText().trim();
-    String searchVenue = txtvenue.getText().trim();
+        String searchEnd = txtend.getText().trim();
+        String searchVenue = txtvenue.getText().trim();
 
-    // yung input format
-    SimpleDateFormat userFormat =
-            new SimpleDateFormat("dd/MMM/yyyy - HH:mm");
+        try {
+            Connection con = DBConnection1.getConnection();
 
-    // yung mysql datetime format
-    SimpleDateFormat dbFormat =
-            new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            String sql = "SELECT start, end, venue FROM reservation_data WHERE start LIKE ? AND end LIKE ? AND venue LIKE ?";
+            PreparedStatement pst = con.prepareStatement(sql);
 
-    String formattedStart = "";
-    String formattedEnd = "";
+            pst.setString(1, "%" + searchStart + "%");
+            pst.setString(2, "%" + searchEnd + "%");
+            pst.setString(3, "%" + searchVenue + "%");
 
-    try {
+            ResultSet rs = pst.executeQuery();
+            
+            javax.swing.table.DefaultTableModel model = (javax.swing.table.DefaultTableModel) jTable1.getModel();
+            model.setRowCount(0);
 
-        // conver yung input ng user sa mysql format
+            boolean found = false;
 
-        if (!searchStart.isEmpty()) {
-
-            java.util.Date startDate =
-                    userFormat.parse(searchStart);
-
-            formattedStart =
-                    dbFormat.format(startDate);
-        }
-
-        if (!searchEnd.isEmpty()) {
-
-            java.util.Date endDate =
-                    userFormat.parse(searchEnd);
-
-            formattedEnd =
-                    dbFormat.format(endDate);
-        }
-
-    } catch (Exception e) {
-
-        JOptionPane.showMessageDialog(
-                this,
-                "Invalid date format!\n\n"
-                + "Use:\n"
-                + "dd/MMM/yyyy - HH:mm"
-        );
-
-        return;
-    }
-
-    try {
-
-        Connection con = DBConnection1.getConnection();
-
-        String sql =
-                "SELECT start, end, venue FROM reservation_data "
-                + "WHERE start = ? AND end = ? AND venue = ?";
-
-        PreparedStatement pst = con.prepareStatement(sql);
-
-        pst.setString(1, formattedStart);
-        pst.setString(2, formattedEnd);
-        pst.setString(3, searchVenue);
-
-        ResultSet rs = pst.executeQuery();
-
-        DefaultTableModel model =
-                (DefaultTableModel) jTable1.getModel();
-
-        model.setRowCount(0);
-
-        boolean found = false;
-
-        // display
-        SimpleDateFormat displayFormat =
-                new SimpleDateFormat("dd/MMM/yyyy - HH:mm");
-
-        while (rs.next()) {
-
-            found = true;
-
-            java.sql.Timestamp startTimestamp =
-                    rs.getTimestamp("start");
-
-            java.sql.Timestamp endTimestamp =
-                    rs.getTimestamp("end");
-
-            String displayStart =
-                    displayFormat.format(startTimestamp);
-
-            String displayEnd =
-                    displayFormat.format(endTimestamp);
-
-            model.addRow(new Object[]{
-                displayStart,
-                displayEnd,
-                rs.getString("venue")
-            });
-        }
-
-        if (!found) {
-
-            JOptionPane.showMessageDialog(
-                    this,
-                    "No events found!"
-            );
-        }
-
-        rs.close();
-        pst.close();
-        con.close();
-
-    } catch (Exception e) {
-
-        JOptionPane.showMessageDialog(
-                this,
-                "Search Error: " + e.getMessage()
-            );
+            while (rs.next()) {
+                found = true;
+                model.addRow(new Object[]{
+                    rs.getString("start"),
+                    rs.getString("end"),
+                    rs.getString("venue")
+                });
+            }
+            
+            if (!found) {
+                javax.swing.JOptionPane.showMessageDialog(this, "No events found matching your search!");
+            }
+            
+            rs.close();
+            pst.close();
+            con.close();
+            
+        } catch (Exception e) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Search Error: " + e.getMessage());
         }
     }//GEN-LAST:event_btnsearch1ActionPerformed
 
