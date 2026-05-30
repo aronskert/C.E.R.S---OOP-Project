@@ -143,13 +143,13 @@ public class Dashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_btnmanageActionPerformed
 
     private void btnregisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnregisterActionPerformed
-        Employee addEmployee = new Employee();
+     Employee addEmployee = new Employee();
      addEmployee.setVisible(true);
      this.dispose();
     }//GEN-LAST:event_btnregisterActionPerformed
 
     private void btnloginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnloginActionPerformed
-        LOGIN log = new LOGIN();
+     LOGIN log = new LOGIN();
      log.setVisible(true);
      this.dispose();
     }//GEN-LAST:event_btnloginActionPerformed
