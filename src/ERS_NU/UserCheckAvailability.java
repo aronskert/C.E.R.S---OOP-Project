@@ -42,6 +42,7 @@ public class UserCheckAvailability extends javax.swing.JFrame {
 
     public UserCheckAvailability() {
         initComponents();
+        jPanel1.setVisible(false);
         reservation_data();
     }
     
@@ -51,6 +52,16 @@ public class UserCheckAvailability extends javax.swing.JFrame {
     private void initComponents() {
 
         p1 = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
+        lblGuide = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
+        jLabel27 = new javax.swing.JLabel();
+        jLabel28 = new javax.swing.JLabel();
+        jLabel29 = new javax.swing.JLabel();
+        jLabel30 = new javax.swing.JLabel();
+        jLabel31 = new javax.swing.JLabel();
+        jLabel32 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         lblcampusevent = new javax.swing.JLabel();
         lblreservesystem = new javax.swing.JLabel();
         p2 = new javax.swing.JPanel();
@@ -75,6 +86,63 @@ public class UserCheckAvailability extends javax.swing.JFrame {
         p1.setBackground(new java.awt.Color(31, 40, 108));
         p1.setPreferredSize(new java.awt.Dimension(1000, 750));
         p1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblGuide.setFont(new java.awt.Font("Serif", 3, 30)); // NOI18N
+        lblGuide.setText("Search Guide");
+        lblGuide.setToolTipText("");
+        jPanel1.add(lblGuide, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 20, 180, 40));
+
+        jLabel26.setFont(new java.awt.Font("Serif", 0, 16)); // NOI18N
+        jLabel26.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel26.setText("YYYY-MM-DD (e.g., 2026-05-31) in the Start box.");
+        jPanel1.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, -1, 30));
+
+        jLabel27.setFont(new java.awt.Font("Serif", 0, 16)); // NOI18N
+        jLabel27.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel27.setText("scheduled events for that area.");
+        jPanel1.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, -1, 40));
+
+        jLabel28.setFont(new java.awt.Font("Serif", 0, 16)); // NOI18N
+        jLabel28.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel28.setText("1. To check a specific day: Type the date format as");
+        jPanel1.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, -1, 40));
+
+        jLabel29.setFont(new java.awt.Font("Serif", 0, 16)); // NOI18N
+        jLabel29.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel29.setText("2. To check a whole month: Type the year and");
+        jPanel1.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, -1, 40));
+
+        jLabel30.setFont(new java.awt.Font("Serif", 0, 16)); // NOI18N
+        jLabel30.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel30.setText("month (e.g., 2026-05) in the Start box.");
+        jPanel1.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, -1, 40));
+
+        jLabel31.setFont(new java.awt.Font("Serif", 0, 16)); // NOI18N
+        jLabel31.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel31.setText("3. To check a specific room: Type the room name ");
+        jPanel1.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, -1, 40));
+
+        jLabel32.setFont(new java.awt.Font("Serif", 0, 16)); // NOI18N
+        jLabel32.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel32.setText("(e.g., Gym) into the Venue box to see all ");
+        jPanel1.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, -1, 40));
+
+        p1.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 350, 300));
+
+        jButton1.setText("GUIDE");
+        jButton1.setToolTipText("\"Please select your Venue and Date first!\"");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButton1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButton1MouseExited(evt);
+            }
+        });
+        p1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 50, -1, -1));
 
         lblcampusevent.setFont(new java.awt.Font("Serif", 0, 36)); // NOI18N
         lblcampusevent.setForeground(new java.awt.Color(255, 255, 255));
@@ -327,6 +395,14 @@ public class UserCheckAvailability extends javax.swing.JFrame {
             this.dispose(); 
     }//GEN-LAST:event_btnreturnActionPerformed
 
+    private void jButton1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseEntered
+        jPanel1.setVisible(true);
+    }//GEN-LAST:event_jButton1MouseEntered
+
+    private void jButton1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseExited
+        jPanel1.setVisible(false);
+    }//GEN-LAST:event_jButton1MouseExited
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -353,9 +429,19 @@ public class UserCheckAvailability extends javax.swing.JFrame {
     private javax.swing.JButton btnclear;
     private javax.swing.JButton btnreturn;
     private javax.swing.JButton btnsearch1;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JLabel lblGuide;
     private javax.swing.JLabel lblcampusevent;
     private javax.swing.JLabel lbldate;
     private javax.swing.JLabel lbldate1;

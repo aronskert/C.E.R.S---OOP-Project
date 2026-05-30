@@ -50,19 +50,21 @@ public class InputPage2 extends javax.swing.JFrame {
         lblGuide = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
-        jLabel19 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
-        jLabel21 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
+        jLabel27 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel28 = new javax.swing.JLabel();
+        jLabel29 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        btnReturn = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        btnReturn = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         btncheckevents = new javax.swing.JButton();
         jLabel14 = new javax.swing.JLabel();
@@ -90,10 +92,10 @@ public class InputPage2 extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jcbType = new javax.swing.JComboBox<>();
+        jButton1 = new javax.swing.JButton();
         btnSubmit = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -105,66 +107,76 @@ public class InputPage2 extends javax.swing.JFrame {
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblGuide.setFont(new java.awt.Font("Serif", 3, 30)); // NOI18N
-        lblGuide.setText("Reservation Guide");
+        lblGuide.setText("Reservation Form Guide");
         lblGuide.setToolTipText("");
-        jPanel3.add(lblGuide, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, 270, 40));
+        jPanel3.add(lblGuide, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, 340, 40));
 
         jLabel15.setFont(new java.awt.Font("Serif", 0, 16)); // NOI18N
         jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel15.setText("Facility Management Office or FMO.");
-        jPanel3.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, -1, 40));
+        jPanel3.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, -1, 40));
 
         jLabel16.setFont(new java.awt.Font("Serif", 0, 16)); // NOI18N
         jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel16.setText("1. Reservation can only be within 3 months from now.");
-        jPanel3.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, 40));
-
-        jLabel17.setFont(new java.awt.Font("Serif", 0, 16)); // NOI18N
-        jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel17.setText("while others are limited to 8hrs and NUD is not.");
-        jPanel3.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, -1, 40));
+        jLabel16.setText("3 months in advance.");
+        jPanel3.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, -1, 40));
 
         jLabel18.setFont(new java.awt.Font("Serif", 0, 16)); // NOI18N
         jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel18.setText("2. All reservation must be approved by first by the ");
-        jPanel3.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, -1, 40));
-
-        jLabel19.setFont(new java.awt.Font("Serif", 0, 16)); // NOI18N
-        jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel19.setText("2. All reservation must be approved by first by the ");
-        jPanel3.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, -1, 40));
+        jPanel3.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, -1, 40));
 
         jLabel20.setFont(new java.awt.Font("Serif", 0, 16)); // NOI18N
         jLabel20.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel20.setText("3. Some venue are limited from the students, and their");
-        jPanel3.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, -1, 40));
-
-        jLabel21.setFont(new java.awt.Font("Serif", 0, 16)); // NOI18N
-        jLabel21.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel21.setText("reservation time will  decreased, unlike for others.");
-        jPanel3.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, -1, 40));
+        jLabel20.setText("limits to ensure fair access.");
+        jPanel3.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, -1, 40));
 
         jLabel22.setFont(new java.awt.Font("Serif", 0, 16)); // NOI18N
         jLabel22.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel22.setText("AVR - 3 days, but 5 hrs for student.");
-        jPanel3.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 360, -1, 40));
+        jLabel22.setText("for students.");
+        jPanel3.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 400, -1, 40));
 
         jLabel23.setFont(new java.awt.Font("Serif", 0, 16)); // NOI18N
         jLabel23.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel23.setText("Gym - only 8 am onwards and 4 hours limit for students.  ");
-        jPanel3.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, -1, 40));
+        jLabel23.setText("students (8-hour limit for non-students).");
+        jPanel3.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, -1, 40));
 
         jLabel24.setFont(new java.awt.Font("Serif", 0, 16)); // NOI18N
         jLabel24.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel24.setText("Funciton hall - can only be reserved by 3 days");
-        jPanel3.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, -1, 40));
+        jLabel24.setText("Funciton hall - Maximum 3-day reservation limit.");
+        jPanel3.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, -1, 40));
 
         jLabel25.setFont(new java.awt.Font("Serif", 0, 16)); // NOI18N
         jLabel25.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel25.setText("3rd floor - a whole week, but 5hrs for student .");
-        jPanel3.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, -1, 40));
+        jLabel25.setText(" daily limit for students.");
+        jPanel3.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 350, -1, 40));
 
-        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 380, 430));
+        jLabel26.setFont(new java.awt.Font("Serif", 0, 16)); // NOI18N
+        jLabel26.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel26.setText("1. Reservations can only be booked a maximum of ");
+        jPanel3.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, 40));
+
+        jLabel27.setFont(new java.awt.Font("Serif", 0, 16)); // NOI18N
+        jLabel27.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel27.setText("Gym - Available from 8:00 AM onwards. 4-hour limit for");
+        jPanel3.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, -1, 40));
+
+        jLabel21.setFont(new java.awt.Font("Serif", 0, 16)); // NOI18N
+        jLabel21.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel21.setText("3.Venue Restrictions: Student reservations have strict time");
+        jPanel3.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, -1, 40));
+
+        jLabel28.setFont(new java.awt.Font("Serif", 0, 16)); // NOI18N
+        jLabel28.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel28.setText("3rd floor /U2F - Available for full-week reservations. 5-hour");
+        jPanel3.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, -1, 40));
+
+        jLabel29.setFont(new java.awt.Font("Serif", 0, 16)); // NOI18N
+        jLabel29.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel29.setText("AVR - Maximum 3-day reservation limit. 5-hour daily limit");
+        jPanel3.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 380, -1, 40));
+
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 440, 450));
 
         jPanel2.setBackground(new java.awt.Color(31, 40, 108));
         jPanel2.setForeground(new java.awt.Color(31, 40, 108));
@@ -176,6 +188,9 @@ public class InputPage2 extends javax.swing.JFrame {
         jLabel1.setText("Reservation");
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, 324, 84));
 
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/buldgo.png"))); // NOI18N
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 340, 347, 259));
+
         btnReturn.setBackground(new java.awt.Color(255, 222, 89));
         btnReturn.setFont(new java.awt.Font("Serif", 0, 20)); // NOI18N
         btnReturn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/32 32 return png.png"))); // NOI18N
@@ -184,9 +199,6 @@ public class InputPage2 extends javax.swing.JFrame {
         btnReturn.addActionListener(this::btnReturnActionPerformed);
         jPanel2.add(btnReturn, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, 150, 60));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/buldgo.png"))); // NOI18N
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 320, 347, 259));
-
         jLabel3.setFont(new java.awt.Font("Serif", 0, 60)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Form");
@@ -194,7 +206,7 @@ public class InputPage2 extends javax.swing.JFrame {
 
         btncheckevents.setBackground(new java.awt.Color(255, 222, 89));
         btncheckevents.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
-        btncheckevents.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/logout 48 px.png"))); // NOI18N
+        btncheckevents.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/Manage.png"))); // NOI18N
         btncheckevents.setText("CHECK AVAILABLE EVENTS");
         btncheckevents.setBorder(null);
         btncheckevents.setContentAreaFilled(false);
@@ -341,6 +353,18 @@ public class InputPage2 extends javax.swing.JFrame {
         jcbType.addActionListener(this::jcbTypeActionPerformed);
         VenuePanel.add(jcbType, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 340, 290, 40));
 
+        jButton1.setText("GUIDE");
+        jButton1.setToolTipText("\"Please select your Venue and Date first!\"");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButton1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButton1MouseExited(evt);
+            }
+        });
+        VenuePanel.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 70, -1, -1));
+
         jPanel1.add(VenuePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 0, 502, 400));
 
         btnSubmit.setBackground(new java.awt.Color(255, 222, 89));
@@ -360,18 +384,6 @@ public class InputPage2 extends javax.swing.JFrame {
 
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/figma_pics/150 51 for return button.png"))); // NOI18N
         jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, 160, 120));
-
-        jButton1.setText("GUIDE");
-        jButton1.setToolTipText("\"Please select your Venue and Date first!\"");
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jButton1MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jButton1MouseExited(evt);
-            }
-        });
-        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 60, -1, -1));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, 1074, 800));
 
@@ -544,9 +556,7 @@ public class InputPage2 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
@@ -554,6 +564,10 @@ public class InputPage2 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
