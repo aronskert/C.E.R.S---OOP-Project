@@ -281,6 +281,9 @@ public class InputPage2 extends javax.swing.JFrame {
 
     private void btnReturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReturnActionPerformed
         // TODO add your handling code here:
+        Dashboard db = new Dashboard(); 
+        db.setVisible(true);
+        this.dispose();
  
     }//GEN-LAST:event_btnReturnActionPerformed
 
