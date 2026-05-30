@@ -457,7 +457,7 @@
               <Color blue="59" green="de" red="ff" type="rgb"/>
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Serif" size="20" style="0"/>
+              <Font name="Serif" size="24" style="0"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/e/r/s/nu/Pictures and icons/confirm 48px.png"/>
@@ -473,19 +473,19 @@
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="820" y="30" width="150" height="50"/>
+              <AbsoluteConstraints x="700" y="100" width="230" height="70"/>
             </Constraint>
           </Constraints>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel3">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/e/r/s/nu/Pictures and icons/figma_pics/150 51 for return button.png"/>
+              <Image iconType="3" name="/e/r/s/nu/Pictures and icons/figma_pics/2nd biggest 231 70 btn.png"/>
             </Property>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="820" y="30" width="-1" height="50"/>
+              <AbsoluteConstraints x="700" y="90" width="250" height="90"/>
             </Constraint>
           </Constraints>
         </Component>
