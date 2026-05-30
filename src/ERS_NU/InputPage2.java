@@ -256,7 +256,7 @@ public class InputPage2 extends javax.swing.JFrame {
         jcbType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Function Hall", "Gym", "3rd Floor", "AVR Room" }));
         jcbType.setSelectedIndex(-1);
         jcbType.addActionListener(this::jcbTypeActionPerformed);
-        VenuePanel.add(jcbType, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 340, 290, 40));
+        VenuePanel.add(jcbType, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 340, 290, 40));
 
         jPanel1.add(VenuePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 0, 502, 400));
 
