@@ -232,6 +232,7 @@
                         <StringItem index="3" value="AVR Room"/>
                       </StringArray>
                     </Property>
+                    <Property name="selectedIndex" type="int" value="-1"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jcbVenueActionPerformed"/>
@@ -781,11 +782,12 @@
                       <Color blue="6c" green="28" red="1f" type="rgb"/>
                     </Property>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                      <StringArray count="4">
-                        <StringItem index="0" value="Function Hall"/>
-                        <StringItem index="1" value="Gym"/>
-                        <StringItem index="2" value="3rd Floor"/>
-                        <StringItem index="3" value="AVR Room"/>
+                      <StringArray count="5">
+                        <StringItem index="0" value="organizational event"/>
+                        <StringItem index="1" value="Student event"/>
+                        <StringItem index="2" value="outside organizational event"/>
+                        <StringItem index="3" value="National University Dasmarinas event"/>
+                        <StringItem index="4" value="Outside School event, "/>
                       </StringArray>
                     </Property>
                     <Property name="selectedIndex" type="int" value="-1"/>
@@ -798,7 +800,7 @@
                   </AuxValues>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="50" y="340" width="290" height="40"/>
+                      <AbsoluteConstraints x="10" y="340" width="290" height="40"/>
                     </Constraint>
                   </Constraints>
                 </Component>

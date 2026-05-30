@@ -140,6 +140,7 @@ public class InputPage2 extends javax.swing.JFrame {
         jcbVenue.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
         jcbVenue.setForeground(new java.awt.Color(31, 40, 108));
         jcbVenue.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Function Hall", "Gym", "3rd Floor", "AVR Room" }));
+        jcbVenue.setSelectedIndex(-1);
         jcbVenue.addActionListener(this::jcbVenueActionPerformed);
         VenuePanel.add(jcbVenue, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 290, 40));
 
@@ -253,10 +254,10 @@ public class InputPage2 extends javax.swing.JFrame {
         jcbType.setBackground(new java.awt.Color(255, 222, 89));
         jcbType.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
         jcbType.setForeground(new java.awt.Color(31, 40, 108));
-        jcbType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Function Hall", "Gym", "3rd Floor", "AVR Room" }));
+        jcbType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "organizational event", "Student event", "outside organizational event", "National University Dasmarinas event", "Outside School event, " }));
         jcbType.setSelectedIndex(-1);
         jcbType.addActionListener(this::jcbTypeActionPerformed);
-        VenuePanel.add(jcbType, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 340, 290, 40));
+        VenuePanel.add(jcbType, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 340, 290, 40));
 
         jPanel1.add(VenuePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 0, 502, 400));
 
