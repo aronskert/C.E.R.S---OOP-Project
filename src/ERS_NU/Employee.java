@@ -164,41 +164,78 @@ public class Employee extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        String employee_id = txtEmpoyeeID.getText();
-        String password = txtNPassword.getText();
-        String email = txtEmail.getText();
-        String confirmPassword = new String (txtNPasswordC.getPassword()); 
+       String employee_id = txtEmpoyeeID.getText().trim();
+        String password = new String(txtNPassword.getPassword()); 
+        String email = txtEmail.getText().trim();
+        String confirmPassword = new String(txtNPasswordC.getPassword()); 
+        
+        StringBuilder errorMessages = new StringBuilder();
   
+        // 1. Basic Field Validations
+        if (employee_id.isEmpty() || password.isEmpty() || email.isEmpty() || confirmPassword.isEmpty()) {
+            errorMessages.append("- Please fill in all fields.\n");
+        } 
         
+        if (!password.equals(confirmPassword)) {
+            errorMessages.append("- Passwords do not match.\n");
+        }
         
-        if (employee_id.isEmpty() || password.isEmpty() || email.isEmpty()) {
-            JOptionPane.showMessageDialog(this, 
-                    "Error: Please fill in all fields before updating.", 
-                    "Input Error", 
-                    JOptionPane.ERROR_MESSAGE); 
-            
-        } else if (!password.equals(confirmPassword)) {
-    javax.swing.JOptionPane.showMessageDialog(this, 
-            "Password do not match!", 
-            "Password Mismatch", 
-            javax.swing.JOptionPane.ERROR_MESSAGE);
-       
-        } else if (password.length() < 8) {
-        javax.swing.JOptionPane.showMessageDialog(this, 
-                "Registration failed: Password must be at least 8 characters long!", 
-                "Weak Password", 
-                javax.swing.JOptionPane.ERROR_MESSAGE);
+        if (!password.isEmpty() && password.length() < 8) {
+            errorMessages.append("- Password must be at least 8 characters long.\n");
+        }
         
-            } else {
-
+        if (!email.isEmpty() && !email.matches("^[A-Za-z0-9._%+-]+@students\\.nu-dasma\\.edu\\.ph$")) { 
+            errorMessages.append("- Email must use the valid format (name@students.nu-dasma.edu.ph).\n");
+        }
+        
+        // 2. Database Pre-Verification
+        // Run database safety lookup only if input formatting validation is clean
+        if (errorMessages.length() == 0) {
             try (Connection conn = DBConnection.getConnection()) { 
 
-                String sql = "INSERT INTO employee_accounts "
-                        + "(employee_id, password, email) "
-                        + "VALUES (?, ?, ?)";
+                String checkSql = "SELECT employee_id, email, password FROM employee_accounts WHERE employee_id = ? OR email = ? OR password = ?";
+                try (PreparedStatement checkStmt = conn.prepareStatement(checkSql)) {
+                    checkStmt.setString(1, employee_id);
+                    checkStmt.setString(2, email);
+                    checkStmt.setString(3, password);
+                    
+                    try (ResultSet rs = checkStmt.executeQuery()) {
+                        while (rs.next()) {
+                            String foundId = rs.getString("employee_id");
+                            String foundEmail = rs.getString("email");
+                            String foundPassword = rs.getString("password");
+                            
+                            if (employee_id.equalsIgnoreCase(foundId)) {
+                                errorMessages.append("- This Employee ID is already registered.\n");
+                            }
+                            if (email.equalsIgnoreCase(foundEmail)) {
+                                errorMessages.append("- This Email address is already registered.\n");
+                            }
+                            if (password.equals(foundPassword)) {
+                                errorMessages.append("- This password matches an existing account profile.\n");
+                            }
+                        }
+                    }
+                }
+            } catch (SQLException e) {
+                errorMessages.append("- Database connection failure: ").append(e.getMessage()).append("\n");
+            }
+        }
 
-                PreparedStatement grr = conn.prepareStatement(sql); 
+        // 3. Evaluation & Error Display Breakout
+        if (errorMessages.length() > 0) {
+            JOptionPane.showMessageDialog(this,
+                    "Registration failed due to the following rules:\n\n" + errorMessages.toString() + "\nPlease fix these issues and try again.",
+                    "Validation Registration Errors",
+                    JOptionPane.WARNING_MESSAGE);
+            return; 
+        }
 
+        // 4. Safe Insertion Block
+        try (Connection conn = DBConnection.getConnection()) {
+            String sql = "INSERT INTO employee_accounts (employee_id, password, email) VALUES (?, ?, ?)";
+
+            try (PreparedStatement grr = conn.prepareStatement(sql)) {
                 grr.setString(1, employee_id);
                 grr.setString(2, password);
                 grr.setString(3, email);
@@ -206,20 +243,18 @@ public class Employee extends javax.swing.JFrame {
                 int rowsInserted = grr.executeUpdate();
                  
                 if (rowsInserted > 0) {
-
-                    JOptionPane.showMessageDialog(this,
-                            "Employee Registered Successfully!");
+                    JOptionPane.showMessageDialog(this, "Employee Registered Successfully!");
 
                     LOGIN login = new LOGIN();
                     login.setVisible(true);
                     this.dispose();
                 }
-
-            } catch (Exception e) {
-
-                JOptionPane.showMessageDialog(this,
-                        "Database Error: " + e.getMessage());
             }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this,
+                    "Application Error saving record: " + e.getMessage(),
+                    "Error",
+                    JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 

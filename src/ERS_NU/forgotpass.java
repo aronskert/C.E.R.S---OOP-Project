@@ -138,10 +138,6 @@ public class forgotpass extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(0, 17, Short.MAX_VALUE)
-                .addComponent(jLabel11)
-                .addContainerGap(399, Short.MAX_VALUE))
-            .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(12, 12, 12)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel12)
@@ -159,9 +155,11 @@ public class forgotpass extends javax.swing.JFrame {
                 .addComponent(btnChangePass, javax.swing.GroupLayout.PREFERRED_SIZE, 418, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 427, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 17, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 427, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel11))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -182,7 +180,7 @@ public class forgotpass extends javax.swing.JFrame {
                 .addComponent(txtNPasswordC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
                 .addComponent(btnChangePass, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -245,36 +243,34 @@ public class forgotpass extends javax.swing.JFrame {
         String confirmPassword = new String (txtNPasswordC.getPassword()); 
         
         
-      
-       if (NPassword.length() < 8 ) { 
-           javax.swing.JOptionPane.showMessageDialog(this,
-                   "Registration failed: Password must be at least 8 characters long!", 
-                   "Weak Password",
-                   javax.swing.JOptionPane.ERROR_MESSAGE);
-       }
-       
-        
-     if (EmployeeID.isEmpty() || NPassword.isEmpty() || Email.isEmpty()) {
+        if (EmployeeID.isEmpty() || NPassword.isEmpty() || Email.isEmpty()) {
             JOptionPane.showMessageDialog(this, 
                     "Error: Please fill in all fields before updating.", 
                     "Input Error", 
                     JOptionPane.ERROR_MESSAGE); 
-     } else if (!NPassword.equals(confirmPassword)) {
+    
+        } else if (!NPassword.equals(confirmPassword)) {
            javax.swing.JOptionPane.showMessageDialog(this, 
                    "Password do not match",
                    "Password mismatch", 
                    javax.swing.JOptionPane.ERROR_MESSAGE); 
        
-      } else if (NPassword.length() < 8 ) { 
+        } else if (NPassword.length() < 8 ) { 
            javax.swing.JOptionPane.showMessageDialog(this,
                    "Registration failed: Password must be at least 8 characters long!", 
                    "Weak Password",
                    javax.swing.JOptionPane.ERROR_MESSAGE);
-       
-    } else {
+           
+       } else if (!Email.matches("^[A-Za-z0-9._%+-]+@students\\.nu-dasma\\.edu\\.ph$")) { 
+          javax.swing.JOptionPane.showMessageDialog(this, 
+                "example: (name@students.nu-dasma.edu.ph).",
+                "Email must be a valid NU email",
+                 javax.swing.JOptionPane.ERROR_MESSAGE);
+               
+         } else {
             
             //connection sa database
-            try (Connection conn = DBConnection.getConnection()) {
+  try (Connection conn = DBConnection.getConnection()) {
             
                 //ichecheck kung nag-eexist yung employee id tas email sa database
                 String checkQuery = "SELECT * FROM employee_accounts WHERE employee_id = ? AND email = ?";
@@ -284,6 +280,19 @@ public class forgotpass extends javax.swing.JFrame {
                 checkStmt.setString(2, Email);
 
                 ResultSet rs = checkStmt.executeQuery(); 
+                
+          if (rs.next()) {
+                    String oldPassword = rs.getString("password"); // Para di magamit yung prevoius password//
+
+             if (NPassword.equals(oldPassword)) {
+                        JOptionPane.showMessageDialog(this,
+                                "Your new password cannot be the same as your previous password.\nPlease choose a different one.",
+                                "Security Rule Exception",
+                                JOptionPane.WARNING_MESSAGE);
+             
+                    }
+                }
+               
                 
                 // kapag nakita sa database yung employee_id at email
                 if (rs.next()) {
