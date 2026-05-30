@@ -245,12 +245,7 @@ public class forgotpass extends javax.swing.JFrame {
         String confirmPassword = new String (txtNPasswordC.getPassword()); 
         
         
-       if (!NPassword.equals(confirmPassword)) { 
-           javax.swing.JOptionPane.showMessageDialog(this, 
-                   "Password do not match",
-                   "Password mismatch", 
-                   javax.swing.JOptionPane.ERROR_MESSAGE); 
-       }        
+      
        if (NPassword.length() < 8 ) { 
            javax.swing.JOptionPane.showMessageDialog(this,
                    "Registration failed: Password must be at least 8 characters long!", 
@@ -264,6 +259,18 @@ public class forgotpass extends javax.swing.JFrame {
                     "Error: Please fill in all fields before updating.", 
                     "Input Error", 
                     JOptionPane.ERROR_MESSAGE); 
+     } else if (!NPassword.equals(confirmPassword)) {
+           javax.swing.JOptionPane.showMessageDialog(this, 
+                   "Password do not match",
+                   "Password mismatch", 
+                   javax.swing.JOptionPane.ERROR_MESSAGE); 
+       
+      } else if (NPassword.length() < 8 ) { 
+           javax.swing.JOptionPane.showMessageDialog(this,
+                   "Registration failed: Password must be at least 8 characters long!", 
+                   "Weak Password",
+                   javax.swing.JOptionPane.ERROR_MESSAGE);
+       
     } else {
             
             //connection sa database

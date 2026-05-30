@@ -81,7 +81,7 @@ private String eventType;
                 btnlogoutActionPerformed(evt);
             }
         });
-        p1.add(btnlogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 550, 350, 70));
+        p1.add(btnlogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 560, 350, 70));
 
         lbl1.setFont(new java.awt.Font("Serif", 0, 64)); // NOI18N
         lbl1.setForeground(new java.awt.Color(255, 255, 255));
@@ -145,7 +145,6 @@ private String eventType;
 
         btnnext.setBackground(new java.awt.Color(255, 222, 89));
         btnnext.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
-        btnnext.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/confirm 48px.png"))); // NOI18N
         btnnext.setText("NEXT");
         btnnext.setBorder(null);
         btnnext.setContentAreaFilled(false);
@@ -154,7 +153,7 @@ private String eventType;
                 btnnextActionPerformed(evt);
             }
         });
-        p2.add(btnnext, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 470, 420, 60));
+        p2.add(btnnext, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 470, 420, 60));
 
         p1.add(p2, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 80, 440, 530));
 
@@ -171,7 +170,7 @@ private String eventType;
         p1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 70, 530, 570));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/figma_pics/350 70 rectangle with curved sides.png"))); // NOI18N
-        p1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 550, -1, -1));
+        p1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 560, -1, -1));
 
         getContentPane().add(p1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
@@ -186,9 +185,8 @@ private String eventType;
 
     private void btnlogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnlogoutActionPerformed
     
-        Dashboard db = new Dashboard();
-        db.setVisible(true);
-        
+        LOGIN login = new LOGIN();
+        login.setVisible(true);
         this.dispose();
         
     }//GEN-LAST:event_btnlogoutActionPerformed
@@ -209,126 +207,61 @@ private String eventType;
     }//GEN-LAST:event_txtemailActionPerformed
 
     private void btnnextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnnextActionPerformed
- 
         // TODO add your handling code here:
-String name = txtname.getText().trim();
-String studentid = txtstudentidno.getText().trim();
-String phone = txtphoneno.getText().trim();
-String email = txtemail.getText().trim();
+    String name = txtname.getText().trim();
+    String studentid = txtstudentidno.getText().trim();
+    String phone = txtphoneno.getText().trim();
+    String email = txtemail.getText().trim();
 
-if (name.isEmpty() || studentid.isEmpty() || phone.isEmpty() || email.isEmpty()) {
-    JOptionPane.showMessageDialog(this,
-            "Please fill in all details.",
-            "Input Error",
-            JOptionPane.ERROR_MESSAGE);
-    return;
-}
-
-StringBuilder errorMessage = new StringBuilder();
-boolean isValid = true;
-
-// =====================
-// STUDENT ID VALIDATION
-// =====================
-if (!studentid.matches("^20(2[1-9]|[3-9][0-9])-\\d{7}$")) {
-    errorMessage.append("Student ID must be 2025-xxxxx (e.g. 2025-12345).\n");
-    isValid = false;
-}
-
-// =====================
-// PHONE VALIDATION
-// =====================
-if (!phone.matches("^09\\d{9}$")) {
-    errorMessage.append("Phone must be 11 digits and start with 09.\n");
-    isValid = false;
-}
-
-// =====================
-// EMAIL VALIDATION (CLEAN FIX)
-// =====================
-// NU EMAIL ONLY RULE
-if (!email.matches("^[A-Za-z0-9._%+-]+@students\\.nu-dasma\\.edu\\.ph$")) {
-    errorMessage.append("Email must be a valid NU email (example: name@students.nu-dasma.edu.ph).\n");
-    isValid = false;
-}
-
-if (!isValid) {
-    JOptionPane.showMessageDialog(this,
-            errorMessage.toString(),
-            "Validation Error",
-            JOptionPane.ERROR_MESSAGE);
-    return;
-}
-
-// =====================
-// DATABASE INSERT (SAFE)
-// =====================
-Connection conn = null;
-PreparedStatement pst = null;
-
-try {
-    conn = DBConnection1.getConnection();
-
-    String query = "INSERT INTO reservation_data " +
-            "(student_name, student_id, Student_number, Student_Email, venue, Start, End, event_type, Employee_ID) " +
-            "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
-
-    pst = conn.prepareStatement(query, java.sql.Statement.RETURN_GENERATED_KEYS);
-
-    pst.setString(1, name);
-    pst.setString(2, studentid);
-    pst.setString(3, phone);
-    pst.setString(4, email);
-    pst.setString(5, this.venue);
-    pst.setTimestamp(6, this.sqlStart);
-    pst.setTimestamp(7, this.sqlEnd);
-    pst.setString(8, this.eventType);
-    pst.setString(9, LOGIN.loggedInEmpID);
-
-    int rowsInserted = pst.executeUpdate();
-
-    if (rowsInserted > 0) {
-
-        ResultSet rsKeys = pst.getGeneratedKeys();
-        String newEventCode = "";
-
-        if (rsKeys.next()) {
-            newEventCode = String.valueOf(rsKeys.getObject(1));
-        }
-
-        JOptionPane.showMessageDialog(this,
-                "Reservation Saved Successfully!");
-
-        String receiptDates = this.sqlStart + " TO " + this.sqlEnd;
-
-        output out = new output(
-                newEventCode,
-                studentid,
-                email,
-                phone,
-                LOGIN.loggedInEmpID,
-                this.venue,
-                receiptDates
-        );
-
-        out.setVisible(true);
-        this.dispose();
+    // 1. Validate fields
+    if(name.isEmpty() || studentid.isEmpty() || phone.isEmpty() || email.isEmpty()) {
+        JOptionPane.showMessageDialog(this, "Please fill in all details.", "Input Error", JOptionPane.ERROR_MESSAGE);
+        return;
     }
 
-} catch (Exception e) {
-    JOptionPane.showMessageDialog(this,
-            "Database Error: " + e.getMessage(),
-            "Error",
-            JOptionPane.ERROR_MESSAGE);
-
-} finally {
+    // 2. Database Insert
     try {
-        if (pst != null) pst.close();
-        if (conn != null) conn.close();
-    } catch (SQLException e) {
-        e.printStackTrace();
+        // Double-check if your connection class is DBConnection or DBConnection1
+        Connection conn = DBConnection1.getConnection(); 
+
+        String query = "INSERT INTO reservation_data (student_name, student_id, Student_number, Student_Email, venue, Start, End, event_type, Employee_ID) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        PreparedStatement pst = conn.prepareStatement(query, java.sql.Statement.RETURN_GENERATED_KEYS);
+
+        pst.setString(1, name);         
+        pst.setString(2, studentid);    
+        pst.setString(3, phone);        
+        pst.setString(4, email);        
+        pst.setString(5, this.venue);            
+        pst.setTimestamp(6, this.sqlStart);      
+        pst.setTimestamp(7, this.sqlEnd);        
+        pst.setString(8, this.eventType);        
+        pst.setString(9, LOGIN.loggedInEmpID); 
+
+        int rowsInserted = pst.executeUpdate();
+
+        if (rowsInserted > 0) {
+            ResultSet rsKeys = pst.getGeneratedKeys();
+            String newEventCode = "N/A";
+            if (rsKeys.next()) {
+                newEventCode = rsKeys.getString(1); 
+            }
+
+            JOptionPane.showMessageDialog(this, "Reservation Saved Successfully!");
+            
+            String receiptDates = this.sqlStart.toString() + " TO " + this.sqlEnd.toString();
+
+            // Opens your final confirmation window
+            output out = new output(newEventCode, studentid, email, phone, LOGIN.loggedInEmpID, this.venue, receiptDates);
+            out.setVisible(true);
+            this.dispose();
+        }
+        
+        pst.close();
+        conn.close();
+
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(this, "Database Error: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
     }
-}
     }//GEN-LAST:event_btnnextActionPerformed
 
     /**
