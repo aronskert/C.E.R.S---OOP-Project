@@ -71,7 +71,7 @@ private String eventType;
 
         btnlogout.setBackground(new java.awt.Color(255, 222, 89));
         btnlogout.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
-        btnlogout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ERS_NU/ICONS/logout 48 px.png"))); // NOI18N
+        btnlogout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/logout 48 px.png"))); // NOI18N
         btnlogout.setText("LOGOUT");
         btnlogout.setBorder(null);
         btnlogout.setContentAreaFilled(false);
@@ -145,7 +145,8 @@ private String eventType;
 
         btnnext.setBackground(new java.awt.Color(255, 222, 89));
         btnnext.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
-        btnnext.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ERS_NU/ICONS/next buton.png"))); // NOI18N
+        btnnext.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/confirm 48px.png"))); // NOI18N
+        btnnext.setText("NEXT");
         btnnext.setBorder(null);
         btnnext.setContentAreaFilled(false);
         btnnext.addActionListener(new java.awt.event.ActionListener() {
@@ -158,7 +159,7 @@ private String eventType;
         p1.add(p2, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 80, 440, 530));
 
         bulldog.setBackground(new java.awt.Color(0, 0, 102));
-        bulldog.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ERS_NU/ICONS/buldgo.png"))); // NOI18N
+        bulldog.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/buldgo.png"))); // NOI18N
         p1.add(bulldog, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 180, 351, 290));
 
         lbl2.setFont(new java.awt.Font("Serif", 0, 64)); // NOI18N
@@ -166,10 +167,10 @@ private String eventType;
         lbl2.setText("Information");
         p1.add(lbl2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, -1, 58));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ERS_NU/ICONS/500 560 rectangle with button forgot password.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/figma_pics/500 560 rectangle with button forgot password.png"))); // NOI18N
         p1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 70, 530, 570));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ERS_NU/ICONS/350 70 rectangle with curved sides.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/figma_pics/350 70 rectangle with curved sides.png"))); // NOI18N
         p1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 550, -1, -1));
 
         getContentPane().add(p1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
