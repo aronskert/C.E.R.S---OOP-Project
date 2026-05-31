@@ -454,11 +454,51 @@ public class InputPage2 extends javax.swing.JFrame {
         return;
     }
 
-        // Convert to SQL Timestamps
+       // Convert to SQL Timestamps
         java.sql.Timestamp sqlStart = new java.sql.Timestamp(parsedStart.getTime());
         java.sql.Timestamp sqlEnd = new java.sql.Timestamp(parsedEnd.getTime());
 
-        // 3. Close this page and pass the data forward to ContactInfo
+        // BONUS FIX: Make sure they don't set an End Time that happens before the Start Time!
+        if (parsedEnd.before(parsedStart)) {
+            JOptionPane.showMessageDialog(this, "End time cannot be earlier than Start time!", "Invalid Time", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        // ==========================================
+        // THE DOUBLE-BOOKING CHECK
+        // ==========================================
+        Connection con = DBConnection1.getConnection();
+        
+        // This query checks for overlapping times in the exact same venue
+        String checkSql = "SELECT * FROM reservation_data WHERE venue = ? AND (Start < ?) AND (End > ?)";
+        PreparedStatement pst = con.prepareStatement(checkSql);
+        
+        pst.setString(1, venue);
+        pst.setTimestamp(2, sqlEnd);   // Existing event starts before NEW event ends
+        pst.setTimestamp(3, sqlStart); // Existing event ends after NEW event starts
+        
+        ResultSet rs = pst.executeQuery();
+        
+        if (rs.next()) {
+            // If rs.next() is true, it means it found an overlapping event!
+            JOptionPane.showMessageDialog(this, 
+                "Double Booking Alert!\nThis venue is already booked during your selected time.\nPlease click 'Check Available Events' to find a free slot.", 
+                "Venue Unavailable", 
+                JOptionPane.ERROR_MESSAGE);
+            
+            rs.close();
+            pst.close();
+            con.close();
+            return; // Stop them from going to the next page!
+        }
+        
+        rs.close();
+        pst.close();
+        con.close();
+        // ==========================================
+
+        // If the code makes it down here, the room is completely free!
+        // Close this page and pass the data forward to ContactInfo
         ContactInfo CI = new ContactInfo(venue, sqlStart, sqlEnd, eventType);
         CI.setVisible(true);
         this.dispose();

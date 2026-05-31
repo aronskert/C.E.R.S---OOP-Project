@@ -106,7 +106,7 @@ public void reservation_data() {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButton1.setText("GUIDE");
-        jButton1.setToolTipText("\"Please select your Venue and Date first!\"");
+        jButton1.setToolTipText("");
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jButton1MouseEntered(evt);
