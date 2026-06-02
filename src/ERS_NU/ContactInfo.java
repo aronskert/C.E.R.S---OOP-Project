@@ -5,6 +5,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
 
 
 import javax.swing.JOptionPane;
@@ -17,12 +18,19 @@ private java.sql.Timestamp sqlEnd;
 private String eventType;
    
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(ContactInfo.class.getName());
+    
+    public static String savedName = "";
+    public static String savedStudentId = "";
+    public static String savedPhone = "";
+    public static String savedEmail = "";
 
-    /**
-     * Creates new form ContactInfo
-     */
+    // This will hold the hidden InputPage2
+    private InputPage2 previousPage;
+    
     public ContactInfo() {
         initComponents();
+        
+        
         
     }
     public ContactInfo(String venue, java.sql.Timestamp start, java.sql.Timestamp end, String eventType) {
@@ -31,6 +39,12 @@ private String eventType;
         this.sqlStart = start;
         this.sqlEnd = end;
         this.eventType = eventType;
+        
+        txtname.setText(savedName);
+        txtstudentidno.setText(savedStudentId);
+        txtphoneno.setText(savedPhone);
+        txtemail.setText(savedEmail);
+        
     }
 
     /**
@@ -43,7 +57,6 @@ private String eventType;
     private void initComponents() {
 
         p1 = new javax.swing.JPanel();
-        btnlogout = new javax.swing.JButton();
         lbl1 = new javax.swing.JLabel();
         p2 = new javax.swing.JPanel();
         lblname = new javax.swing.JLabel();
@@ -58,7 +71,8 @@ private String eventType;
         javax.swing.JLabel bulldog = new javax.swing.JLabel();
         lbl2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        btnReturn = new javax.swing.JButton();
+        jLabel13 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -69,24 +83,10 @@ private String eventType;
         p1.setPreferredSize(new java.awt.Dimension(1000, 750));
         p1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnlogout.setBackground(new java.awt.Color(255, 222, 89));
-        btnlogout.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
-        btnlogout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/logout 48 px.png"))); // NOI18N
-        btnlogout.setText("LOGOUT");
-        btnlogout.setBorder(null);
-        btnlogout.setContentAreaFilled(false);
-        btnlogout.setPreferredSize(new java.awt.Dimension(170, 55));
-        btnlogout.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnlogoutActionPerformed(evt);
-            }
-        });
-        p1.add(btnlogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 550, 350, 70));
-
         lbl1.setFont(new java.awt.Font("Serif", 0, 64)); // NOI18N
         lbl1.setForeground(new java.awt.Color(255, 255, 255));
         lbl1.setText("Contact");
-        p1.add(lbl1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 40, -1, 67));
+        p1.add(lbl1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, -1, 67));
 
         p2.setOpaque(false);
         p2.setPreferredSize(new java.awt.Dimension(400, 450));
@@ -94,7 +94,7 @@ private String eventType;
 
         lblname.setBackground(new java.awt.Color(255, 255, 255));
         lblname.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
-        lblname.setText("Student Name");
+        lblname.setText("Student/Organization Name");
         p2.add(lblname, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, -1, -1));
 
         txtname.setFont(new java.awt.Font("Serif", 0, 14)); // NOI18N
@@ -146,7 +146,7 @@ private String eventType;
         btnnext.setBackground(new java.awt.Color(255, 222, 89));
         btnnext.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
         btnnext.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/confirm 48px.png"))); // NOI18N
-        btnnext.setText("NEXT");
+        btnnext.setText("SUBMIT");
         btnnext.setBorder(null);
         btnnext.setContentAreaFilled(false);
         btnnext.addActionListener(new java.awt.event.ActionListener() {
@@ -156,22 +156,34 @@ private String eventType;
         });
         p2.add(btnnext, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 470, 420, 60));
 
-        p1.add(p2, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 80, 440, 530));
+        p1.add(p2, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 130, 440, 530));
 
         bulldog.setBackground(new java.awt.Color(0, 0, 102));
         bulldog.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/buldgo.png"))); // NOI18N
-        p1.add(bulldog, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 180, 351, 290));
+        p1.add(bulldog, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 270, 351, 290));
 
         lbl2.setFont(new java.awt.Font("Serif", 0, 64)); // NOI18N
         lbl2.setForeground(new java.awt.Color(255, 255, 255));
         lbl2.setText("Information");
-        p1.add(lbl2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, -1, 58));
+        p1.add(lbl2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 200, -1, 58));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/figma_pics/500 560 rectangle with button forgot password.png"))); // NOI18N
-        p1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 70, 530, 570));
+        p1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 120, 530, 570));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/figma_pics/350 70 rectangle with curved sides.png"))); // NOI18N
-        p1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 550, -1, -1));
+        btnReturn.setBackground(new java.awt.Color(255, 222, 89));
+        btnReturn.setFont(new java.awt.Font("Serif", 0, 20)); // NOI18N
+        btnReturn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/32 32 return png.png"))); // NOI18N
+        btnReturn.setText("Return");
+        btnReturn.setContentAreaFilled(false);
+        btnReturn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnReturnActionPerformed(evt);
+            }
+        });
+        p1.add(btnReturn, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 160, 60));
+
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/figma_pics/150 51 for return button.png"))); // NOI18N
+        p1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 41, 160, 80));
 
         getContentPane().add(p1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
@@ -183,15 +195,6 @@ private String eventType;
         // TODO add your handling code here:
         txtphoneno.getText();
     }//GEN-LAST:event_txtphonenoActionPerformed
-
-    private void btnlogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnlogoutActionPerformed
-    
-        Dashboard db = new Dashboard();
-        db.setVisible(true);
-        
-        this.dispose();
-        
-    }//GEN-LAST:event_btnlogoutActionPerformed
 
     private void txtnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnameActionPerformed
         // TODO add your handling code here:
@@ -261,75 +264,59 @@ if (!isValid) {
 }
 
 // =====================
-// DATABASE INSERT (SAFE)
+// CUSTOM EVENT ID GENERATOR & PASS TO OUTPUT (NO SAVING YET)
 // =====================
-Connection conn = null;
-PreparedStatement pst = null;
+String newEventCode = "";
+int currentYear = LocalDate.now().getYear();
 
 try {
-    conn = DBConnection1.getConnection();
+    Connection conn = DBConnection1.getConnection();
+    // Ask the database for the highest Event Code from this specific year
+    String sql = "SELECT Event_id FROM reservation_data WHERE Event_id LIKE ? ORDER BY Event_id DESC LIMIT 1";
+    PreparedStatement pst = conn.prepareStatement(sql);
+    pst.setString(1, currentYear + "-%"); 
+    ResultSet rs = pst.executeQuery();
 
-    String query = "INSERT INTO reservation_data " +
-            "(student_name, student_id, Student_number, Student_Email, venue, Start, End, event_type, Employee_ID) " +
-            "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
-
-    pst = conn.prepareStatement(query, java.sql.Statement.RETURN_GENERATED_KEYS);
-
-    pst.setString(1, name);
-    pst.setString(2, studentid);
-    pst.setString(3, phone);
-    pst.setString(4, email);
-    pst.setString(5, this.venue);
-    pst.setTimestamp(6, this.sqlStart);
-    pst.setTimestamp(7, this.sqlEnd);
-    pst.setString(8, this.eventType);
-    pst.setString(9, LOGIN.loggedInEmpID);
-
-    int rowsInserted = pst.executeUpdate();
-
-    if (rowsInserted > 0) {
-
-        ResultSet rsKeys = pst.getGeneratedKeys();
-        String newEventCode = "";
-
-        if (rsKeys.next()) {
-            newEventCode = String.valueOf(rsKeys.getObject(1));
-        }
-
-        JOptionPane.showMessageDialog(this,
-                "Reservation Saved Successfully!");
-
-        String receiptDates = this.sqlStart + " TO " + this.sqlEnd;
-
-        output out = new output(
-                newEventCode,
-                studentid,
-                email,
-                phone,
-                LOGIN.loggedInEmpID,
-                this.venue,
-                receiptDates
-        );
-
-        out.setVisible(true);
-        this.dispose();
+    if (rs.next()) {
+        // If it finds one (e.g., "2026-0012"), extract the "12", add 1, and reformat it
+        String lastId = rs.getString("Event_id"); 
+        int sequence = Integer.parseInt(lastId.split("-")[1]); 
+        sequence++; 
+        newEventCode = currentYear + "-" + String.format("%04d", sequence); // Creates "2026-0013"
+    } else {
+        // If the database is empty for this year, start at 0001!
+        newEventCode = currentYear + "-0001";
     }
+    
+    rs.close(); pst.close(); conn.close();
 
-} catch (Exception e) {
-    JOptionPane.showMessageDialog(this,
-            "Database Error: " + e.getMessage(),
-            "Error",
-            JOptionPane.ERROR_MESSAGE);
-
-} finally {
-    try {
-        if (pst != null) pst.close();
-        if (conn != null) conn.close();
-    } catch (SQLException e) {
-        e.printStackTrace();
-    }
+} catch (SQLException e) {
+    JOptionPane.showMessageDialog(this, "Error generating Event Code: " + e.getMessage());
+    return; // Stop them from proceeding if the database fails
 }
+
+// PASS ALL DATA TO OUTPUT PAGE (We are NOT saving to the database here!)
+String receiptDates = this.sqlStart + " TO " + this.sqlEnd;
+
+output out = new output(newEventCode, studentid, email, phone, LOGIN.loggedInEmpID, this.venue, receiptDates, name, this.sqlStart, this.sqlEnd, this.eventType);
+out.setVisible(true);
+this.dispose();
     }//GEN-LAST:event_btnnextActionPerformed
+
+    private void btnReturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReturnActionPerformed
+        // 1. Save whatever they typed before leaving this page
+        savedName = txtname.getText();
+        savedStudentId = txtstudentidno.getText();
+        savedPhone = txtphoneno.getText();
+        savedEmail = txtemail.getText();
+
+        if (previousPage != null) {
+            previousPage.setVisible(true);
+        } else {
+            new InputPage2().setVisible(true); 
+        }
+        this.dispose();
+    }//GEN-LAST:event_btnReturnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -357,10 +344,10 @@ try {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnlogout;
+    private javax.swing.JButton btnReturn;
     private javax.swing.JButton btnnext;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel lbl1;
     private javax.swing.JLabel lbl2;
     private javax.swing.JLabel lblemail;
