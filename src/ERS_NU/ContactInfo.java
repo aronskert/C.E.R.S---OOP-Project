@@ -1,12 +1,9 @@
 package ERS_NU;
 
-import javax.swing.JOptionPane;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
-
 import javax.swing.JOptionPane;
 
 public class ContactInfo extends javax.swing.JFrame {

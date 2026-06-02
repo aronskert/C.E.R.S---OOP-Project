@@ -1,5 +1,8 @@
 
 package ERS_NU;
+
+import javax.swing.JOptionPane;
+
 public class output extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(output.class.getName());
@@ -106,16 +109,19 @@ public class output extends javax.swing.JFrame {
         jPanel1.add(jLabelCode, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 540, 142, -1));
 
         txtstudentid.setEditable(false);
+        txtstudentid.setFont(new java.awt.Font("Serif", 0, 20)); // NOI18N
         txtstudentid.setEnabled(false);
         txtstudentid.addActionListener(this::txtstudentidActionPerformed);
         jPanel1.add(txtstudentid, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 100, 223, 30));
 
         txtvenue.setEditable(false);
+        txtvenue.setFont(new java.awt.Font("Serif", 0, 20)); // NOI18N
         txtvenue.setEnabled(false);
         txtvenue.addActionListener(this::txtvenueActionPerformed);
         jPanel1.add(txtvenue, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 400, 223, 30));
 
         txtemployeeid.setEditable(false);
+        txtemployeeid.setFont(new java.awt.Font("Serif", 0, 20)); // NOI18N
         txtemployeeid.setEnabled(false);
         txtemployeeid.addActionListener(this::txtemployeeidActionPerformed);
         jPanel1.add(txtemployeeid, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 320, 223, 30));
@@ -125,6 +131,7 @@ public class output extends javax.swing.JFrame {
         jPanel1.add(txteventid, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 540, 223, 30));
 
         txtstartend.setEditable(false);
+        txtstartend.setFont(new java.awt.Font("Serif", 0, 20)); // NOI18N
         txtstartend.setEnabled(false);
         txtstartend.addActionListener(this::txtstartendActionPerformed);
         jPanel1.add(txtstartend, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 470, 223, 30));
@@ -140,11 +147,13 @@ public class output extends javax.swing.JFrame {
         jPanel1.add(jLabelVnue2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, 199, -1));
 
         txtstudentemail.setEditable(false);
+        txtstudentemail.setFont(new java.awt.Font("Serif", 0, 20)); // NOI18N
         txtstudentemail.setEnabled(false);
         txtstudentemail.addActionListener(this::txtstudentemailActionPerformed);
         jPanel1.add(txtstudentemail, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 170, 223, 30));
 
         txtstudentnum.setEditable(false);
+        txtstudentnum.setFont(new java.awt.Font("Serif", 0, 20)); // NOI18N
         txtstudentnum.setEnabled(false);
         txtstudentnum.addActionListener(this::txtstudentnumActionPerformed);
         jPanel1.add(txtstudentnum, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 250, 223, 30));
@@ -258,16 +267,7 @@ public class output extends javax.swing.JFrame {
     private void txtstudentnumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtstudentnumActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtstudentnumActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -278,11 +278,10 @@ public class output extends javax.swing.JFrame {
         } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
             logger.log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
 
-        /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> new output().setVisible(true));
     }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonBack;
