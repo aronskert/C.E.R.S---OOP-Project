@@ -174,7 +174,7 @@ public class InputPage2 extends javax.swing.JFrame {
 
         btnLogout.setBackground(new java.awt.Color(255, 222, 89));
         btnLogout.setFont(new java.awt.Font("Serif", 0, 20)); // NOI18N
-        btnLogout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/32 32 logout button.png"))); // NOI18N
+        btnLogout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/32 32 return png.png"))); // NOI18N
         btnLogout.setText("Logout");
         btnLogout.setContentAreaFilled(false);
         btnLogout.addActionListener(this::btnLogoutActionPerformed);
@@ -329,7 +329,6 @@ public class InputPage2 extends javax.swing.JFrame {
         jcbType.setForeground(new java.awt.Color(31, 40, 108));
         jcbType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Organizational Event", "Student Event", "Outside Organizational Event", "National University Dasmarinas event", "Outside School Event" }));
         jcbType.addActionListener(this::jcbTypeActionPerformed);
-        VenuePanel.add(jcbType, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, 290, 40));
         VenuePanel.add(jcbType, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 340, 290, 40));
 
         jButton1.setText("GUIDE");
@@ -544,7 +543,7 @@ if (venue.equals("AVR ROOM")) {
         
         // THE DOUBLE-BOOKING CHECK
         
-        Connection con = DBConnection1.getConnection();
+        Connection con = DBConnection.getConnection();
         
         // This query checks for overlapping times in the exact same venue
         String checkSql = "SELECT * FROM reservation_data WHERE venue = ? AND (Start < ?) AND (End > ?)";
@@ -613,12 +612,6 @@ if (venue.equals("AVR ROOM")) {
         // TODO add your handling code here:
     }//GEN-LAST:event_jcbSmonthActionPerformed
 
-    private void btncheckeventsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncheckeventsActionPerformed
-        // TODO add your handling code here:
-        UserCheckAvailability UCA = new UserCheckAvailability();
-        UCA.setVisible(true);
-    }//GEN-LAST:event_btncheckeventsActionPerformed
-
     private void jcbTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbTypeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jcbTypeActionPerformed
@@ -630,6 +623,12 @@ if (venue.equals("AVR ROOM")) {
     private void jButton1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseExited
         jPanel3.setVisible(false);
     }//GEN-LAST:event_jButton1MouseExited
+
+    private void btncheckeventsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncheckeventsActionPerformed
+        // TODO add your handling code here:
+        UserCheckAvailability UCA = new UserCheckAvailability();
+        UCA.setVisible(true);
+    }//GEN-LAST:event_btncheckeventsActionPerformed
 
     /**
      * @param args the command line arguments

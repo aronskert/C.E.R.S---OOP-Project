@@ -269,7 +269,7 @@ String newEventCode = "";
 int currentYear = LocalDate.now().getYear();
 
 try {
-    Connection conn = DBConnection1.getConnection();
+    Connection conn = DBConnection.getConnection();
     // Ask the database for the highest Event Code from this specific year
     String sql = "SELECT Event_id FROM reservation_data WHERE Event_id LIKE ? ORDER BY Event_id DESC LIMIT 1";
     PreparedStatement pst = conn.prepareStatement(sql);

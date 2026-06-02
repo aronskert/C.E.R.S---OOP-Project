@@ -2,6 +2,8 @@
 package ERS_NU;
 
 import javax.swing.JOptionPane;
+import java.sql.PreparedStatement;
+import java.sql.Connection;
 
 public class output extends javax.swing.JFrame {
     
@@ -253,7 +255,7 @@ public class output extends javax.swing.JFrame {
 
     private void jButtonConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConfirmActionPerformed
         // 1. SAVE TO DATABASE
-        try (Connection conn = DBConnection1.getConnection()) {
+        try (Connection conn = DBConnection.getConnection()) {
             // Notice we added Event_id to the front of this query!
             String query = "INSERT INTO reservation_data (Event_id, student_name, student_id, Student_number, Student_Email, venue, Start, End, event_type, Employee_ID) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             PreparedStatement pst = conn.prepareStatement(query);

@@ -299,7 +299,7 @@ public class EditReservation extends javax.swing.JFrame {
 
     private void btnnextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnnextActionPerformed
         try {
-        java.sql.Connection con = DBConnection1.getConnection();
+        java.sql.Connection con = DBConnection.getConnection();
         
        
         String sql = "UPDATE reservation_data SET student_name=?, student_id=?, Student_number=?, Student_Email=?, venue=?, Start=?, End=?, event_type=?, Employee_ID=? WHERE Event_id=?";
