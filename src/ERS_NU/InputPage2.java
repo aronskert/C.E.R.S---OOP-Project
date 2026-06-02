@@ -543,7 +543,7 @@ if (venue.equals("AVR ROOM")) {
         
         // THE DOUBLE-BOOKING CHECK
         
-        Connection con = DBConnection1.getConnection();
+        Connection con = DBConnection.getConnection();
         
         // This query checks for overlapping times in the exact same venue
         String checkSql = "SELECT * FROM reservation_data WHERE venue = ? AND (Start < ?) AND (End > ?)";

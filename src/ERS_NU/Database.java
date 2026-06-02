@@ -11,7 +11,7 @@ public class Database extends javax.swing.JFrame {
         
 public void reservation_data() {
     try { 
-        Connection con = DBConnection1.getConnection();
+        Connection con = DBConnection.getConnection();
 
         String sql = "SELECT * FROM reservation_data";
         PreparedStatement pst = con.prepareStatement(sql);
@@ -332,7 +332,7 @@ public void reservation_data() {
         }
 
         try {
-            Connection con = DBConnection1.getConnection();
+            Connection con = DBConnection.getConnection();
             String sql = "SELECT * FROM reservation_data WHERE student_id = ?";
             PreparedStatement pst = con.prepareStatement(sql);
             pst.setString(1, studentid);
@@ -364,7 +364,7 @@ public void reservation_data() {
 
         if (confirm == javax.swing.JOptionPane.YES_OPTION) {
             try {
-                Connection con = DBConnection1.getConnection();
+                Connection con = DBConnection.getConnection();
                 String sql = "DELETE FROM reservation_data WHERE student_id = ?";
                 PreparedStatement pst = con.prepareStatement(sql);
                 pst.setString(1, studentid);

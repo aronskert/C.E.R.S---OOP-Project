@@ -14,7 +14,7 @@ public class UserCheckAvailability extends javax.swing.JFrame {
     
     private void reservation_data() {
    try {
-       try (Connection con = DBConnection1.getConnection()) {
+       try (Connection con = DBConnection.getConnection()) {
            String sql = "SELECT start, end, venue FROM reservation_data";
            PreparedStatement pst = con.prepareStatement(sql);
            ResultSet rs = pst.executeQuery();
@@ -342,7 +342,7 @@ public class UserCheckAvailability extends javax.swing.JFrame {
         String searchVenue = txtvenue.getText().trim();
 
         try {
-            Connection con = DBConnection1.getConnection();
+            Connection con = DBConnection.getConnection();
 
             String sql = "SELECT start, end, venue FROM reservation_data WHERE start LIKE ? AND end LIKE ? AND venue LIKE ?";
             PreparedStatement pst = con.prepareStatement(sql);
