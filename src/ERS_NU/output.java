@@ -6,8 +6,13 @@ import javax.swing.JOptionPane;
 public class output extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(output.class.getName());
+    
+    private String nameToSave;
+    private java.sql.Timestamp startToSave;
+    private java.sql.Timestamp endToSave;
+    private String typeToSave;
 
-    public output(String eventCode, String studentId, String studentEmail, String studentNumber, String employeeId, String venue, String startToEnd) {
+    public output(String eventCode, String studentId, String studentEmail, String studentNumber, String employeeId, String venue, String startToEnd, String name, java.sql.Timestamp start, java.sql.Timestamp end, String eventType) {
         initComponents();
         
 
@@ -18,8 +23,13 @@ public class output extends javax.swing.JFrame {
         txtvenue.setText(venue);
         txtstartend.setText(startToEnd);
         txteventid.setText(eventCode);
+        
+        this.nameToSave = name;
+        this.startToSave = start;
+        this.endToSave = end;
+        this.typeToSave = eventType;
     }
-    
+     
     public output() {
         initComponents();
     }
@@ -109,32 +119,33 @@ public class output extends javax.swing.JFrame {
         jPanel1.add(jLabelCode, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 540, 142, -1));
 
         txtstudentid.setEditable(false);
-        txtstudentid.setFont(new java.awt.Font("Serif", 0, 20)); // NOI18N
+        txtstudentid.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         txtstudentid.setEnabled(false);
         txtstudentid.addActionListener(this::txtstudentidActionPerformed);
-        jPanel1.add(txtstudentid, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 100, 223, 30));
+        jPanel1.add(txtstudentid, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 80, 270, 50));
 
         txtvenue.setEditable(false);
         txtvenue.setFont(new java.awt.Font("Serif", 0, 20)); // NOI18N
         txtvenue.setEnabled(false);
         txtvenue.addActionListener(this::txtvenueActionPerformed);
-        jPanel1.add(txtvenue, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 400, 223, 30));
+        jPanel1.add(txtvenue, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 380, 270, 50));
 
         txtemployeeid.setEditable(false);
-        txtemployeeid.setFont(new java.awt.Font("Serif", 0, 20)); // NOI18N
+        txtemployeeid.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         txtemployeeid.setEnabled(false);
         txtemployeeid.addActionListener(this::txtemployeeidActionPerformed);
-        jPanel1.add(txtemployeeid, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 320, 223, 30));
+        jPanel1.add(txtemployeeid, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 300, 270, 50));
 
+        txteventid.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         txteventid.setEnabled(false);
         txteventid.addActionListener(this::txteventidActionPerformed);
-        jPanel1.add(txteventid, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 540, 223, 30));
+        jPanel1.add(txteventid, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 520, 270, 50));
 
         txtstartend.setEditable(false);
-        txtstartend.setFont(new java.awt.Font("Serif", 0, 20)); // NOI18N
+        txtstartend.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         txtstartend.setEnabled(false);
         txtstartend.addActionListener(this::txtstartendActionPerformed);
-        jPanel1.add(txtstartend, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 470, 223, 30));
+        jPanel1.add(txtstartend, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 450, 270, 50));
 
         jLabelVnue1.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
         jLabelVnue1.setForeground(new java.awt.Color(31, 40, 108));
@@ -150,13 +161,13 @@ public class output extends javax.swing.JFrame {
         txtstudentemail.setFont(new java.awt.Font("Serif", 0, 20)); // NOI18N
         txtstudentemail.setEnabled(false);
         txtstudentemail.addActionListener(this::txtstudentemailActionPerformed);
-        jPanel1.add(txtstudentemail, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 170, 223, 30));
+        jPanel1.add(txtstudentemail, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 150, 270, 50));
 
         txtstudentnum.setEditable(false);
         txtstudentnum.setFont(new java.awt.Font("Serif", 0, 20)); // NOI18N
         txtstudentnum.setEnabled(false);
         txtstudentnum.addActionListener(this::txtstudentnumActionPerformed);
-        jPanel1.add(txtstudentnum, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 250, 223, 30));
+        jPanel1.add(txtstudentnum, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 230, 270, 50));
 
         jPanel2.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 60, 570, 660));
 
@@ -241,15 +252,55 @@ public class output extends javax.swing.JFrame {
     }//GEN-LAST:event_txtstudentidActionPerformed
 
     private void jButtonConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConfirmActionPerformed
-        Database data = new Database();
-        data.setVisible(true);
-        this.dispose();
+        // 1. SAVE TO DATABASE
+        try (Connection conn = DBConnection1.getConnection()) {
+            // Notice we added Event_id to the front of this query!
+            String query = "INSERT INTO reservation_data (Event_id, student_name, student_id, Student_number, Student_Email, venue, Start, End, event_type, Employee_ID) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            PreparedStatement pst = conn.prepareStatement(query);
+
+            pst.setString(1, txteventid.getText()); // Saves "2026-0001"
+            pst.setString(2, this.nameToSave);
+            pst.setString(3, txtstudentid.getText());
+            pst.setString(4, txtstudentnum.getText());
+            pst.setString(5, txtstudentemail.getText());
+            pst.setString(6, txtvenue.getText());
+            pst.setTimestamp(7, this.startToSave);
+            pst.setTimestamp(8, this.endToSave);
+            pst.setString(9, this.typeToSave);
+            pst.setString(10, txtemployeeid.getText());
+
+            int rowsInserted = pst.executeUpdate();
+
+            if (rowsInserted > 0) {
+                JOptionPane.showMessageDialog(this, "Reservation Saved Successfully!");
+
+                // 2. WIPE MEMORY CLEAN FOR THE NEXT STUDENT
+                ContactInfo.savedName = "";
+                ContactInfo.savedStudentId = "";
+                ContactInfo.savedPhone = "";
+                ContactInfo.savedEmail = "";
+
+                // 3. GO BACK TO A BLANK INPUT PAGE 2 FOR THE NEXT RESERVATION
+                InputPage2 Input = new InputPage2();
+                Input.setVisible(true);
+                this.dispose();
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Database Error: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        
     }//GEN-LAST:event_jButtonConfirmActionPerformed
 
     private void jButtonLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLogoutActionPerformed
         Dashboard DasB = new Dashboard();
         DasB.setVisible(true);
         this.dispose();
+        
+        LOGIN.loggedInEmpID = "";
+        ContactInfo.savedName = "";
+        ContactInfo.savedStudentId = "";
+        ContactInfo.savedPhone = "";
+        ContactInfo.savedEmail = "";
         
         
     }//GEN-LAST:event_jButtonLogoutActionPerformed

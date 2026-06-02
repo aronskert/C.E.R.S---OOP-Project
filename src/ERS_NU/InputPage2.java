@@ -12,30 +12,13 @@ import java.time.LocalDate;
 
 public class InputPage2 extends javax.swing.JFrame {
     
-    // variables galing sa ContactInfo
-    private String name;
-    private String studentid;
-    private String phone;
-    private String email;
-    private String employeeid;
-    
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(InputPage2.class.getName());
 
 
     public InputPage2() {
         initComponents();
+        jPanel3.setVisible(false);
         
-    }
-        
-        public InputPage2(String name, String studentid, String phone, String email) {
-
-            initComponents();
-        
-            // save sa variables
-            this.name = name;
-            this.studentid = studentid;
-            this.phone = phone;
-            this.email = email;
     }
 
 
@@ -44,10 +27,25 @@ public class InputPage2 extends javax.swing.JFrame {
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
+        jPanel3 = new javax.swing.JPanel();
+        lblGuide = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
+        jLabel27 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel28 = new javax.swing.JLabel();
+        jLabel29 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        btnReturn = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        btnLogout = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         btncheckevents = new javax.swing.JButton();
         jLabel14 = new javax.swing.JLabel();
@@ -75,6 +73,7 @@ public class InputPage2 extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jcbType = new javax.swing.JComboBox<>();
+        jButton1 = new javax.swing.JButton();
         btnSubmit = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
@@ -84,6 +83,82 @@ public class InputPage2 extends javax.swing.JFrame {
         setSize(new java.awt.Dimension(1000, 750));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jPanel3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel3.setEnabled(false);
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblGuide.setFont(new java.awt.Font("Serif", 3, 30)); // NOI18N
+        lblGuide.setText("Reservation Form Guide");
+        lblGuide.setToolTipText("");
+        jPanel3.add(lblGuide, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, 340, 40));
+
+        jLabel15.setFont(new java.awt.Font("Serif", 0, 16)); // NOI18N
+        jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel15.setText("Facility Management Office or FMO.");
+        jPanel3.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, -1, 40));
+
+        jLabel16.setFont(new java.awt.Font("Serif", 0, 16)); // NOI18N
+        jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel16.setText("3 months in advance.");
+        jPanel3.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, -1, 40));
+
+        jLabel18.setFont(new java.awt.Font("Serif", 0, 16)); // NOI18N
+        jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel18.setText("2. All reservation must be approved by first by the ");
+        jPanel3.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, -1, 40));
+
+        jLabel20.setFont(new java.awt.Font("Serif", 0, 16)); // NOI18N
+        jLabel20.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel20.setText("limits to ensure fair access.");
+        jPanel3.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, -1, 40));
+
+        jLabel22.setFont(new java.awt.Font("Serif", 0, 16)); // NOI18N
+        jLabel22.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel22.setText("for students.");
+        jPanel3.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 400, -1, 40));
+
+        jLabel23.setFont(new java.awt.Font("Serif", 0, 16)); // NOI18N
+        jLabel23.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel23.setText("students (8-hour limit for non-students).");
+        jPanel3.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, -1, 40));
+
+        jLabel24.setFont(new java.awt.Font("Serif", 0, 16)); // NOI18N
+        jLabel24.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel24.setText("Funciton hall - Maximum 3-day reservation limit.");
+        jPanel3.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, -1, 40));
+
+        jLabel25.setFont(new java.awt.Font("Serif", 0, 16)); // NOI18N
+        jLabel25.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel25.setText(" daily limit for students.");
+        jPanel3.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 350, -1, 40));
+
+        jLabel26.setFont(new java.awt.Font("Serif", 0, 16)); // NOI18N
+        jLabel26.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel26.setText("1. Reservations can only be booked a maximum of ");
+        jPanel3.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, 40));
+
+        jLabel27.setFont(new java.awt.Font("Serif", 0, 16)); // NOI18N
+        jLabel27.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel27.setText("Gym - Available from 8:00 AM onwards. 4-hour limit for");
+        jPanel3.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, -1, 40));
+
+        jLabel21.setFont(new java.awt.Font("Serif", 0, 16)); // NOI18N
+        jLabel21.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel21.setText("3.Venue Restrictions: Student reservations have strict time");
+        jPanel3.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, -1, 40));
+
+        jLabel28.setFont(new java.awt.Font("Serif", 0, 16)); // NOI18N
+        jLabel28.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel28.setText("3rd floor /U2F - Available for full-week reservations. 5-hour");
+        jPanel3.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, -1, 40));
+
+        jLabel29.setFont(new java.awt.Font("Serif", 0, 16)); // NOI18N
+        jLabel29.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel29.setText("AVR - Maximum 3-day reservation limit. 5-hour daily limit");
+        jPanel3.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 380, -1, 40));
+
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 440, 450));
+
         jPanel2.setBackground(new java.awt.Color(31, 40, 108));
         jPanel2.setForeground(new java.awt.Color(31, 40, 108));
         jPanel2.setPreferredSize(new java.awt.Dimension(1000, 750));
@@ -92,36 +167,36 @@ public class InputPage2 extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Serif", 0, 60)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Reservation");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, 324, 84));
-
-        btnReturn.setBackground(new java.awt.Color(255, 222, 89));
-        btnReturn.setFont(new java.awt.Font("Serif", 0, 20)); // NOI18N
-        btnReturn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/32 32 return png.png"))); // NOI18N
-        btnReturn.setText("Return");
-        btnReturn.setContentAreaFilled(false);
-        btnReturn.addActionListener(this::btnReturnActionPerformed);
-        jPanel2.add(btnReturn, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, 150, 60));
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, 324, 84));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/buldgo.png"))); // NOI18N
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, 347, 259));
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 340, 347, 259));
+
+        btnLogout.setBackground(new java.awt.Color(255, 222, 89));
+        btnLogout.setFont(new java.awt.Font("Serif", 0, 20)); // NOI18N
+        btnLogout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/32 32 logout button.png"))); // NOI18N
+        btnLogout.setText("Logout");
+        btnLogout.setContentAreaFilled(false);
+        btnLogout.addActionListener(this::btnLogoutActionPerformed);
+        jPanel2.add(btnLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 160, 60));
 
         jLabel3.setFont(new java.awt.Font("Serif", 0, 60)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Form");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 200, 159, 84));
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, 170, 50));
 
         btncheckevents.setBackground(new java.awt.Color(255, 222, 89));
         btncheckevents.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
-        btncheckevents.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/logout 48 px.png"))); // NOI18N
+        btncheckevents.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/Manage.png"))); // NOI18N
         btncheckevents.setText("CHECK AVAILABLE EVENTS");
         btncheckevents.setBorder(null);
         btncheckevents.setContentAreaFilled(false);
         btncheckevents.setPreferredSize(new java.awt.Dimension(170, 55));
         btncheckevents.addActionListener(this::btncheckeventsActionPerformed);
-        jPanel2.add(btncheckevents, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 560, 350, 70));
+        jPanel2.add(btncheckevents, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 660, 350, 70));
 
         jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/figma_pics/350 70 rectangle with curved sides.png"))); // NOI18N
-        jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 560, -1, -1));
+        jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 660, -1, -1));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setOpaque(false);
@@ -139,13 +214,12 @@ public class InputPage2 extends javax.swing.JFrame {
         jcbVenue.setBackground(new java.awt.Color(255, 222, 89));
         jcbVenue.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
         jcbVenue.setForeground(new java.awt.Color(31, 40, 108));
-        jcbVenue.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Function Hall", "Gym", "3rd Floor", "AVR Room" }));
+        jcbVenue.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Function Hall", "Gym", "3rd Floor", "AVR ROOM" }));
         jcbVenue.addActionListener(this::jcbVenueActionPerformed);
         VenuePanel.add(jcbVenue, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 290, 40));
 
         jcbSmonth.setForeground(new java.awt.Color(31, 40, 108));
-        jcbSmonth.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December", "" }));
-        jcbSmonth.setSelectedIndex(-1);
+        jcbSmonth.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December", " " }));
         jcbSmonth.addActionListener(this::jcbSmonthActionPerformed);
         VenuePanel.add(jcbSmonth, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, -1, -1));
 
@@ -253,29 +327,42 @@ public class InputPage2 extends javax.swing.JFrame {
         jcbType.setBackground(new java.awt.Color(255, 222, 89));
         jcbType.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
         jcbType.setForeground(new java.awt.Color(31, 40, 108));
-        jcbType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Function Hall", "Gym", "3rd Floor", "AVR Room" }));
-        jcbType.setSelectedIndex(-1);
+        jcbType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Organizational Event", "Student Event", "Outside Organizational Event", "National University Dasmarinas event", "Outside School Event" }));
         jcbType.addActionListener(this::jcbTypeActionPerformed);
         VenuePanel.add(jcbType, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, 290, 40));
+        VenuePanel.add(jcbType, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 340, 290, 40));
+
+        jButton1.setText("GUIDE");
+        jButton1.setToolTipText("\"Please select your Venue and Date first!\"");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButton1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButton1MouseExited(evt);
+            }
+        });
+        VenuePanel.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 70, -1, -1));
 
         jPanel1.add(VenuePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 0, 502, 400));
 
         btnSubmit.setBackground(new java.awt.Color(255, 222, 89));
         btnSubmit.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
         btnSubmit.setForeground(new java.awt.Color(31, 40, 108));
-        btnSubmit.setText("SUBMIT");
+        btnSubmit.setText("NEXT");
+        btnSubmit.setToolTipText("\"Please select your Venue and Date first!\"");
         btnSubmit.setBorder(null);
         btnSubmit.setContentAreaFilled(false);
         btnSubmit.addActionListener(this::btnSubmitActionPerformed);
         jPanel1.add(btnSubmit, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 400, 450, 60));
 
-        jPanel2.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 150, -1, -1));
+        jPanel2.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 210, -1, -1));
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/figma_pics/this is it.png"))); // NOI18N
-        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 130, 530, 510));
+        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 190, 530, 510));
 
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/figma_pics/150 51 for return button.png"))); // NOI18N
-        jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, 260, 120));
+        jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 41, 160, 80));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, 1074, 800));
 
@@ -283,13 +370,21 @@ public class InputPage2 extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnReturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReturnActionPerformed
-        // TODO add your handling code here:
+    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
+        LOGIN.loggedInEmpID = "";
+        
+        LOGIN.loggedInEmpID = ""; 
+        ContactInfo.savedName = "";
+        ContactInfo.savedStudentId = "";
+        ContactInfo.savedPhone = "";
+        ContactInfo.savedEmail = "";
+        
         Dashboard db = new Dashboard(); 
         db.setVisible(true);
         this.dispose();
+
  
-    }//GEN-LAST:event_btnReturnActionPerformed
+    }//GEN-LAST:event_btnLogoutActionPerformed
 
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
     String venue = jcbVenue.getSelectedItem() != null ? jcbVenue.getSelectedItem().toString().trim() : "";
@@ -345,15 +440,144 @@ public class InputPage2 extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(this, "You cannot select a past date and time!", "Invalid Date", JOptionPane.ERROR_MESSAGE);
         return;
     }
+    LocalDate today = LocalDate.now();
+    LocalDate reservationDate = parsedStart.toInstant()
+        .atZone(java.time.ZoneId.systemDefault())
+        .toLocalDate();
 
-        // Convert to SQL Timestamps
+    if (reservationDate.isAfter(today.plusMonths(3))) {
+    JOptionPane.showMessageDialog(this,
+        "Reservations can only be booked up to 3 months in advance!",
+        "Reservation Limit",
+        JOptionPane.ERROR_MESSAGE);
+    return;
+}
+    
+
+       // Convert to SQL Timestamps
         java.sql.Timestamp sqlStart = new java.sql.Timestamp(parsedStart.getTime());
         java.sql.Timestamp sqlEnd = new java.sql.Timestamp(parsedEnd.getTime());
 
-        // 3. Close this page and pass the data forward to ContactInfo
+        
+        if (parsedEnd.before(parsedStart)) {
+            JOptionPane.showMessageDialog(this, "End time cannot be earlier than Start time!", "Invalid Time", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        //venue rules
+        long durationHours =(parsedEnd.getTime() - parsedStart.getTime()) / (1000 * 60 * 60);
+
+          long durationDays = (parsedEnd.getTime() - parsedStart.getTime()) / (1000 * 60 * 60 * 24);
+
+    // Function Hall
+    if (venue.equals("Function Hall") && durationDays > 3) {
+    JOptionPane.showMessageDialog(this,
+        "Function Hall can only be reserved for up to 3 days.");
+    return;
+}
+
+    // Gym
+    if (venue.equals("Gym")) {
+
+        int startHour24 = parsedStart.getHours();
+
+    if (startHour24 < 8) {
+        JOptionPane.showMessageDialog(this,
+            "Gym reservations must start at 8:00 AM or later.");
+        return;
+    }
+
+    if (eventType.equals("Student Event")) {
+
+        if (durationHours > 4) {
+            JOptionPane.showMessageDialog(this,
+                "Students may reserve the Gym for only 4 hours.");
+            return;
+        }
+
+        } else if (!eventType.equals("National University Dasmarinas event")) {
+
+            if (durationHours > 10) {
+              JOptionPane.showMessageDialog(this,
+                "Gym reservations are limited to 10 hours.");
+            return;
+        }
+    }
+}
+
+    // 3rd Floor
+    if (venue.equals("3rd Floor")) {
+
+        if (eventType.equals("Student Event")) {
+
+            if (durationHours > 5) {
+                JOptionPane.showMessageDialog(this,
+                  "Students may reserve the 3rd Floor for only 5 hours.");
+            return;
+        }
+
+         } else {
+
+              if (durationDays > 7) {
+            JOptionPane.showMessageDialog(this,
+                "3rd Floor can only be reserved for up to 1 week.");
+            return;
+        }
+    }
+}
+
+    // AVR
+if (venue.equals("AVR ROOM")) {
+
+    if (durationDays > 3) {
+        JOptionPane.showMessageDialog(this,
+            "AVR can only be reserved for up to 3 days.");
+        return;
+    }
+
+    if (eventType.equals("Student Event") && durationHours > 5) {
+        JOptionPane.showMessageDialog(this,
+            "Students may reserve the AVR for only 5 hours.");
+        return;
+    }
+}
+        
+        // THE DOUBLE-BOOKING CHECK
+        
+        Connection con = DBConnection1.getConnection();
+        
+        // This query checks for overlapping times in the exact same venue
+        String checkSql = "SELECT * FROM reservation_data WHERE venue = ? AND (Start < ?) AND (End > ?)";
+        PreparedStatement pst = con.prepareStatement(checkSql);
+        
+        pst.setString(1, venue);
+        pst.setTimestamp(2, sqlEnd);   // Existing event starts before NEW event ends
+        pst.setTimestamp(3, sqlStart); // Existing event ends after NEW event starts
+        
+        ResultSet rs = pst.executeQuery();
+        
+        if (rs.next()) {
+            // If rs.next() is true, it means it found an overlapping event!
+            JOptionPane.showMessageDialog(this, 
+                "Double Booking Alert!\nThis venue is already booked during your selected time.\nPlease click 'Check Available Events' to find a free slot.", 
+                "Venue Unavailable", 
+                JOptionPane.ERROR_MESSAGE);
+            
+            rs.close();
+            pst.close();
+            con.close();
+            return; // Stop them from going to the next page!
+        }
+        
+        rs.close();
+        pst.close();
+        con.close();
+        // ==========================================
+
+        
         ContactInfo CI = new ContactInfo(venue, sqlStart, sqlEnd, eventType);
         CI.setVisible(true);
-        this.dispose();
+        this.setVisible(false);
 
     } catch (Exception e) {
         JOptionPane.showMessageDialog(this, "Error processing date selection: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
@@ -393,12 +617,19 @@ public class InputPage2 extends javax.swing.JFrame {
         // TODO add your handling code here:
         UserCheckAvailability UCA = new UserCheckAvailability();
         UCA.setVisible(true);
-        this.dispose();
     }//GEN-LAST:event_btncheckeventsActionPerformed
 
     private void jcbTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbTypeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jcbTypeActionPerformed
+
+    private void jButton1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseEntered
+        jPanel3.setVisible(true);
+    }//GEN-LAST:event_jButton1MouseEntered
+
+    private void jButton1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseExited
+        jPanel3.setVisible(false);
+    }//GEN-LAST:event_jButton1MouseExited
 
     /**
      * @param args the command line arguments
@@ -427,17 +658,31 @@ public class InputPage2 extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel VenuePanel;
-    private javax.swing.JButton btnReturn;
+    private javax.swing.JButton btnLogout;
     private javax.swing.JButton btnSubmit;
     private javax.swing.JButton btncheckevents;
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -447,6 +692,7 @@ public class InputPage2 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JComboBox<String> jcbEampm;
     private javax.swing.JComboBox<String> jcbEday;
     private javax.swing.JComboBox<String> jcbEhour;
@@ -461,5 +707,6 @@ public class InputPage2 extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jcbSyear;
     private javax.swing.JComboBox<String> jcbType;
     private javax.swing.JComboBox<String> jcbVenue;
+    private javax.swing.JLabel lblGuide;
     // End of variables declaration//GEN-END:variables
 }
