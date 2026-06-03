@@ -63,6 +63,7 @@ public void reservation_data() {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        btnedit = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         lblGuide = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
@@ -90,7 +91,6 @@ public void reservation_data() {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        btnedit = new javax.swing.JButton();
         btndelete = new javax.swing.JButton();
         btnsearch = new javax.swing.JButton();
         jButtonBack = new javax.swing.JButton();
@@ -105,6 +105,17 @@ public void reservation_data() {
         jPanel1.setMinimumSize(new java.awt.Dimension(750, 1000));
         jPanel1.setPreferredSize(new java.awt.Dimension(1000, 750));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btnedit.setBackground(new java.awt.Color(255, 222, 89));
+        btnedit.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
+        btnedit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/edit png 48px.png"))); // NOI18N
+        btnedit.setText("EDIT");
+        btnedit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btneditActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnedit, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 650, 180, 60));
 
         jPanel4.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -275,17 +286,6 @@ public void reservation_data() {
             }
         });
         jPanel3.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 50, -1, -1));
-
-        btnedit.setBackground(new java.awt.Color(255, 222, 89));
-        btnedit.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
-        btnedit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/edit png 48px.png"))); // NOI18N
-        btnedit.setText("EDIT");
-        btnedit.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btneditActionPerformed(evt);
-            }
-        });
-        jPanel3.add(btnedit, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 650, 180, 60));
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 280, 560));
 
