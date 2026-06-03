@@ -487,83 +487,21 @@ public class InputPage2 extends javax.swing.JFrame implements NavigablePage {
             return;
         }
         
-        //venue rules
-        long durationHours =(parsedEnd.getTime() - parsedStart.getTime()) / (1000 * 60 * 60);
-
-          long durationDays = (parsedEnd.getTime() - parsedStart.getTime()) / (1000 * 60 * 60 * 24);
-
-    // Function Hall
-    if (venue.equals("Function Hall") && durationDays > 3) {
-    JOptionPane.showMessageDialog(this,
-        "Function Hall can only be reserved for up to 3 days.");
-    return;
-}
-
-    // Gym
-    if (venue.equals("Gym")) {
-
+        // ==========================================
+        // newly improved logic rules (USING INHERITANCE)
+        // ==========================================
+        double durationHours = (parsedEnd.getTime() - parsedStart.getTime()) / (1000.0 * 60.0 * 60.0);
+        double durationDays = (parsedEnd.getTime() - parsedStart.getTime()) / (1000.0 * 60.0 * 60.0 * 24.0);
         int startHour24 = parsedStart.getHours();
 
-    if (startHour24 < 8) {
-        JOptionPane.showMessageDialog(this,
-            "Gym reservations must start at 8:00 AM or later.");
-        return;
-    }
+        // Instantiate our Inherited Child Class
+        VenueRules rulesChecker = new VenueRules();
+        String ruleResult = rulesChecker.evaluateRules(venue, eventType, durationHours, durationDays, startHour24);
 
-    if (eventType.equals("Student Event")) {
-
-        if (durationHours > 4) {
-            JOptionPane.showMessageDialog(this,
-                "Students may reserve the Gym for only 4 hours.");
-            return;
+        if (!ruleResult.equals("PASS")) {
+            JOptionPane.showMessageDialog(this, ruleResult, "FMO Policy", JOptionPane.WARNING_MESSAGE);
+            return; // Stops the page from proceeding if a rule is broken
         }
-
-        } else if (!eventType.equals("National University Dasmarinas event")) {
-
-            if (durationHours > 10) {
-              JOptionPane.showMessageDialog(this,
-                "Gym reservations are limited to 10 hours.");
-            return;
-        }
-    }
-}
-
-    // 3rd Floor
-    if (venue.equals("3rd Floor")) {
-
-        if (eventType.equals("Student Event")) {
-
-            if (durationHours > 5) {
-                JOptionPane.showMessageDialog(this,
-                  "Students may reserve the 3rd Floor for only 5 hours.");
-            return;
-        }
-
-         } else {
-
-              if (durationDays > 7) {
-            JOptionPane.showMessageDialog(this,
-                "3rd Floor can only be reserved for up to 1 week.");
-            return;
-        }
-    }
-}
-
-    // AVR
-if (venue.equals("AVR ROOM")) {
-
-    if (durationDays > 3) {
-        JOptionPane.showMessageDialog(this,
-            "AVR can only be reserved for up to 3 days.");
-        return;
-    }
-
-    if (eventType.equals("Student Event") && durationHours > 5) {
-        JOptionPane.showMessageDialog(this,
-            "Students may reserve the AVR for only 5 hours.");
-        return;
-    }
-}
         
         // THE DOUBLE-BOOKING CHECK
         
