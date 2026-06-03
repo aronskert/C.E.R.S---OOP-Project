@@ -63,7 +63,6 @@ public void reservation_data() {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         lblGuide = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
@@ -81,15 +80,16 @@ public void reservation_data() {
         jLabel2 = new javax.swing.JLabel();
         txtName = new javax.swing.JTextField();
         txtStudentID = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        txtEventType = new javax.swing.JTextField();
         txtVenue = new javax.swing.JTextField();
         txtStart = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         txtEnd = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        txtEventType = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
         btnedit = new javax.swing.JButton();
         btndelete = new javax.swing.JButton();
         btnsearch = new javax.swing.JButton();
@@ -102,20 +102,9 @@ public void reservation_data() {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(31, 40, 108));
+        jPanel1.setMinimumSize(new java.awt.Dimension(750, 1000));
         jPanel1.setPreferredSize(new java.awt.Dimension(1000, 750));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jButton1.setText("GUIDE");
-        jButton1.setToolTipText("");
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jButton1MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jButton1MouseExited(evt);
-            }
-        });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 50, -1, -1));
 
         jPanel4.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -123,7 +112,7 @@ public void reservation_data() {
         lblGuide.setFont(new java.awt.Font("Serif", 3, 30)); // NOI18N
         lblGuide.setText("Database Guide");
         lblGuide.setToolTipText("");
-        jPanel4.add(lblGuide, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 220, 40));
+        jPanel4.add(lblGuide, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, 220, 40));
 
         jLabel28.setFont(new java.awt.Font("Serif", 0, 16)); // NOI18N
         jLabel28.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -160,7 +149,7 @@ public void reservation_data() {
         jLabel34.setText("3. To delete a reservation, simply highlight");
         jPanel4.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, -1, 40));
 
-        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 320, 310));
+        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 320, 310));
 
         jPanel2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -173,7 +162,7 @@ public void reservation_data() {
                 {null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Event Code", "Student Name", "Student ID", "Student Num", "Student Email", "Venue", "Start", "End", "Event Type", "Employee id"
+                "Event Code", "Name", "Student ID", "Student #", "Nu Emaill", "Venue", "Start", "End", "Event Type", "Employee id"
             }
         ) {
             Class[] types = new Class [] {
@@ -191,16 +180,14 @@ public void reservation_data() {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 612, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 732, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 544, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 604, Short.MAX_VALUE)
         );
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 80, -1, -1));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 20, -1, 610));
 
         jPanel3.setOpaque(false);
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -208,7 +195,7 @@ public void reservation_data() {
         jLabel1.setFont(new java.awt.Font("Serif", 2, 36)); // NOI18N
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/Manage.png"))); // NOI18N
         jLabel1.setText("Manage");
-        jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 18, 190, 50));
+        jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, 190, 50));
 
         jLabel2.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
         jLabel2.setText("Event Code");
@@ -227,13 +214,17 @@ public void reservation_data() {
         txtStudentID.setToolTipText("");
         jPanel3.add(txtStudentID, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, 250, 40));
 
+        jLabel5.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
+        jLabel5.setText("Venue");
+        jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, -1, -1));
+
         jLabel3.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
         jLabel3.setText("Student ID");
         jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, -1, -1));
 
-        jLabel5.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
-        jLabel5.setText("Venue");
-        jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, -1, -1));
+        txtEventType.setFont(new java.awt.Font("Serif", 0, 14)); // NOI18N
+        txtEventType.setToolTipText("");
+        jPanel3.add(txtEventType, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 510, 250, 40));
 
         txtVenue.setFont(new java.awt.Font("Serif", 0, 14)); // NOI18N
         txtVenue.setToolTipText("");
@@ -249,6 +240,11 @@ public void reservation_data() {
 
         txtEnd.setFont(new java.awt.Font("Serif", 0, 14)); // NOI18N
         txtEnd.setToolTipText("");
+        txtEnd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtEndActionPerformed(evt);
+            }
+        });
         jPanel3.add(txtEnd, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 430, 250, 40));
 
         jLabel7.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
@@ -259,11 +255,26 @@ public void reservation_data() {
         jLabel8.setText("Event Type");
         jPanel3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 480, -1, -1));
 
-        txtEventType.setFont(new java.awt.Font("Serif", 0, 14)); // NOI18N
-        txtEventType.setToolTipText("");
-        jPanel3.add(txtEventType, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 510, 250, 40));
-
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 280, 560));
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/20 20 info logo.png"))); // NOI18N
+        jButton1.setText("GUIDE");
+        jButton1.setToolTipText("");
+        jButton1.setBorder(null);
+        jButton1.setBorderPainted(false);
+        jButton1.setContentAreaFilled(false);
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButton1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButton1MouseExited(evt);
+            }
+        });
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel3.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 50, -1, -1));
 
         btnedit.setBackground(new java.awt.Color(255, 222, 89));
         btnedit.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
@@ -274,7 +285,9 @@ public void reservation_data() {
                 btneditActionPerformed(evt);
             }
         });
-        jPanel1.add(btnedit, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 650, 180, 60));
+        jPanel3.add(btnedit, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 650, 180, 60));
+
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 280, 560));
 
         btndelete.setBackground(new java.awt.Color(255, 222, 89));
         btndelete.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
@@ -285,7 +298,7 @@ public void reservation_data() {
                 btndeleteActionPerformed(evt);
             }
         });
-        jPanel1.add(btndelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 650, 180, 60));
+        jPanel1.add(btndelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 650, 180, 60));
 
         btnsearch.setBackground(new java.awt.Color(255, 222, 89));
         btnsearch.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
@@ -296,7 +309,7 @@ public void reservation_data() {
                 btnsearchActionPerformed(evt);
             }
         });
-        jPanel1.add(btnsearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 650, 180, 60));
+        jPanel1.add(btnsearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 650, 180, 60));
 
         jButtonBack.setBackground(new java.awt.Color(255, 222, 89));
         jButtonBack.setFont(new java.awt.Font("Serif", 0, 20)); // NOI18N
@@ -317,7 +330,7 @@ public void reservation_data() {
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/figma_pics/150 51 for return button.png"))); // NOI18N
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, 220, 80));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, 1010, 740));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1100, 740));
 
         pack();
         setLocationRelativeTo(null);
@@ -423,6 +436,14 @@ public void reservation_data() {
     private void jButton1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseExited
         jPanel4.setVisible(false);
     }//GEN-LAST:event_jButton1MouseExited
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void txtEndActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEndActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtEndActionPerformed
 
     /**
      * @param args the command line arguments

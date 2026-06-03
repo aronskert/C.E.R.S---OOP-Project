@@ -130,10 +130,14 @@ public class UserCheckAvailability extends javax.swing.JFrame {
         jLabel32.setText("(e.g., Gym) into the Venue box to see all ");
         jPanel1.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, -1, 40));
 
-        p1.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 350, 300));
+        p1.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 350, 300));
 
+        jButton1.setFont(new java.awt.Font("Serif", 0, 12)); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/20 20 info logo.png"))); // NOI18N
         jButton1.setText("GUIDE");
         jButton1.setToolTipText("\"Please select your Venue and Date first!\"");
+        jButton1.setBorder(null);
+        jButton1.setBorderPainted(false);
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jButton1MouseEntered(evt);
@@ -142,7 +146,7 @@ public class UserCheckAvailability extends javax.swing.JFrame {
                 jButton1MouseExited(evt);
             }
         });
-        p1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 50, -1, -1));
+        p1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, 70, 30));
 
         lblcampusevent.setFont(new java.awt.Font("Serif", 0, 36)); // NOI18N
         lblcampusevent.setForeground(new java.awt.Color(255, 255, 255));

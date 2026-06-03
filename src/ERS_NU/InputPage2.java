@@ -6,11 +6,17 @@ import javax.swing.JOptionPane;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 
-public class InputPage2 extends javax.swing.JFrame {
+
+/*ABSTRACTIONNN: instead of resetting this page it holds the input details by showing the page while hiding the implementation*/  
+interface NavigablePage {
+    void showPage();
+    void hidePage();
+}
+/*POLYMORPSISIM: by implementing the interface tihs becomes polymorps */
+public class InputPage2 extends javax.swing.JFrame implements NavigablePage {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(InputPage2.class.getName());
 
@@ -20,8 +26,18 @@ public class InputPage2 extends javax.swing.JFrame {
         jPanel3.setVisible(false);
         
     }
+/*POLUMORPSIMSIMM: We use Method overriding and runtime poly*/
+    @Override
+    public void showPage() {
+        this.setVisible(true);
+    }
 
-
+    @Override
+    public void hidePage() {
+        this.setVisible(false);
+    }
+    
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -73,7 +89,7 @@ public class InputPage2 extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jcbType = new javax.swing.JComboBox<>();
-        jButton1 = new javax.swing.JButton();
+        btnguide = new javax.swing.JButton();
         btnSubmit = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
@@ -331,17 +347,23 @@ public class InputPage2 extends javax.swing.JFrame {
         jcbType.addActionListener(this::jcbTypeActionPerformed);
         VenuePanel.add(jcbType, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 340, 290, 40));
 
-        jButton1.setText("GUIDE");
-        jButton1.setToolTipText("\"Please select your Venue and Date first!\"");
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnguide.setFont(new java.awt.Font("Serif", 0, 12)); // NOI18N
+        btnguide.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/20 20 info logo.png"))); // NOI18N
+        btnguide.setText("GUIDE");
+        btnguide.setToolTipText("\"Please select your Venue and Date first!\"");
+        btnguide.setBorder(null);
+        btnguide.setBorderPainted(false);
+        btnguide.setContentAreaFilled(false);
+        btnguide.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jButton1MouseEntered(evt);
+                btnguideMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                jButton1MouseExited(evt);
+                btnguideMouseExited(evt);
             }
         });
-        VenuePanel.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 70, -1, -1));
+        btnguide.addActionListener(this::btnguideActionPerformed);
+        VenuePanel.add(btnguide, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 0, -1, -1));
 
         jPanel1.add(VenuePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 0, 502, 400));
 
@@ -370,8 +392,7 @@ public class InputPage2 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
-        LOGIN.loggedInEmpID = "";
-        
+       
         LOGIN.loggedInEmpID = ""; 
         ContactInfo.savedName = "";
         ContactInfo.savedStudentId = "";
@@ -566,18 +587,15 @@ if (venue.equals("AVR ROOM")) {
             pst.close();
             con.close();
             return; // Stop them from going to the next page!
-        }
-        
-        rs.close();
-        pst.close();
-        con.close();
         // ==========================================
-
         
-        ContactInfo CI = new ContactInfo(venue, sqlStart, sqlEnd, eventType);
-        CI.setVisible(true);
-        this.setVisible(false);
-
+        }
+      ContactInfo CI = new ContactInfo(venue, sqlStart, sqlEnd, eventType);
+      CI.setPreviousPage(this); 
+      CI.setVisible(true);
+      
+this.setVisible(false); // Hide this page instead of disposing so it keeps its selections 
+        
     } catch (Exception e) {
         JOptionPane.showMessageDialog(this, "Error processing date selection: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
     }
@@ -616,19 +634,23 @@ if (venue.equals("AVR ROOM")) {
         // TODO add your handling code here:
     }//GEN-LAST:event_jcbTypeActionPerformed
 
-    private void jButton1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseEntered
+    private void btnguideMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnguideMouseEntered
         jPanel3.setVisible(true);
-    }//GEN-LAST:event_jButton1MouseEntered
+    }//GEN-LAST:event_btnguideMouseEntered
 
-    private void jButton1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseExited
+    private void btnguideMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnguideMouseExited
         jPanel3.setVisible(false);
-    }//GEN-LAST:event_jButton1MouseExited
+    }//GEN-LAST:event_btnguideMouseExited
 
     private void btncheckeventsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncheckeventsActionPerformed
         // TODO add your handling code here:
         UserCheckAvailability UCA = new UserCheckAvailability();
         UCA.setVisible(true);
     }//GEN-LAST:event_btncheckeventsActionPerformed
+
+    private void btnguideActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnguideActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnguideActionPerformed
 
     /**
      * @param args the command line arguments
@@ -660,8 +682,8 @@ if (venue.equals("AVR ROOM")) {
     private javax.swing.JButton btnLogout;
     private javax.swing.JButton btnSubmit;
     private javax.swing.JButton btncheckevents;
+    private javax.swing.JButton btnguide;
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

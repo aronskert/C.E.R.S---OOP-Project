@@ -5,29 +5,24 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
-
-
 import javax.swing.JOptionPane;
+import javax.swing.JFrame;
 
 public class ContactInfo extends javax.swing.JFrame {
     
-   private String venue;
-private java.sql.Timestamp sqlStart;
-private java.sql.Timestamp sqlEnd;
-private String eventType;
-   
+ private String venue, eventType;
+    private java.sql.Timestamp sqlStart, sqlEnd;
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(ContactInfo.class.getName());
     
-    public static String savedName = "";
-    public static String savedStudentId = "";
-    public static String savedPhone = "";
-    public static String savedEmail = "";
+    // Static memory for text fields
+    public static String savedName = "", savedStudentId = "", savedPhone = "", savedEmail = "";
 
-    // This will hold the hidden InputPage2
-    private InputPage2 previousPage;
+    // calling page JFrame
+    private JFrame previousPage;
     
     public ContactInfo() {
         initComponents();
+        jPanel3.setVisible(false);
         
         
         
@@ -38,12 +33,20 @@ private String eventType;
         this.sqlStart = start;
         this.sqlEnd = end;
         this.eventType = eventType;
-        
+        this.previousPage = previousPage; // Capture the exact calling window instance
+       
         txtname.setText(savedName);
         txtstudentidno.setText(savedStudentId);
         txtphoneno.setText(savedPhone);
         txtemail.setText(savedEmail);
-        
+        jPanel3.setVisible(false);
+    }
+    /**
+     * Setter method to link the calling InputPage2 instance.
+     * Call this right after instantiating ContactInfo from InputPage2!
+     */
+    public void setPreviousPage(InputPage2 previousPage) {
+        this.previousPage = previousPage;
     }
 
     /**
@@ -56,6 +59,18 @@ private String eventType;
     private void initComponents() {
 
         p1 = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
+        lblGuide = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel30 = new javax.swing.JLabel();
+        jLabel31 = new javax.swing.JLabel();
         lbl1 = new javax.swing.JLabel();
         p2 = new javax.swing.JPanel();
         lblname = new javax.swing.JLabel();
@@ -67,6 +82,7 @@ private String eventType;
         lblemail = new javax.swing.JLabel();
         txtemail = new javax.swing.JTextField();
         btnnext = new javax.swing.JButton();
+        btnguide = new javax.swing.JButton();
         javax.swing.JLabel bulldog = new javax.swing.JLabel();
         lbl2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
@@ -82,6 +98,67 @@ private String eventType;
         p1.setPreferredSize(new java.awt.Dimension(1000, 750));
         p1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jPanel3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel3.setEnabled(false);
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblGuide.setFont(new java.awt.Font("Serif", 3, 30)); // NOI18N
+        lblGuide.setText("     Contact Info Guide");
+        lblGuide.setToolTipText("");
+        jPanel3.add(lblGuide, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, 340, 40));
+
+        jLabel15.setFont(new java.awt.Font("Serif", 0, 16)); // NOI18N
+        jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel15.setText("the official name of the organization.");
+        jPanel3.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, -1, 40));
+
+        jLabel16.setFont(new java.awt.Font("Serif", 0, 16)); // NOI18N
+        jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel16.setText("user booking on behalf of a school club or committee, enter the ");
+        jPanel3.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, -1, 40));
+
+        jLabel18.setFont(new java.awt.Font("Serif", 0, 16)); // NOI18N
+        jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel18.setText("2.) If the user is not registering as a student, in Student ID;  type ");
+        jPanel3.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, -1, 40));
+
+        jLabel20.setFont(new java.awt.Font("Serif", 0, 16)); // NOI18N
+        jLabel20.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel20.setText("4.) If the reserver is not registering as a student, in Student Emial; ");
+        jPanel3.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, -1, 40));
+
+        jLabel24.setFont(new java.awt.Font("Serif", 0, 16)); // NOI18N
+        jLabel24.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel24.setText("@students.nu-dasma.edu.ph at the end.");
+        jPanel3.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, -1, 40));
+
+        jLabel26.setFont(new java.awt.Font("Serif", 0, 16)); // NOI18N
+        jLabel26.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel26.setText("1.) If the resever is booking his/her self, ask for full name. If  the ");
+        jPanel3.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, -1, 40));
+
+        jLabel21.setFont(new java.awt.Font("Serif", 0, 16)); // NOI18N
+        jLabel21.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel21.setText("reserver not gonna register as a student");
+        jPanel3.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, -1, 40));
+
+        jLabel17.setFont(new java.awt.Font("Serif", 0, 16)); // NOI18N
+        jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel17.setText(" 2025-0000000");
+        jPanel3.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, -1, 40));
+
+        jLabel30.setFont(new java.awt.Font("Serif", 0, 16)); // NOI18N
+        jLabel30.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel30.setText("3.) In Phone number, ask for the Organizer's Phone Number.  If  the  ");
+        jPanel3.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, -1, 40));
+
+        jLabel31.setFont(new java.awt.Font("Serif", 0, 16)); // NOI18N
+        jLabel31.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel31.setText("ask for name of organization, club, committee or faculty then add ");
+        jPanel3.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, -1, 40));
+
+        p1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 440, 370));
+
         lbl1.setFont(new java.awt.Font("Serif", 0, 64)); // NOI18N
         lbl1.setForeground(new java.awt.Color(255, 255, 255));
         lbl1.setText("Contact");
@@ -94,7 +171,7 @@ private String eventType;
         lblname.setBackground(new java.awt.Color(255, 255, 255));
         lblname.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
         lblname.setText("Student/Organization Name");
-        p2.add(lblname, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, -1, -1));
+        p2.add(lblname, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, -1, -1));
 
         txtname.setFont(new java.awt.Font("Serif", 0, 14)); // NOI18N
         txtname.addActionListener(new java.awt.event.ActionListener() {
@@ -102,12 +179,12 @@ private String eventType;
                 txtnameActionPerformed(evt);
             }
         });
-        p2.add(txtname, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 388, 50));
+        p2.add(txtname, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 388, 50));
 
         lblstudentidno.setBackground(new java.awt.Color(255, 255, 255));
         lblstudentidno.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
         lblstudentidno.setText("Student ID Number");
-        p2.add(lblstudentidno, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, -1, -1));
+        p2.add(lblstudentidno, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 160, -1, -1));
 
         txtstudentidno.setFont(new java.awt.Font("Serif", 0, 14)); // NOI18N
         txtstudentidno.setPreferredSize(new java.awt.Dimension(64, 30));
@@ -116,11 +193,11 @@ private String eventType;
                 txtstudentidnoActionPerformed(evt);
             }
         });
-        p2.add(txtstudentidno, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 160, 388, 50));
+        p2.add(txtstudentidno, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 190, 388, 50));
 
         lblphoneno.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
         lblphoneno.setText("Phone Number");
-        p2.add(lblphoneno, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 230, -1, -1));
+        p2.add(lblphoneno, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 250, -1, -1));
 
         txtphoneno.setFont(new java.awt.Font("Serif", 0, 14)); // NOI18N
         txtphoneno.addActionListener(new java.awt.event.ActionListener() {
@@ -128,11 +205,11 @@ private String eventType;
                 txtphonenoActionPerformed(evt);
             }
         });
-        p2.add(txtphoneno, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 260, 388, 55));
+        p2.add(txtphoneno, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 280, 388, 55));
 
         lblemail.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
         lblemail.setText("Student Email");
-        p2.add(lblemail, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 330, -1, -1));
+        p2.add(lblemail, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 360, -1, -1));
 
         txtemail.setFont(new java.awt.Font("Serif", 0, 14)); // NOI18N
         txtemail.addActionListener(new java.awt.event.ActionListener() {
@@ -140,7 +217,7 @@ private String eventType;
                 txtemailActionPerformed(evt);
             }
         });
-        p2.add(txtemail, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 360, 388, 55));
+        p2.add(txtemail, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 390, 388, 55));
 
         btnnext.setBackground(new java.awt.Color(255, 222, 89));
         btnnext.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
@@ -155,7 +232,28 @@ private String eventType;
         });
         p2.add(btnnext, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 470, 420, 60));
 
-        p1.add(p2, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 130, 440, 530));
+        btnguide.setFont(new java.awt.Font("Serif", 0, 12)); // NOI18N
+        btnguide.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/20 20 info logo.png"))); // NOI18N
+        btnguide.setText("GUIDE");
+        btnguide.setToolTipText("\"Please select your Venue and Date first!\"");
+        btnguide.setBorder(null);
+        btnguide.setBorderPainted(false);
+        btnguide.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnguideMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnguideMouseExited(evt);
+            }
+        });
+        btnguide.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnguideActionPerformed(evt);
+            }
+        });
+        p2.add(btnguide, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 100, 30));
+
+        p1.add(p2, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 110, 460, 530));
 
         bulldog.setBackground(new java.awt.Color(0, 0, 102));
         bulldog.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/buldgo.png"))); // NOI18N
@@ -167,7 +265,7 @@ private String eventType;
         p1.add(lbl2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 200, -1, 58));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/figma_pics/500 560 rectangle with button forgot password.png"))); // NOI18N
-        p1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 120, 530, 570));
+        p1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 100, 530, 570));
 
         btnReturn.setBackground(new java.awt.Color(255, 222, 89));
         btnReturn.setFont(new java.awt.Font("Serif", 0, 20)); // NOI18N
@@ -179,7 +277,7 @@ private String eventType;
                 btnReturnActionPerformed(evt);
             }
         });
-        p1.add(btnReturn, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 160, 60));
+        p1.add(btnReturn, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, 160, 60));
 
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/figma_pics/150 51 for return button.png"))); // NOI18N
         p1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 41, 160, 80));
@@ -299,11 +397,11 @@ String receiptDates = this.sqlStart + " TO " + this.sqlEnd;
 
 output out = new output(newEventCode, studentid, email, phone, LOGIN.loggedInEmpID, this.venue, receiptDates, name, this.sqlStart, this.sqlEnd, this.eventType);
 out.setVisible(true);
-this.dispose();
+this.setVisible(false);
     }//GEN-LAST:event_btnnextActionPerformed
 
     private void btnReturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReturnActionPerformed
-        // 1. Save whatever they typed before leaving this page
+            // 1. Save whatever they typed before leaving this page
         savedName = txtname.getText();
         savedStudentId = txtstudentidno.getText();
         savedPhone = txtphoneno.getText();
@@ -316,6 +414,19 @@ this.dispose();
         }
         this.dispose();
     }//GEN-LAST:event_btnReturnActionPerformed
+
+    private void btnguideMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnguideMouseEntered
+        jPanel3.setVisible(true);
+    }//GEN-LAST:event_btnguideMouseEntered
+
+    private void btnguideMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnguideMouseExited
+        jPanel3.setVisible(false);
+    }//GEN-LAST:event_btnguideMouseExited
+          
+    
+    private void btnguideActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnguideActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnguideActionPerformed
 
     /**
      * @param args the command line arguments
@@ -344,11 +455,24 @@ this.dispose();
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnReturn;
+    private javax.swing.JButton btnguide;
     private javax.swing.JButton btnnext;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JLabel lbl1;
     private javax.swing.JLabel lbl2;
+    private javax.swing.JLabel lblGuide;
     private javax.swing.JLabel lblemail;
     private javax.swing.JLabel lblname;
     private javax.swing.JLabel lblphoneno;

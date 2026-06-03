@@ -121,30 +121,30 @@ public class output extends javax.swing.JFrame {
         jPanel1.add(jLabelCode, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 540, 142, -1));
 
         txtstudentid.setEditable(false);
-        txtstudentid.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtstudentid.setFont(new java.awt.Font("Serif", 0, 15)); // NOI18N
         txtstudentid.setEnabled(false);
         txtstudentid.addActionListener(this::txtstudentidActionPerformed);
         jPanel1.add(txtstudentid, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 80, 270, 50));
 
         txtvenue.setEditable(false);
-        txtvenue.setFont(new java.awt.Font("Serif", 0, 20)); // NOI18N
+        txtvenue.setFont(new java.awt.Font("Serif", 0, 15)); // NOI18N
         txtvenue.setEnabled(false);
         txtvenue.addActionListener(this::txtvenueActionPerformed);
         jPanel1.add(txtvenue, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 380, 270, 50));
 
         txtemployeeid.setEditable(false);
-        txtemployeeid.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtemployeeid.setFont(new java.awt.Font("Serif", 0, 15)); // NOI18N
         txtemployeeid.setEnabled(false);
         txtemployeeid.addActionListener(this::txtemployeeidActionPerformed);
         jPanel1.add(txtemployeeid, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 300, 270, 50));
 
-        txteventid.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txteventid.setFont(new java.awt.Font("Serif", 0, 15)); // NOI18N
         txteventid.setEnabled(false);
         txteventid.addActionListener(this::txteventidActionPerformed);
         jPanel1.add(txteventid, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 520, 270, 50));
 
         txtstartend.setEditable(false);
-        txtstartend.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtstartend.setFont(new java.awt.Font("Serif", 0, 12)); // NOI18N
         txtstartend.setEnabled(false);
         txtstartend.addActionListener(this::txtstartendActionPerformed);
         jPanel1.add(txtstartend, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 450, 270, 50));
@@ -160,13 +160,13 @@ public class output extends javax.swing.JFrame {
         jPanel1.add(jLabelVnue2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, 199, -1));
 
         txtstudentemail.setEditable(false);
-        txtstudentemail.setFont(new java.awt.Font("Serif", 0, 20)); // NOI18N
+        txtstudentemail.setFont(new java.awt.Font("Serif", 0, 15)); // NOI18N
         txtstudentemail.setEnabled(false);
         txtstudentemail.addActionListener(this::txtstudentemailActionPerformed);
         jPanel1.add(txtstudentemail, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 150, 270, 50));
 
         txtstudentnum.setEditable(false);
-        txtstudentnum.setFont(new java.awt.Font("Serif", 0, 20)); // NOI18N
+        txtstudentnum.setFont(new java.awt.Font("Serif", 0, 15)); // NOI18N
         txtstudentnum.setEnabled(false);
         txtstudentnum.addActionListener(this::txtstudentnumActionPerformed);
         jPanel1.add(txtstudentnum, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 230, 270, 50));
@@ -174,7 +174,7 @@ public class output extends javax.swing.JFrame {
         jPanel2.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 60, 570, 660));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/figma_pics/receipt 6 - 568 681.png"))); // NOI18N
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 30, -1, -1));
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 30, 570, -1));
 
         jButtonLogout.setBackground(new java.awt.Color(255, 222, 89));
         jButtonLogout.setFont(new java.awt.Font("Serif", 0, 20)); // NOI18N
@@ -308,9 +308,8 @@ public class output extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonLogoutActionPerformed
 
     private void jButtonBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBackActionPerformed
-        InputPage2 Input = new InputPage2();
-        Input.setVisible(true);
-        this.dispose();
+        ContactInfo CI = new ContactInfo();
+        CI.setVisible(true);
     }//GEN-LAST:event_jButtonBackActionPerformed
 
     private void txtstudentemailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtstudentemailActionPerformed
