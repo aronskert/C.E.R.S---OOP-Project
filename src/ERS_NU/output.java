@@ -66,9 +66,7 @@ public class output extends javax.swing.JFrame {
         txtstudentnum = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jButtonLogout = new javax.swing.JButton();
-        jButtonBack = new javax.swing.JButton();
         jButtonConfirm = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
 
@@ -183,16 +181,7 @@ public class output extends javax.swing.JFrame {
         jButtonLogout.setBorder(null);
         jButtonLogout.setContentAreaFilled(false);
         jButtonLogout.addActionListener(this::jButtonLogoutActionPerformed);
-        jPanel2.add(jButtonLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, 150, 40));
-
-        jButtonBack.setBackground(new java.awt.Color(255, 222, 89));
-        jButtonBack.setFont(new java.awt.Font("Serif", 0, 20)); // NOI18N
-        jButtonBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/32 32 return png.png"))); // NOI18N
-        jButtonBack.setText("Return");
-        jButtonBack.setBorder(null);
-        jButtonBack.setContentAreaFilled(false);
-        jButtonBack.addActionListener(this::jButtonBackActionPerformed);
-        jPanel2.add(jButtonBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 150, 40));
+        jPanel2.add(jButtonLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 150, 40));
 
         jButtonConfirm.setBackground(new java.awt.Color(255, 222, 89));
         jButtonConfirm.setFont(new java.awt.Font("Serif", 0, 20)); // NOI18N
@@ -201,16 +190,13 @@ public class output extends javax.swing.JFrame {
         jButtonConfirm.setBorder(null);
         jButtonConfirm.setContentAreaFilled(false);
         jButtonConfirm.addActionListener(this::jButtonConfirmActionPerformed);
-        jPanel2.add(jButtonConfirm, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 160, 40));
-
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/figma_pics/150 51 for return button.png"))); // NOI18N
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 150, 60));
+        jPanel2.add(jButtonConfirm, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 160, 40));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/figma_pics/150 51 for return button.png"))); // NOI18N
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 240, 140));
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 240, 140));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/figma_pics/150 51 for return button.png"))); // NOI18N
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, -1, 120));
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, -1, 120));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -307,11 +293,6 @@ public class output extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jButtonLogoutActionPerformed
 
-    private void jButtonBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBackActionPerformed
-        ContactInfo CI = new ContactInfo();
-        CI.setVisible(true);
-    }//GEN-LAST:event_jButtonBackActionPerformed
-
     private void txtstudentemailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtstudentemailActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtstudentemailActionPerformed
@@ -336,11 +317,9 @@ public class output extends javax.swing.JFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonBack;
     private javax.swing.JButton jButtonConfirm;
     private javax.swing.JButton jButtonLogout;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabelCode;
