@@ -231,11 +231,13 @@ public class InputPage2 extends javax.swing.JFrame implements NavigablePage {
         jcbVenue.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
         jcbVenue.setForeground(new java.awt.Color(31, 40, 108));
         jcbVenue.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Function Hall", "Gym", "3rd Floor", "AVR ROOM" }));
+        jcbVenue.setSelectedIndex(-1);
         jcbVenue.addActionListener(this::jcbVenueActionPerformed);
         VenuePanel.add(jcbVenue, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 290, 40));
 
         jcbSmonth.setForeground(new java.awt.Color(31, 40, 108));
         jcbSmonth.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December", " " }));
+        jcbSmonth.setSelectedIndex(-1);
         jcbSmonth.addActionListener(this::jcbSmonthActionPerformed);
         VenuePanel.add(jcbSmonth, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, -1, -1));
 
@@ -344,6 +346,7 @@ public class InputPage2 extends javax.swing.JFrame implements NavigablePage {
         jcbType.setFont(new java.awt.Font("Serif", 0, 18)); // NOI18N
         jcbType.setForeground(new java.awt.Color(31, 40, 108));
         jcbType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Organizational Event", "Student Event", "Outside Organizational Event", "National University Dasmarinas event", "Outside School Event" }));
+        jcbType.setSelectedIndex(-1);
         jcbType.addActionListener(this::jcbTypeActionPerformed);
         VenuePanel.add(jcbType, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 340, 290, 40));
 
