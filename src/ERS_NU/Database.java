@@ -90,8 +90,8 @@ public void reservation_data() {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        btnedit = new javax.swing.JButton();
         btndelete = new javax.swing.JButton();
+        btnedit = new javax.swing.JButton();
         btnsearch = new javax.swing.JButton();
         jButtonBack = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
@@ -276,17 +276,6 @@ public void reservation_data() {
         });
         jPanel3.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 50, -1, -1));
 
-        btnedit.setBackground(new java.awt.Color(255, 222, 89));
-        btnedit.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
-        btnedit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/edit png 48px.png"))); // NOI18N
-        btnedit.setText("EDIT");
-        btnedit.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btneditActionPerformed(evt);
-            }
-        });
-        jPanel3.add(btnedit, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 650, 180, 60));
-
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 280, 560));
 
         btndelete.setBackground(new java.awt.Color(255, 222, 89));
@@ -299,6 +288,17 @@ public void reservation_data() {
             }
         });
         jPanel1.add(btndelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 650, 180, 60));
+
+        btnedit.setBackground(new java.awt.Color(255, 222, 89));
+        btnedit.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
+        btnedit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/edit png 48px.png"))); // NOI18N
+        btnedit.setText("EDIT");
+        btnedit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btneditActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnedit, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 650, 180, 60));
 
         btnsearch.setBackground(new java.awt.Color(255, 222, 89));
         btnsearch.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N

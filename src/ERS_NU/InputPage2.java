@@ -434,11 +434,11 @@ public class InputPage2 extends javax.swing.JFrame implements NavigablePage {
     }
 
     try {
-    // 1. Glue your combo boxes together with clear spaces in between
+    // 1. Glue combo boxes together with clear spaces in between
     String rawStart = startMonth + " " + startDay + " " + startYear + " " + startHr + ":" + startMin + " " + startAmPm;
     String rawEnd = endMonth + " " + endDay + " " + endYear + " " + endHr + ":" + endMin + " " + endAmPm;
 
-    // 2. THE EYE-OPENER: Print these out to your NetBeans Output window below!
+    // 2.Print these out to your NetBeans Output window below
     System.out.println("--- DEBUGGING DATE STRINGS ---");
     System.out.println("What Java sees for Start Date: [" + rawStart + "]");
     System.out.println("What Java sees for End Date:   [" + rawEnd + "]");
