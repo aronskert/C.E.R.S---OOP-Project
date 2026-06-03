@@ -117,7 +117,6 @@ public class Dashboard extends javax.swing.JFrame {
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 230, 440, 40));
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/Untitled design.png"))); // NOI18N
-        jLabel8.setText("jLabel8");
         jLabel8.setPreferredSize(new java.awt.Dimension(1000, 750));
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 1020, 770));
 

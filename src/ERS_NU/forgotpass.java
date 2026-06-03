@@ -291,11 +291,7 @@ public class forgotpass extends javax.swing.JFrame {
                                 JOptionPane.WARNING_MESSAGE);
              
                     }
-                }
-               
-                
-                // kapag nakita sa database yung employee_id at email
-                if (rs.next()) {
+             
 
                 // tas pag na check na iuupdate na yung password
                 String updateQuery = "UPDATE employee_accounts SET password = ? WHERE employee_id = ?";
