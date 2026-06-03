@@ -96,6 +96,7 @@ public void reservation_data() {
         jButtonBack = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
+        btnclear = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -287,7 +288,7 @@ public void reservation_data() {
                 btndeleteActionPerformed(evt);
             }
         });
-        jPanel1.add(btndelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 650, 180, 60));
+        jPanel1.add(btndelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 650, 180, 60));
 
         btnedit.setBackground(new java.awt.Color(255, 222, 89));
         btnedit.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
@@ -298,7 +299,7 @@ public void reservation_data() {
                 btneditActionPerformed(evt);
             }
         });
-        jPanel1.add(btnedit, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 650, 180, 60));
+        jPanel1.add(btnedit, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 650, 180, 60));
 
         btnsearch.setBackground(new java.awt.Color(255, 222, 89));
         btnsearch.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
@@ -309,7 +310,7 @@ public void reservation_data() {
                 btnsearchActionPerformed(evt);
             }
         });
-        jPanel1.add(btnsearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 650, 180, 60));
+        jPanel1.add(btnsearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 630, 150, 70));
 
         jButtonBack.setBackground(new java.awt.Color(255, 222, 89));
         jButtonBack.setFont(new java.awt.Font("Serif", 0, 20)); // NOI18N
@@ -330,6 +331,16 @@ public void reservation_data() {
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/figma_pics/150 51 for return button.png"))); // NOI18N
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, 220, 80));
 
+        btnclear.setBackground(new java.awt.Color(255, 222, 89));
+        btnclear.setFont(new java.awt.Font("Serif", 0, 24)); // NOI18N
+        btnclear.setText("Clear");
+        btnclear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnclearActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnclear, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 630, 170, 70));
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1100, 740));
 
         pack();
@@ -337,34 +348,72 @@ public void reservation_data() {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnsearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsearchActionPerformed
-        String studentid = txtStudentID.getText().trim();
+        // 1. Gather text from all fields. 
+    // Notice that Event Code is pulling from 'txtName' to match your NetBeans variable!
+    String eventCode = txtName.getText().trim(); 
+    String studentId = txtStudentID.getText().trim();
+    String venue = txtVenue.getText().trim();
+    String start = txtStart.getText().trim();
+    String end = txtEnd.getText().trim();
+    String eventType = txtEventType.getText().trim();
 
-        if (studentid.isEmpty())  {
-            javax.swing.JOptionPane.showMessageDialog(this, "Please enter a Student ID to search!");
-            return;
+    try {
+        java.sql.Connection con = DBConnection.getConnection();
+        
+        // 2. The Multi-Criteria SQL Query
+        String sql = "SELECT * FROM reservation_data WHERE "
+                   + "Event_id LIKE ? AND "
+                   + "student_id LIKE ? AND "
+                   + "venue LIKE ? AND "
+                   + "Start LIKE ? AND "
+                   + "End LIKE ? AND "
+                   + "event_type LIKE ?";
+                   
+        java.sql.PreparedStatement pst = con.prepareStatement(sql);
+        
+        // 3. Inject the wildcards. If a string is empty, it becomes "%%" (matches all)
+        pst.setString(1, "%" + eventCode + "%");
+        pst.setString(2, "%" + studentId + "%");
+        pst.setString(3, "%" + venue + "%");
+        pst.setString(4, "%" + start + "%");
+        pst.setString(5, "%" + end + "%");
+        pst.setString(6, "%" + eventType + "%");
+        
+        java.sql.ResultSet rs = pst.executeQuery();
+
+        javax.swing.table.DefaultTableModel model = (javax.swing.table.DefaultTableModel) jTable1.getModel();
+        model.setRowCount(0);
+
+        boolean found = false;
+
+        // 4. Populate the table with the filtered results
+        while (rs.next()) {
+            found = true;
+            model.addRow(new Object[]{
+                rs.getString("Event_id"), 
+                rs.getString("student_name"), 
+                rs.getString("student_id"),
+                rs.getString("Student_number"), 
+                rs.getString("Student_Email"), 
+                rs.getString("venue"),
+                rs.getString("Start"), 
+                rs.getString("End"), 
+                rs.getString("event_type"), 
+                rs.getString("Employee_ID")
+            });
         }
-
-        try {
-            Connection con = DBConnection.getConnection();
-            String sql = "SELECT * FROM reservation_data WHERE student_id = ?";
-            PreparedStatement pst = con.prepareStatement(sql);
-            pst.setString(1, studentid);
-            ResultSet rs = pst.executeQuery();
-
-            DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-            model.setRowCount(0);
-
-            while (rs.next()) {
-                model.addRow(new Object[]{
-                    rs.getString("Event_id"), rs.getString("student_name"), rs.getString("student_id"),
-                    rs.getString("Student_number"), rs.getString("Student_Email"), rs.getString("venue"),
-                    rs.getString("Start"), rs.getString("End"), rs.getString("event_type"), rs.getString("Employee_ID")
-                });
-            }
-            con.close();
-        } catch (Exception e) {
-            javax.swing.JOptionPane.showMessageDialog(this, "Search Error: " + e.getMessage());
+        
+        if (!found) {
+            javax.swing.JOptionPane.showMessageDialog(this, "No reservations found matching those details.");
         }
+        
+        rs.close();
+        pst.close();
+        con.close();
+        
+    } catch (Exception e) {
+        javax.swing.JOptionPane.showMessageDialog(this, "Search Error: " + e.getMessage());
+    }
     }//GEN-LAST:event_btnsearchActionPerformed
 
     private void btndeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndeleteActionPerformed
@@ -424,8 +473,7 @@ public void reservation_data() {
     }//GEN-LAST:event_txtNameActionPerformed
 
     private void jButtonBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBackActionPerformed
-        Dashboard Db = new Dashboard();
-        Db.setVisible(true);
+
         this.dispose();
     }//GEN-LAST:event_jButtonBackActionPerformed
 
@@ -444,6 +492,22 @@ public void reservation_data() {
     private void txtEndActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEndActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtEndActionPerformed
+
+    private void btnclearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnclearActionPerformed
+        // 1. Wipe all the text boxes clean
+    txtName.setText("");
+    txtStudentID.setText("");
+    txtVenue.setText("");
+    txtStart.setText("");
+    txtEnd.setText("");
+    txtEventType.setText("");
+    
+    // Optional: Clear selection from the table so no row is highlighted
+    jTable1.clearSelection();
+
+    // 2. Call your existing method to reload the entire unfiltered database
+    reservation_data();
+    }//GEN-LAST:event_btnclearActionPerformed
 
     /**
      * @param args the command line arguments
@@ -471,6 +535,7 @@ public void reservation_data() {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnclear;
     private javax.swing.JButton btndelete;
     private javax.swing.JButton btnedit;
     private javax.swing.JButton btnsearch;
