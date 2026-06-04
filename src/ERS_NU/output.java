@@ -16,7 +16,6 @@ public class output extends javax.swing.JFrame {
 
     public output(String eventCode, String studentId, String studentEmail, String studentNumber, String employeeId, String venue, String startToEnd, String name, java.sql.Timestamp start, java.sql.Timestamp end, String eventType) {
         initComponents();
-        
 
         txtstudentid.setText(studentId);
         txtstudentemail.setText(studentEmail);
@@ -30,6 +29,9 @@ public class output extends javax.swing.JFrame {
         this.startToSave = start;
         this.endToSave = end;
         this.typeToSave = eventType;
+        
+        
+        
     }
      
     public output() {
@@ -64,11 +66,13 @@ public class output extends javax.swing.JFrame {
         jLabelVnue2 = new javax.swing.JLabel();
         txtstudentemail = new javax.swing.JTextField();
         txtstudentnum = new javax.swing.JTextField();
+        jButtonLogout1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jButtonLogout = new javax.swing.JButton();
         jButtonConfirm = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
 
         jTextField5.addActionListener(this::jTextField5ActionPerformed);
 
@@ -171,6 +175,15 @@ public class output extends javax.swing.JFrame {
 
         jPanel2.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 60, 570, 660));
 
+        jButtonLogout1.setBackground(new java.awt.Color(255, 222, 89));
+        jButtonLogout1.setFont(new java.awt.Font("Serif", 0, 20)); // NOI18N
+        jButtonLogout1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/32 32 return png.png"))); // NOI18N
+        jButtonLogout1.setText("Return");
+        jButtonLogout1.setBorder(null);
+        jButtonLogout1.setContentAreaFilled(false);
+        jButtonLogout1.addActionListener(this::jButtonLogout1ActionPerformed);
+        jPanel2.add(jButtonLogout1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, 150, 60));
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/figma_pics/receipt 6 - 568 681.png"))); // NOI18N
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 30, 570, -1));
 
@@ -181,7 +194,7 @@ public class output extends javax.swing.JFrame {
         jButtonLogout.setBorder(null);
         jButtonLogout.setContentAreaFilled(false);
         jButtonLogout.addActionListener(this::jButtonLogoutActionPerformed);
-        jPanel2.add(jButtonLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 150, 40));
+        jPanel2.add(jButtonLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, 150, -1));
 
         jButtonConfirm.setBackground(new java.awt.Color(255, 222, 89));
         jButtonConfirm.setFont(new java.awt.Font("Serif", 0, 20)); // NOI18N
@@ -197,6 +210,9 @@ public class output extends javax.swing.JFrame {
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/figma_pics/150 51 for return button.png"))); // NOI18N
         jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, -1, 120));
+
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/e/r/s/nu/Pictures and icons/figma_pics/150 51 for return button.png"))); // NOI18N
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, -1, 120));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -300,6 +316,10 @@ public class output extends javax.swing.JFrame {
     private void txtstudentnumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtstudentnumActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtstudentnumActionPerformed
+
+    private void jButtonLogout1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLogout1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonLogout1ActionPerformed
     public static void main(String args[]) {
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -319,9 +339,11 @@ public class output extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonConfirm;
     private javax.swing.JButton jButtonLogout;
+    private javax.swing.JButton jButtonLogout1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabelCode;
     private javax.swing.JLabel jLabelNme;
     private javax.swing.JLabel jLabelRecpt;
