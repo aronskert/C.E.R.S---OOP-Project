@@ -41,10 +41,9 @@ public class ContactInfo extends javax.swing.JFrame {
         txtemail.setText(savedEmail);
         jPanel3.setVisible(false);
     }
-    /**
-     * Setter method to link the calling InputPage2 instance.
-     * Call this right after instantiating ContactInfo from InputPage2!
-     */
+   
+         //Setter method to link the calling InputPage2 instance.
+     
     public void setPreviousPage(InputPage2 previousPage) {
         this.previousPage = previousPage;
     }
@@ -309,7 +308,6 @@ public class ContactInfo extends javax.swing.JFrame {
     }//GEN-LAST:event_txtemailActionPerformed
 
     private void btnnextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnnextActionPerformed
- 
         // TODO add your handling code here:
 String name = txtname.getText().trim();
 String studentid = txtstudentidno.getText().trim();
@@ -327,26 +325,17 @@ if (name.isEmpty() || studentid.isEmpty() || phone.isEmpty() || email.isEmpty())
 StringBuilder errorMessage = new StringBuilder();
 boolean isValid = true;
 
-// =====================
 // STUDENT ID VALIDATION
-// =====================
 if (!studentid.matches("^20(2[1-9]|[3-9][0-9])-\\d{7}$")) {
     errorMessage.append("Student ID must be 2025-xxxxx (e.g. 2025-12345).\n");
     isValid = false;
 }
-
-// =====================
 // PHONE VALIDATION
-// =====================
 if (!phone.matches("^09\\d{9}$")) {
     errorMessage.append("Phone must be 11 digits and start with 09.\n");
     isValid = false;
 }
-
-// =====================
-// EMAIL VALIDATION (CLEAN FIX)
-// =====================
-// NU EMAIL ONLY RULE
+// NU EMAIL ONLY 
 if (!email.matches("^[A-Za-z0-9._%+-]+@students\\.nu-dasma\\.edu\\.ph$")) {
     errorMessage.append("Email must be a valid NU email (example: name@students.nu-dasma.edu.ph).\n");
     isValid = false;
@@ -359,10 +348,7 @@ if (!isValid) {
             JOptionPane.ERROR_MESSAGE);
     return;
 }
-
-// =====================
-// CUSTOM EVENT ID GENERATOR & PASS TO OUTPUT (NO SAVING YET)
-// =====================
+// CUSTOM EVENT ID GENERATOR & PASS TO OUTPUT 
 String newEventCode = "";
 int currentYear = LocalDate.now().getYear();
 
@@ -389,10 +375,10 @@ try {
 
 } catch (SQLException e) {
     JOptionPane.showMessageDialog(this, "Error generating Event Code: " + e.getMessage());
-    return; // Stop them from proceeding if the database fails
+    return; 
 }
 
-// PASS ALL DATA TO OUTPUT PAGE (We are NOT saving to the database here!)
+// PASS ALL DATA TO OUTPUT PAGE (We are NOT saving to the database here)
 String receiptDates = this.sqlStart + " TO " + this.sqlEnd;
 
 output out = new output(newEventCode, studentid, email, phone, LOGIN.loggedInEmpID, this.venue, receiptDates, name, this.sqlStart, this.sqlEnd, this.eventType);
@@ -401,7 +387,6 @@ this.setVisible(false);
     }//GEN-LAST:event_btnnextActionPerformed
 
     private void btnReturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReturnActionPerformed
-            // 1. Save whatever they typed before leaving this page
         savedName = txtname.getText();
         savedStudentId = txtstudentidno.getText();
         savedPhone = txtphoneno.getText();

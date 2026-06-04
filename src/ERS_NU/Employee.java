@@ -189,7 +189,6 @@ public class Employee extends javax.swing.JFrame {
         }
         
         // 2. Database Pre-Verification
-        // Run database safety lookup only if input formatting validation is clean
         if (errorMessages.length() == 0) {
             try (Connection conn = DBConnection.getConnection()) { 
 
@@ -222,7 +221,7 @@ public class Employee extends javax.swing.JFrame {
             }
         }
 
-        // 3. Evaluation & Error Display Breakout
+        // 3.Error Display Breakout
         if (errorMessages.length() > 0) {
             JOptionPane.showMessageDialog(this,
                     "Registration failed due to the following rules:\n\n" + errorMessages.toString() + "\nPlease fix these issues and try again.",
@@ -231,7 +230,6 @@ public class Employee extends javax.swing.JFrame {
             return; 
         }
 
-        // 4. Safe Insertion Block
         try (Connection conn = DBConnection.getConnection()) {
             String sql = "INSERT INTO employee_accounts (employee_id, password, email) VALUES (?, ?, ?)";
 

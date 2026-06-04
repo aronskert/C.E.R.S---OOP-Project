@@ -437,28 +437,17 @@ public class InputPage2 extends javax.swing.JFrame implements NavigablePage {
     }
 
     try {
-    // 1. Glue combo boxes together with clear spaces in between
-    String rawStart = startMonth + " " + startDay + " " + startYear + " " + startHr + ":" + startMin + " " + startAmPm;
+        
+     String rawStart = startMonth + " " + startDay + " " + startYear + " " + startHr + ":" + startMin + " " + startAmPm;
     String rawEnd = endMonth + " " + endDay + " " + endYear + " " + endHr + ":" + endMin + " " + endAmPm;
 
-    // 2.Print these out to your NetBeans Output window below
-    System.out.println("--- DEBUGGING DATE STRINGS ---");
-    System.out.println("What Java sees for Start Date: [" + rawStart + "]");
-    System.out.println("What Java sees for End Date:   [" + rawEnd + "]");
-    System.out.println("------------------------------");
-
     // 3. Match your pattern EXACTLY to what prints out.
-    // MMMM = Full month name (e.g., "January"). If your combo box uses "Jan", change MMMM to MMM.
-    // dd = Day, yyyy = Year, hh = 12-hour digit, mm = minutes, a = AM/PM marker.
     SimpleDateFormat formatter = new SimpleDateFormat("MMMM dd yyyy hh:mm a");
     
     java.util.Date parsedStart = formatter.parse(rawStart);
     java.util.Date parsedEnd = formatter.parse(rawEnd);
     java.util.Date currentDateTime = new java.util.Date();
     
-    // Check if it's actually reading the dates right now
-    System.out.println("Successfully parsed Start: " + parsedStart);
-
     if (parsedStart.before(currentDateTime)) {
         JOptionPane.showMessageDialog(this, "You cannot select a past date and time!", "Invalid Date", JOptionPane.ERROR_MESSAGE);
         return;
@@ -476,8 +465,7 @@ public class InputPage2 extends javax.swing.JFrame implements NavigablePage {
     return;
 }
     
-
-       // Convert to SQL Timestamps
+      //sql timestamp
         java.sql.Timestamp sqlStart = new java.sql.Timestamp(parsedStart.getTime());
         java.sql.Timestamp sqlEnd = new java.sql.Timestamp(parsedEnd.getTime());
 
@@ -589,8 +577,7 @@ if (venue.equals("AVR ROOM")) {
             rs.close();
             pst.close();
             con.close();
-            return; // Stop them from going to the next page!
-        // ==========================================
+            return; // Stop them from going to the next page
         
         }
       ContactInfo CI = new ContactInfo(venue, sqlStart, sqlEnd, eventType);

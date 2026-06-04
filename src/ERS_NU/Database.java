@@ -368,7 +368,6 @@ public void reservation_data() {
 
     private void btnsearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsearchActionPerformed
         // 1. Gather text from all fields. 
-    // Notice that Event Code is pulling from 'txtName' to match your NetBeans variable!
     String eventCode = txtName.getText().trim(); 
     String studentId = txtStudentID.getText().trim();
     String venue = txtVenue.getText().trim();
@@ -379,7 +378,7 @@ public void reservation_data() {
     try {
         java.sql.Connection con = DBConnection.getConnection();
         
-        // 2. The Multi-Criteria SQL Query
+        // 2. Multi-Criteria SQL Query
         String sql = "SELECT * FROM reservation_data WHERE "
                    + "Event_id LIKE ? AND "
                    + "student_id LIKE ? AND "
